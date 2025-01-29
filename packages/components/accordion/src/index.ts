@@ -1,4 +1,4 @@
-import AccordionItem from "./base/accordion-item-base";
+import AccordionItem from "./accordion-item";
 import Accordion from "./accordion";
 
 // export types

@@ -2,7 +2,7 @@ import type {Selection} from "@react-types/shared";
 
 import React from "react";
 import {Meta} from "@storybook/react";
-import {accordionItem, button} from "@heroui/theme";
+import {button} from "@heroui/theme";
 import {
   AnchorIcon,
   MoonIcon,
@@ -33,13 +33,22 @@ export default {
         type: "boolean",
       },
     },
-    selectionMode: {
+    allowsMultipleExpanded: {
       control: {
-        type: "select",
+        type: "boolean",
       },
-      options: ["single", "multiple"],
     },
     disableAnimation: {
+      control: {
+        type: "boolean",
+      },
+    },
+    showDivider: {
+      control: {
+        type: "boolean",
+      },
+    },
+    hideIndicator: {
       control: {
         type: "boolean",
       },
@@ -48,8 +57,7 @@ export default {
 } as Meta<typeof Accordion>;
 
 const defaultProps = {
-  ...accordionItem.defaultVariants,
-  selectionMode: "single",
+  allowsMultipleExpanded: false,
 };
 
 const defaultContent =
@@ -57,13 +65,13 @@ const defaultContent =
 
 const Template = (args: AccordionProps) => (
   <Accordion {...args}>
-    <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+    <AccordionItem aria-label="Accordion 1" id="1" title="Accordion 1">
       {defaultContent}
     </AccordionItem>
-    <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+    <AccordionItem aria-label="Accordion 2" id="2" title="Accordion 2">
       {defaultContent}
     </AccordionItem>
-    <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+    <AccordionItem aria-label="Accordion 3" id="3" title="Accordion 3">
       {defaultContent}
     </AccordionItem>
   </Accordion>
@@ -71,22 +79,22 @@ const Template = (args: AccordionProps) => (
 
 const TemplateWithSubtitle = (args: AccordionProps) => (
   <Accordion {...args}>
-    <AccordionItem key="1" aria-label="Accordion 1" subtitle="Press to expand" title="Accordion 1">
+    <AccordionItem aria-label="Accordion 1" id="1" subtitle="Press to expand" title="Accordion 1">
       {defaultContent}
     </AccordionItem>
     <AccordionItem
-      key="2"
       aria-label="Accordion 2"
+      id="2"
       subtitle={
         <span>
-          Press to expand <strong>key 2</strong>
+          Press to expand <strong>id 2</strong>
         </span>
       }
       title="Accordion 2"
     >
       {defaultContent}
     </AccordionItem>
-    <AccordionItem key="3" aria-label="Accordion 3" subtitle="Press to expand" title="Accordion 3">
+    <AccordionItem aria-label="Accordion 3" id="3" subtitle="Press to expand" title="Accordion 3">
       {defaultContent}
     </AccordionItem>
   </Accordion>
@@ -95,8 +103,8 @@ const TemplateWithSubtitle = (args: AccordionProps) => (
 const TemplateWithStartContent = (args: AccordionProps) => (
   <Accordion {...args} variant="shadow">
     <AccordionItem
-      key="1"
       aria-label="Chung Miller"
+      id="1"
       startContent={
         <Avatar
           isBordered
@@ -111,8 +119,8 @@ const TemplateWithStartContent = (args: AccordionProps) => (
       {defaultContent}
     </AccordionItem>
     <AccordionItem
-      key="2"
       aria-label="Janelle Lenard"
+      id="2"
       startContent={
         <Avatar
           isBordered
@@ -127,8 +135,8 @@ const TemplateWithStartContent = (args: AccordionProps) => (
       {defaultContent}
     </AccordionItem>
     <AccordionItem
-      key="3"
       aria-label="Zoey Lang"
+      id="3"
       startContent={
         <Avatar
           isBordered
@@ -154,13 +162,13 @@ const VariantsTemplate = (args: AccordionProps) => (
     <div className="flex flex-col gap-4">
       <h3>Default</h3>
       <Accordion {...args}>
-        <AccordionItem key="1" title="Accordion 1">
+        <AccordionItem id="1" title="Accordion 1">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="2" title="Accordion 2">
+        <AccordionItem id="2" title="Accordion 2">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="3" title="Accordion 3">
+        <AccordionItem id="3" title="Accordion 3">
           {defaultContent}
         </AccordionItem>
       </Accordion>
@@ -168,13 +176,13 @@ const VariantsTemplate = (args: AccordionProps) => (
     <div className="flex flex-col gap-4">
       <h3>Shadow</h3>
       <Accordion {...args} variant="shadow">
-        <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+        <AccordionItem aria-label="Accordion 1" id="1" title="Accordion 1">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+        <AccordionItem aria-label="Accordion 2" id="2" title="Accordion 2">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+        <AccordionItem aria-label="Accordion 3" id="3" title="Accordion 3">
           {defaultContent}
         </AccordionItem>
       </Accordion>
@@ -182,13 +190,13 @@ const VariantsTemplate = (args: AccordionProps) => (
     <div className="flex flex-col gap-4">
       <h3>Bordered</h3>
       <Accordion {...args} variant="bordered">
-        <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+        <AccordionItem aria-label="Accordion 1" id="1" title="Accordion 1">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+        <AccordionItem aria-label="Accordion 2" id="2" title="Accordion 2">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+        <AccordionItem aria-label="Accordion 3" id="3" title="Accordion 3">
           {defaultContent}
         </AccordionItem>
       </Accordion>
@@ -196,13 +204,13 @@ const VariantsTemplate = (args: AccordionProps) => (
     <div className="flex flex-col gap-4">
       <h3>Splitted</h3>
       <Accordion {...args} variant="splitted">
-        <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+        <AccordionItem aria-label="Accordion 1" id="1" title="Accordion 1">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+        <AccordionItem aria-label="Accordion 2" id="2" title="Accordion 2">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+        <AccordionItem aria-label="Accordion 3" id="3" title="Accordion 3">
           {defaultContent}
         </AccordionItem>
       </Accordion>
@@ -210,15 +218,35 @@ const VariantsTemplate = (args: AccordionProps) => (
   </div>
 );
 
+const CustomAnimationTemplate = (args: AccordionProps) => {
+  const classNames = {
+    content: "ease-soft-spring",
+  };
+
+  return (
+    <Accordion {...args}>
+      <AccordionItem aria-label="Accordion 1" classNames={classNames} id="1" title="Accordion 1">
+        {defaultContent}
+      </AccordionItem>
+      <AccordionItem aria-label="Accordion 2" classNames={classNames} id="2" title="Accordion 2">
+        {defaultContent}
+      </AccordionItem>
+      <AccordionItem aria-label="Accordion 3" classNames={classNames} id="3" title="Accordion 3">
+        {defaultContent}
+      </AccordionItem>
+    </Accordion>
+  );
+};
+
 const CustomInidicatorTemplate = (args: AccordionProps) => (
   <Accordion {...args}>
-    <AccordionItem key="anchor" aria-label="Anchor" indicator={<AnchorIcon />} title="Anchor">
+    <AccordionItem aria-label="Anchor" id="anchor" indicator={<AnchorIcon />} title="Anchor">
       {defaultContent}
     </AccordionItem>
-    <AccordionItem key="moon" aria-label="Moon" indicator={<MoonIcon />} title="Moon">
+    <AccordionItem aria-label="Moon" id="moon" indicator={<MoonIcon />} title="Moon">
       {defaultContent}
     </AccordionItem>
-    <AccordionItem key="sun" aria-label="Sun" indicator={<SunIcon />} title="Sun">
+    <AccordionItem aria-label="Sun" id="sun" indicator={<SunIcon />} title="Sun">
       {defaultContent}
     </AccordionItem>
   </Accordion>
@@ -232,14 +260,14 @@ const ControlledTemplate = (args: AccordionProps) => {
 
   return (
     <div className="flex flex-col gap-4">
-      <Accordion {...args} selectedKeys={selectedKeys}>
-        <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+      <Accordion {...args} expandedKeys={selectedKeys}>
+        <AccordionItem aria-label="Accordion 1" id="1" title="Accordion 1">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+        <AccordionItem aria-label="Accordion 2" id="2" title="Accordion 2">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+        <AccordionItem aria-label="Accordion 3" id="3" title="Accordion 3">
           {defaultContent}
         </AccordionItem>
       </Accordion>
@@ -288,9 +316,9 @@ const CustomWithClassNamesTemplate = (args: AccordionProps) => {
       variant="shadow"
     >
       <AccordionItem
-        key="1"
         aria-label="Connected devices"
         classNames={itemClasses}
+        id="1"
         startContent={<MonitorMobileIcon className="text-primary" />}
         subtitle={
           <p className="flex">
@@ -302,9 +330,9 @@ const CustomWithClassNamesTemplate = (args: AccordionProps) => {
         {defaultContent}
       </AccordionItem>
       <AccordionItem
-        key="2"
         aria-label="Apps Permissions"
         classNames={itemClasses}
+        id="2"
         startContent={<ShieldSecurityIcon />}
         subtitle="3 apps have read permissions"
         title="Apps Permissions"
@@ -312,9 +340,9 @@ const CustomWithClassNamesTemplate = (args: AccordionProps) => {
         {defaultContent}
       </AccordionItem>
       <AccordionItem
-        key="3"
         aria-label="Pending tasks"
         classNames={{...itemClasses, subtitle: "text-warning"}}
+        id="3"
         startContent={<InfoIcon className="text-warning" />}
         subtitle="Complete your profile"
         title="Pending tasks"
@@ -322,17 +350,12 @@ const CustomWithClassNamesTemplate = (args: AccordionProps) => {
         {defaultContent}
       </AccordionItem>
       <AccordionItem
-        key="4"
         aria-label="Card expired"
         classNames={{...itemClasses, subtitle: "text-danger"}}
+        id="4"
         startContent={<InvalidCardIcon className="text-danger" />}
         subtitle="Please, update now"
-        title={
-          <p className="flex gap-1 items-center">
-            Card expired
-            <span className="text-default-400 text-sm">*4812</span>
-          </p>
-        }
+        title={"Card expired"}
       >
         {defaultContent}
       </AccordionItem>
@@ -363,13 +386,13 @@ const WithFormTemplate = (args: AccordionProps) => {
 
   return (
     <Accordion {...args}>
-      <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+      <AccordionItem aria-label="Accordion 1" id="1" title="Accordion 1">
         {form}
       </AccordionItem>
-      <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+      <AccordionItem aria-label="Accordion 2" id="2" title="Accordion 2">
         {defaultContent}
       </AccordionItem>
-      <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+      <AccordionItem aria-label="Accordion 3" id="3" title="Accordion 3">
         {defaultContent}
       </AccordionItem>
     </Accordion>
@@ -398,7 +421,7 @@ export const Multiple = {
 
   args: {
     ...defaultProps,
-    selectionMode: "multiple",
+    allowsMultipleExpanded: "multiple",
   },
 };
 
@@ -462,46 +485,10 @@ export const WithForm = {
 };
 
 export const CustomMotion = {
-  render: Template,
+  render: CustomAnimationTemplate,
 
   args: {
     ...defaultProps,
-    motionProps: {
-      variants: {
-        enter: {
-          y: 0,
-          opacity: 1,
-          height: "auto",
-          transition: {
-            height: {
-              type: "spring",
-              stiffness: 500,
-              damping: 30,
-              duration: 1,
-            },
-            opacity: {
-              easings: "ease",
-              duration: 1,
-            },
-          },
-        },
-        exit: {
-          y: -10,
-          opacity: 0,
-          height: 0,
-          transition: {
-            height: {
-              easings: "ease",
-              duration: 0.25,
-            },
-            opacity: {
-              easings: "ease",
-              duration: 0.3,
-            },
-          },
-        },
-      },
-    },
   },
 };
 

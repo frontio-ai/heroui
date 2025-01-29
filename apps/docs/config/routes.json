@@ -261,6 +261,13 @@
           "path": "/docs/components/date-range-picker.mdx"
         },
         {
+          "key": "disclosure",
+          "title": "Disclosure",
+          "keywords": "disclosure, collapse, expandable sections, content hiding",
+          "path": "/docs/components/disclosure.mdx",
+          "newPost": true
+        },
+        {
           "key": "divider",
           "title": "Divider",
           "keywords": "divider, boundary, separator, section divider",

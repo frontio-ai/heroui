@@ -33,7 +33,7 @@ Accordion display a list of high-level options that can expand/collapse to revea
 HeroUI exports 2 accordion-related components:
 
 - **Accordion**: The main component to display a list of accordion items.
-- **AccordionItem**: The item component to display a single accordion item.
+- **AccordionItem**: The item component to display a single accordion item. This uses the Disclosure component internally.
 
 <ImportTabs
   commands={{
@@ -52,7 +52,7 @@ HeroUI exports 2 accordion-related components:
 
 ### Expand multiple items
 
-If you set `selectionMode` to `multiple`, then the `Accordion` will allow multiple items to be expanded at the same time.
+If you set `allowsMultipleExpanded` to `true`, then the `Accordion` will allow multiple items to be expanded at the same time.
 
 <CodeDemo title="Expand multiple items" files={accordionContent.multiple} />
 
@@ -106,7 +106,7 @@ Accordion items have a property called `indicator`. You can use it to customize 
 
 <CodeDemo title="Custom Open/Close Indicator" files={accordionContent.indicator} />
 
-The indicator can be also a `function`, which receives the `isOpen`, `isDisabled` and the default `indicator` as parameters.
+The indicator can be also a `function`, which receives the `isExpanded`, `isDisabled` and the default `indicator` as parameters.
 
 <CodeDemo
   title="Custom Open/Close Indicator Function"
@@ -116,11 +116,9 @@ The indicator can be also a `function`, which receives the `isOpen`, `isDisabled
 
 ### Custom Motion
 
-Accordion offers a `motionProps` property to customize the `enter` / `exit` animation.
+Accordion's animation can be changed by upadting the `content` style.
 
 <CodeDemo title="Custom Motion" files={accordionContent.customMotion} />
-
-> Learn more about Framer motion variants [here](https://www.framer.com/motion/animation/#variants).
 
 ### Controlled
 
@@ -156,12 +154,10 @@ Here's an example of how to customize the accordion styles:
 
 ## Data Attributes
 
-`AccordionItem` has the following attributes on the `base` element:
+`Disclosure` in the `AccordionItem` has the following attributes on the `base` element:
 
-- **data-open**:
+- **data-expanded**:
   Whether the accordion item is open.
-- **data-disabled**:
-  When the accordion item is disabled.
 - **data-hover**:
   When the accordion item is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html).
 - **data-focus**:
@@ -177,7 +173,7 @@ Here's an example of how to customize the accordion styles:
 
 ## Accessibility
 
-- Keyboard event support for <Kbd>Space</Kbd>, <Kbd>Enter</Kbd>, <Kbd>Arrow Up</Kbd>, <Kbd>Arrow Down</Kbd> and <Kbd>Home</Kbd> / <Kbd>End</Kbd> keys.
+- Keyboard event support for <Kbd>Space</Kbd>, <Kbd>Enter</Kbd>, <Kbd>Tab</Kbd> and <Kbd>Shift + Tab</Kbd> keys.
 - Keyboard focus management and cross browser normalization.
 - `aria-expanded` attribute for the accordion item.
 - `aria-disabled` attribute for the accordion item.
@@ -204,16 +200,10 @@ Here's an example of how to customize the accordion styles:
       default: "light"
     },
     {
-      attribute: "selectionMode", 
-      type: "none | single | multiple",
-      description: "The type of selection that is allowed in the collection.",
+      attribute: "allowsMultipleExpanded", 
+      type: "boolean",
+      description: "Should allow multiple accordion items to expand.",
       default: "-"
-    },
-    {
-      attribute: "selectionBehavior",
-      type: "toggle | replace",
-      description: "The accordion selection behavior.",
-      default: "toggle"
     },
     {
       attribute: "isCompact",
@@ -258,12 +248,6 @@ Here's an example of how to customize the accordion styles:
       default: "false"
     },
     {
-      attribute: "disallowEmptySelection",
-      type: "boolean",
-      description: "Whether the collection allows empty selection.",
-      default: "false"
-    },
-    {
       attribute: "keepContentMounted",
       type: "boolean",
       description: "Whether the Accordion items content should be always mounted.",
@@ -288,21 +272,15 @@ Here's an example of how to customize the accordion styles:
       default: "-"
     },
     {
-      attribute: "itemClasses",
-      type: "AccordionItemClassnames",
-      description: "The accordion items classNames.",
+      attribute: "expandedKeys",
+      type: "all | React.Key[]",
+      description: "The currently expanded keys in the collection (controlled).",
       default: "-"
     },
     {
-      attribute: "selectedKeys",
+      attribute: "defaultExpandedKeys",
       type: "all | React.Key[]",
-      description: "The currently selected keys in the collection (controlled).",
-      default: "-"
-    },
-    {
-      attribute: "defaultSelectedKeys",
-      type: "all | React.Key[]",
-      description: "The initial selected keys in the collection (uncontrolled).",
+      description: "The initial expanded keys in the collection (uncontrolled).",
       default: "-"
     }
   ]}
@@ -313,7 +291,7 @@ Here's an example of how to customize the accordion styles:
 <APITable
   data={[
     {
-      attribute: "onSelectionChange",
+      attribute: "onExpandedChange",
       type: "(keys: \"all\" | Set<React.Key>) => any",
       description: "Handler that is called when the selection changes.",
       default: "-"
@@ -345,7 +323,7 @@ Here's an example of how to customize the accordion styles:
     },
     {
       attribute: "indicator",
-      type: "IndicatorProps",
+      type: "AccordionItemIndicatorProps",
       description: "The accordion item expanded indicator, usually an arrow icon.",
       default: "-"
     },
@@ -353,12 +331,6 @@ Here's an example of how to customize the accordion styles:
       attribute: "startContent",
       type: "ReactNode",
       description: "The accordion item start content, usually an icon or avatar.",
-      default: "-"
-    },
-    {
-      attribute: "motionProps",
-      type: "MotionProps",
-      description: "The props to modify the framer motion animation. Use the variants API to create your own animation.",
       default: "-"
     },
     {
@@ -498,9 +470,9 @@ export type AccordionItemIndicatorProps = {
    */
   indicator?: ReactNode;
   /**
-   * The current open status.
+   * The current expanded status.
    */
-  isOpen?: boolean;
+  isExpanded?: boolean;
   /**
    * The current disabled status.
    * @default false
@@ -512,6 +484,7 @@ type indicator?: ReactNode | ((props: AccordionItemIndicatorProps) => ReactNode)
 ```
 
 ### Accordion Item classNames
+- This classNames are propagated to the internal disclosure component.
 
 ```ts
 export type AccordionItemClassnames = {
@@ -525,36 +498,4 @@ export type AccordionItemClassnames = {
   indicator?: string;
   content?: string;
 };
-```
-
-#### Motion Props
-
-```ts
-export type MotionProps = {
-  /**
-   * If `true`, the opacity of the content will be animated
-   * @default true
-   */
-  animateOpacity?: boolean;
-  /**
-   * The height you want the content in its collapsed state.
-   * @default 0
-   */
-  startingHeight?: number;
-  /**
-   * The height you want the content in its expanded state.
-   * @default "auto"
-   */
-  endingHeight?: number | string;
-  /**
-   * The y-axis offset you want the content in its collapsed state.
-   * @default 10
-   */
-  startingY?: number;
-  /**
-   * The y-axis offset you want the content in its expanded state.
-   * @default 0
-   */
-  endingY?: number;
-} & HTMLMotionProps;
 ```

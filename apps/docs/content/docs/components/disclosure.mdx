@@ -1,0 +1,328 @@
+---
+title: "Disclosure"
+description: "Disclosure displays hidden content that can be revealed or concealed."
+---
+
+import {disclosureContent} from "@/content/components/disclosure";
+
+# Disclosure
+
+Disclosure displays hidden content that can be revealed or concealed.
+
+<ComponentLinks component="disclosure" />
+
+---
+
+<CarbonAd/>
+
+## Installation
+
+<PackageManagers
+  showGlobalInstallWarning
+  commands={{
+    cli: "npx nextui-cli@latest add disclosure",
+    npm: "npm install @heroui/disclosure",
+    yarn: "yarn add @heroui/disclosure",
+    pnpm: "pnpm add @heroui/disclosure",
+    bun: "bun add @heroui/disclosure"
+  }}
+/>
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {Disclosure} from "@heroui/react";',
+    individual: 'import {Disclosure} from "@heroui/disclosure";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={disclosureContent.usage} />
+
+### With Subtitle
+
+<CodeDemo title="With subtitle" files={disclosureContent.subtitle} />
+
+### Compact
+
+If you set `isCompact` to `true`, the `Disclosure` will be displayed in a compact style.
+
+<CodeDemo title="Compact" files={disclosureContent.compact} />
+
+### Default expanded
+
+If you want to expand the disclosure by default, you can set the `defaultExpanded` to `true`.
+
+<CodeDemo title="Default expanded" files={disclosureContent.defaultExpanded} />
+
+### Disabled
+
+If you want to disable the disclosure, you can set the `isDisabled` property to `true`.
+
+<CodeDemo title="Disabled" files={disclosureContent.disabled} />
+
+### Start content
+
+If you want to display some content before the Disclosure, you can set the `startContent` property.
+
+<CodeDemo title="Start content" files={disclosureContent.startContent} />
+
+### Custom Indicator
+
+Disclosure has a property called `indicator`. You can use it to customize the open/close indicator.
+
+<CodeDemo title="Custom Indicator" files={disclosureContent.indicator} />
+
+The indicator can be also a `function`, which receives the `isExpanded`, `isDisabled` and the default `indicator` as parameters.
+
+<CodeDemo
+  title="Custom Open/Close Indicator Function"
+  highlightedLines="15"
+  files={disclosureContent.indicatorFunction}
+/>
+
+### Custom Motion
+
+Disclosure's animation can be changed by upadting the `content` style.
+
+<CodeDemo title="Custom Motion" files={disclosureContent.customMotion} />
+
+### Controlled
+
+Disclosure is a controlled component, which means you need to control the `isExpanded` property by yourself.
+
+<CodeDemo title="Controlled" files={disclosureContent.controlled} />
+
+### Custom Styles
+
+<CodeDemo title="Custom Disclosure" files={disclosureContent.customStyles} />
+
+<Spacer y={4} />
+
+## Disclosure Slots
+
+- **base**: The disclosure wrapper.
+- **heading**: The dsiclosure heading. It contains the `indicator` and the `title`.
+- **trigger**: The button that open/close the disclosure.
+- **titleWrapper**: The wrapper of the `title` and `subtitle`.
+- **title**: The disclosure item title.
+- **subtitle**: The disclosure item subtitle.
+- **startContent**: The content before the disclosure.
+- **indicator**: The element that indicates the open/close state of the dsiclosure.
+- **content**: Disclosure content.
+
+## Data Attributes
+
+`Disclosure` has the following attributes on the `base` element:
+
+- **data-expanded**:
+  Whether the disclosure item is expanded.
+- **data-hover**:
+  When the disclosure item is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html).
+- **data-focus**:
+  When the disclosure item is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-visible**:
+  When the disclosure item is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-disabled**:
+  When the disclosure item is disabled. Based on `isDisabled` prop.
+- **data-pressed**:
+  When the disclosure item is pressed. Based on [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html).
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Keyboard event support for <Kbd>Space</Kbd>, <Kbd>Enter</Kbd>, <Kbd>Tab</Kbd> and <Kbd>Shift + Tab</Kbd> keys.
+- Keyboard focus management and cross browser normalization.
+- `aria-expanded` attribute.
+- `aria-disabled` attribute.
+
+<Spacer y={4} />
+
+## API
+
+### Disclosure Props
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | string",
+      description: "The content of the component.",
+      default: "-"
+    },
+    {
+      attribute: "title",
+      type: "ReactNode | string",
+      description: "The disclosure item title.",
+      default: "-"
+    },
+    {
+      attribute: "subtitle",
+      type: "ReactNode | string",
+      description: "The disclosure item subtitle.",
+      default: "-"
+    },
+    {
+      attribute: "indicator",
+      type: "DisclosureIndicatorProps",
+      description: "The disclosure item expanded indicator, usually an arrow icon.",
+      default: "-"
+    },
+    {
+      attribute: "startContent",
+      type: "ReactNode",
+      description: "The disclosure item start content, usually an icon or avatar.",
+      default: "-"
+    },
+    {
+      attribute: "isCompact",
+      type: "boolean",
+      description: "Whether the disclosure is compact.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "The current disabled status.",
+      default: "false"
+    },
+    {
+      attribute: "keepContentMounted",
+      type: "boolean",
+      description: "Whether the disclosure content is kept mounted when closed.",
+      default: "false"
+    },
+    {
+      attribute: "hideIndicator",
+      type: "boolean",
+      description: "Whether the disclosure indicator is hidden.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the disclosure animation is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "disableIndicatorAnimation",
+      type: "boolean",
+      description: "Whether the disclosure indicator animation is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "HeadingComponent",
+      type: "React.ElementType",
+      description: "Customizable heading tag for Web accessibility. Use headings to describe content and use them consistently and semantically.",
+      default: "h2"
+    },
+    {
+      attribute: "classNames",
+      type: "DisclosureClassnames",
+      description: "Allows to set custom class names for the disclosure item slots.",
+      default: "-"
+    }
+  ]}
+/>
+
+### Disclosure Events
+
+<APITable
+  data={[
+    {
+      attribute: "onFocus",
+      type: "(e: FocusEvent) => void",
+      description: "Handler that is called when the element receives focus.",
+      default: "-"
+    },
+    {
+      attribute: "onBlur",
+      type: "(e: FocusEvent) => void",
+      description: "Handler that is called when the element loses focus.",
+      default: "-"
+    },
+    {
+      attribute: "onFocusChange",
+      type: "(isFocused: boolean) => void",
+      description: "Handler that is called when the element's focus status changes.",
+      default: "-"
+    },
+    {
+      attribute: "onKeyDown",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler that is called when a key is pressed.",
+      default: "-"
+    },
+    {
+      attribute: "onKeyUp",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler that is called when a key is released.",
+      default: "-"
+    },
+    {
+      attribute: "onPress",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when the press is released over the target.",
+      default: "-"
+    },
+    {
+      attribute: "onPressStart",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press interaction starts.",
+      default: "-"
+    },
+    {
+      attribute: "onPressEnd",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press interaction ends, either over the target or when the pointer leaves the target.",
+      default: "-"
+    },
+    {
+      attribute: "onPressChange",
+      type: "(isPressed: boolean) => void",
+      description: "Handler called when the press state changes.",
+      default: "-"
+    },
+    {
+      attribute: "onPressUp",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press is released over the target, regardless of whether it started on the target or not.",
+      default: "-"
+    },
+    {
+      attribute: "onClick",
+      type: "MouseEventHandler",
+      description: "The native button click event handler (Deprecated) use onPress instead.",
+      default: "-"
+    }
+  ]}
+/>
+
+---
+
+### Types
+
+#### Disclosure Indicator Props
+
+```ts
+export type DisclosureIndicatorProps = {
+  /**
+   * The current indicator, usually an arrow icon.
+   */
+  indicator?: ReactNode;
+  /**
+   * The current expanded status.
+   */
+  isExpanded?: boolean;
+  /**
+   * The current disabled status.
+   * @default false
+   */
+  isDisabled?: boolean;
+};
+
+type indicator?: ReactNode | ((props: DisclosureIndicatorProps) => ReactNode) | null;
+```

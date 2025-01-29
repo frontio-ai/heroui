@@ -7,8 +7,8 @@ export default function App() {
   return (
     <Accordion selectionMode="multiple">
       <AccordionItem
-        key="1"
         aria-label="Chung Miller"
+        id="1"
         startContent={
           <Avatar
             isBordered
@@ -23,8 +23,8 @@ export default function App() {
         {defaultContent}
       </AccordionItem>
       <AccordionItem
-        key="2"
         aria-label="Janelle Lenard"
+        id="2"
         startContent={
           <Avatar
             isBordered
@@ -39,8 +39,8 @@ export default function App() {
         {defaultContent}
       </AccordionItem>
       <AccordionItem
-        key="3"
         aria-label="Zoey Lang"
+        id="3"
         startContent={
           <Avatar
             isBordered

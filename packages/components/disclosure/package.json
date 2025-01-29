@@ -1,0 +1,63 @@
+{
+  "name": "@heroui/disclosure",
+  "version": "2.0.0",
+  "description": "A disclosure is a collapsible section of content.",
+  "keywords": [
+    "disclosure"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/disclosure"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0",
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
+  },
+  "dependencies": {
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
+    "@react-aria/disclosure": "^3.0.0",
+    "@react-aria/button": "^3.11.0",
+    "@react-stately/disclosure": "^3.0.0",
+    "@react-aria/utils": "3.26.0",
+    "@react-aria/focus": "3.19.0"
+  },
+  "devDependencies": {
+    "@heroui/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/avatar": "workspace:*",
+    "@heroui/input": "workspace:*",
+    "@heroui/button": "workspace:*",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}

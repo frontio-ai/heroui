@@ -1,10 +1,9 @@
-import type {AccordionItemVariantProps, AccordionItemSlots, SlotsToClasses} from "@heroui/theme";
-
 import {As} from "@heroui/system";
 import {ItemProps, BaseItem} from "@heroui/aria-utils";
 import {FocusableProps, PressEvents} from "@react-types/shared";
 import {ReactNode, MouseEventHandler} from "react";
 import {HTMLMotionProps} from "framer-motion";
+import {DisclosureSlots, SlotsToClasses} from "@heroui/theme";
 
 export type AccordionItemIndicatorProps = {
   /**
@@ -30,10 +29,6 @@ export interface Props<T extends object = {}>
    * The content of the component.
    */
   children?: ReactNode;
-  /**
-   * The accordion item title.
-   */
-  title?: ReactNode;
   /**
    * The accordion item subtitle.
    */
@@ -63,34 +58,15 @@ export interface Props<T extends object = {}>
    */
   onClick?: MouseEventHandler<HTMLButtonElement>;
   /**
-   * Classname or List of classes to change the classNames of the element.
-   * if `className` is passed, it will be added to the base slot.
-   *
-   * @example
-   * ```ts
-   * <AccordionItem classNames={{
-   *    base:"base-classes",
-   *    heading: "heading-classes",
-   *    trigger: "trigger-classes",
-   *    startContent: "start-indicator-classes",
-   *    indicator: "indicator-classes",
-   *    titleWrapper: "title-wrapper-classes", // this wraps the title and subtitle
-   *    title: "title-classes",
-   *    subtitle: "subtitle-classes",
-   *    content: "content-classes",
-   * }} />
-   * ```
-   */
-  classNames?: SlotsToClasses<AccordionItemSlots>;
-  /**
    * Customizable heading tag for Web accessibility:
    * use headings to describe content and use them consistently and semantically.
    * This will help all users to better find the content they are looking for.
    */
   HeadingComponent?: As;
+  classNames?: SlotsToClasses<DisclosureSlots>;
 }
 
-export type AccordionItemBaseProps<T extends object = {}> = Props<T> & AccordionItemVariantProps;
+export type AccordionItemBaseProps<T extends object = {}> = Props<T>;
 
 const AccordionItemBase = BaseItem as (props: AccordionItemBaseProps) => JSX.Element;
 

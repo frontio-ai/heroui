@@ -9,13 +9,14 @@ export default function App() {
       <div className="col-span-12 lg:col-span-6 flex flex-col gap-4">
         <h3>Light</h3>
         <Accordion variant="light">
-          <AccordionItem key="1" title="Accordion 1">
+          <AccordionItem id="1" title="Accordion 1">
             {defaultContent}
           </AccordionItem>
-          <AccordionItem key="2" title="Accordion 2">
+          x
+          <AccordionItem id="2" title="Accordion 2">
             {defaultContent}
           </AccordionItem>
-          <AccordionItem key="3" title="Accordion 3">
+          <AccordionItem id="3" title="Accordion 3">
             {defaultContent}
           </AccordionItem>
         </Accordion>
@@ -23,13 +24,13 @@ export default function App() {
       <div className="col-span-12 lg:col-span-6 flex flex-col gap-4">
         <h3>Bordered</h3>
         <Accordion variant="bordered">
-          <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+          <AccordionItem aria-label="Accordion 1" id="1" title="Accordion 1">
             {defaultContent}
           </AccordionItem>
-          <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+          <AccordionItem aria-label="Accordion 2" id="2" title="Accordion 2">
             {defaultContent}
           </AccordionItem>
-          <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+          <AccordionItem aria-label="Accordion 3" id="3" title="Accordion 3">
             {defaultContent}
           </AccordionItem>
         </Accordion>
@@ -37,13 +38,13 @@ export default function App() {
       <div className="col-span-12 lg:col-span-6 flex flex-col gap-4">
         <h3>Shadow</h3>
         <Accordion variant="shadow">
-          <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+          <AccordionItem aria-label="Accordion 1" id="1" title="Accordion 1">
             {defaultContent}
           </AccordionItem>
-          <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+          <AccordionItem aria-label="Accordion 2" id="2" title="Accordion 2">
             {defaultContent}
           </AccordionItem>
-          <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+          <AccordionItem aria-label="Accordion 3" id="3" title="Accordion 3">
             {defaultContent}
           </AccordionItem>
         </Accordion>
@@ -51,13 +52,13 @@ export default function App() {
       <div className="col-span-12 lg:col-span-6 flex flex-col gap-4">
         <h3>Splitted</h3>
         <Accordion fullWidth variant="splitted">
-          <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+          <AccordionItem aria-label="Accordion 1" id="1" title="Accordion 1">
             {defaultContent}
           </AccordionItem>
-          <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+          <AccordionItem aria-label="Accordion 2" id="2" title="Accordion 2">
             {defaultContent}
           </AccordionItem>
-          <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+          <AccordionItem aria-label="Accordion 3" id="3" title="Accordion 3">
             {defaultContent}
           </AccordionItem>
         </Accordion>

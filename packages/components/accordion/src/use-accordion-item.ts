@@ -1,274 +1,92 @@
-import type {AccordionItemVariantProps} from "@heroui/theme";
+import type {DisclosureVariantProps} from "@heroui/theme";
 
-import {HTMLHeroUIProps, PropGetter, useProviderContext} from "@heroui/system";
-import {useFocusRing} from "@react-aria/focus";
-import {accordionItem} from "@heroui/theme";
-import {clsx, callAllHandlers, dataAttr, objectToDeps} from "@heroui/shared-utils";
-import {ReactRef, useDOMRef, filterDOMProps} from "@heroui/react-utils";
-import {NodeWithProps} from "@heroui/aria-utils";
-import {useReactAriaAccordionItem} from "@heroui/use-aria-accordion";
-import {useCallback, useMemo} from "react";
-import {chain, mergeProps} from "@react-aria/utils";
-import {useHover, usePress} from "@react-aria/interactions";
-import {TreeState} from "@react-stately/tree";
+import {HTMLHeroUIProps, PropGetter} from "@heroui/system";
+import {ReactRef} from "@heroui/react-utils";
+import {DisclosureProps} from "@heroui/disclosure";
+import {Key, useCallback} from "react";
+import {callAllHandlers} from "@heroui/shared-utils";
 
+import {useAccordianContext} from "./accordian-context";
 import {AccordionItemBaseProps} from "./base/accordion-item-base";
 
-export interface Props<T extends object> extends HTMLHeroUIProps<"div"> {
+export interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLButtonElement | null>;
-  /**
-   * The item node.
-   */
-  item: NodeWithProps<T, AccordionItemBaseProps<T>>;
-  /**
-   * The accordion tree state.
-   */
-  state: TreeState<T>;
-  /**
-   * Current focused key.
-   */
-  focusedKey: React.Key | null;
-  /**
-   * Callback fired when the focus state changes.
-   */
+  id: string;
+  disabledKeys?: Iterable<Key>;
   onFocusChange?: (isFocused: boolean, key?: React.Key) => void;
 }
 
-export type UseAccordionItemProps<T extends object = {}> = Props<T> &
-  AccordionItemVariantProps &
+export type UseAccordionItemProps = Props &
+  DisclosureVariantProps &
+  DisclosureProps &
   Omit<AccordionItemBaseProps, "onFocusChange">;
 
-export function useAccordionItem<T extends object = {}>(props: UseAccordionItemProps<T>) {
-  const globalContext = useProviderContext();
+export function useAccordionItem(originalProps: UseAccordionItemProps) {
+  const {state, values} = useAccordianContext();
 
-  const {ref, as, item, onFocusChange} = props;
+  const {id, classNames, onFocusChange, ...otherProps} = originalProps;
+  const {isDisabled} = values;
+  const showDivider = values.showDivider && values.lastChildId != id;
 
-  const {
-    state,
-    className,
-    indicator,
-    children,
-    title,
-    subtitle,
-    startContent,
-    motionProps,
-    focusedKey,
-    variant,
-    isCompact = false,
-    classNames: classNamesProp = {},
-    isDisabled: isDisabledProp = false,
-    hideIndicator = false,
-    disableAnimation = globalContext?.disableAnimation ?? false,
-    keepContentMounted = false,
-    disableIndicatorAnimation = false,
-    HeadingComponent = as || "h2",
-    onPress,
-    onPressStart,
-    onPressEnd,
-    onPressChange,
-    onPressUp,
-    onClick,
-    ...otherProps
-  } = props;
+  const containsKey = (iterable: Iterable<Key> | undefined, key: Key): boolean => {
+    if (!iterable) {
+      return false;
+    }
+    for (const item of iterable) {
+      if (item === key) {
+        return true;
+      }
+    }
 
-  const Component = as || "div";
-  const shouldFilterDOMProps = typeof Component === "string";
+    return false;
+  };
 
-  const domRef = useDOMRef<HTMLButtonElement>(ref);
-
-  const isDisabled = state.disabledKeys.has(item.key) || isDisabledProp;
-  const isOpen = state.selectionManager.isSelected(item.key);
-
-  const {buttonProps: buttonCompleteProps, regionProps} = useReactAriaAccordionItem(
-    {item, isDisabled},
-    {...state, focusedKey: focusedKey},
-    domRef,
-  );
-
-  const {onFocus: onFocusButton, onBlur: onBlurButton, ...buttonProps} = buttonCompleteProps;
-
-  const {isFocused, isFocusVisible, focusProps} = useFocusRing({
-    autoFocus: item.props?.autoFocus,
-  });
-
-  const {isHovered, hoverProps} = useHover({isDisabled});
-
-  const {pressProps, isPressed} = usePress({
-    ref: domRef,
-    isDisabled,
-    onPress,
-    onPressStart,
-    onPressEnd,
-    onPressChange,
-    onPressUp,
-  });
+  const disabledKeys = values.disabledKeys;
 
   const handleFocus = useCallback(() => {
-    onFocusChange?.(true, item.key);
+    onFocusChange?.(true, id);
   }, []);
 
   const handleBlur = useCallback(() => {
-    onFocusChange?.(false, item.key);
+    onFocusChange?.(false, id);
   }, []);
 
-  const classNames = useMemo(
-    () => ({
-      ...classNamesProp,
-    }),
-    [objectToDeps(classNamesProp)],
-  );
-
-  const slots = useMemo(
-    () =>
-      accordionItem({
-        isCompact,
-        isDisabled,
-        hideIndicator,
-        disableAnimation,
-        disableIndicatorAnimation,
-        variant,
-      }),
-    [isCompact, isDisabled, hideIndicator, disableAnimation, disableIndicatorAnimation, variant],
-  );
-
-  const baseStyles = clsx(classNames?.base, className);
-
-  const getBaseProps = useCallback<PropGetter>(
-    (props = {}) => {
-      return {
-        "data-open": dataAttr(isOpen),
-        "data-disabled": dataAttr(isDisabled),
-        className: slots.base({class: baseStyles}),
-        ...mergeProps(
-          filterDOMProps(otherProps, {
-            enabled: shouldFilterDOMProps,
-          }),
-          props,
-        ),
-      };
+  const disclosureProps: DisclosureProps = {
+    ...values,
+    ...otherProps,
+    isExpanded: state.expandedKeys.has(id),
+    isDisabled: containsKey(disabledKeys, id) || isDisabled,
+    onExpandedChange(isExpanded) {
+      if (state) {
+        state.toggleKey(id);
+      }
+      originalProps.onExpandedChange?.(isExpanded);
     },
-    [baseStyles, shouldFilterDOMProps, otherProps, slots, item.props, isOpen, isDisabled],
-  );
-
-  const getButtonProps: PropGetter = (props = {}) => {
-    return {
-      ref: domRef,
-      "data-open": dataAttr(isOpen),
-      "data-focus": dataAttr(isFocused),
-      "data-focus-visible": dataAttr(isFocusVisible),
-      "data-disabled": dataAttr(isDisabled),
-      "data-hover": dataAttr(isHovered),
-      "data-pressed": dataAttr(isPressed),
-      className: slots.trigger({class: classNames?.trigger}),
-      onFocus: callAllHandlers(
-        handleFocus,
-        onFocusButton,
-        focusProps.onFocus,
-        otherProps.onFocus,
-        item.props?.onFocus,
-      ),
-      onBlur: callAllHandlers(
-        handleBlur,
-        onBlurButton,
-        focusProps.onBlur,
-        otherProps.onBlur,
-        item.props?.onBlur,
-      ),
-      ...mergeProps(buttonProps, hoverProps, pressProps, props, {
-        onClick: chain(pressProps.onClick, onClick),
-      }),
-    };
+    onFocus: callAllHandlers(handleFocus, originalProps.onFocus),
+    onBlur: callAllHandlers(handleBlur, originalProps.onBlur),
+    classNames,
   };
 
-  const getContentProps = useCallback<PropGetter>(
+  const getBaseProps: PropGetter = useCallback(
     (props = {}) => {
       return {
-        "data-open": dataAttr(isOpen),
-        "data-disabled": dataAttr(isDisabled),
-        className: slots.content({class: classNames?.content}),
-        ...mergeProps(regionProps, props),
-      };
-    },
-    [slots, classNames, regionProps, isOpen, isDisabled, classNames?.content],
-  );
-
-  const getIndicatorProps = useCallback<PropGetter>(
-    (props = {}) => {
-      return {
-        "aria-hidden": dataAttr(true),
-        "data-open": dataAttr(isOpen),
-        "data-disabled": dataAttr(isDisabled),
-        className: slots.indicator({class: classNames?.indicator}),
+        "data-hidden": originalProps.hidden,
         ...props,
       };
     },
-    [slots, classNames?.indicator, isOpen, isDisabled, classNames?.indicator],
-  );
-
-  const getHeadingProps = useCallback<PropGetter>(
-    (props = {}) => {
-      return {
-        "data-open": dataAttr(isOpen),
-        "data-disabled": dataAttr(isDisabled),
-        className: slots.heading({class: classNames?.heading}),
-        ...props,
-      };
-    },
-    [slots, classNames?.heading, isOpen, isDisabled, classNames?.heading],
-  );
-
-  const getTitleProps = useCallback<PropGetter>(
-    (props = {}) => {
-      return {
-        "data-open": dataAttr(isOpen),
-        "data-disabled": dataAttr(isDisabled),
-        className: slots.title({class: classNames?.title}),
-        ...props,
-      };
-    },
-    [slots, classNames?.title, isOpen, isDisabled, classNames?.title],
-  );
-
-  const getSubtitleProps = useCallback<PropGetter>(
-    (props = {}) => {
-      return {
-        "data-open": dataAttr(isOpen),
-        "data-disabled": dataAttr(isDisabled),
-        className: slots.subtitle({class: classNames?.subtitle}),
-        ...props,
-      };
-    },
-    [slots, classNames, isOpen, isDisabled, classNames?.subtitle],
+    [originalProps.hidden],
   );
 
   return {
-    Component,
-    HeadingComponent,
-    item,
-    slots,
-    classNames,
-    domRef,
-    indicator,
-    children,
-    title,
-    subtitle,
-    startContent,
-    isOpen,
-    isDisabled,
-    hideIndicator,
-    keepContentMounted,
-    disableAnimation,
-    motionProps,
+    disclosureProps,
+    children: originalProps.children,
+    dividerProps: values.dividerProps,
+    hidden: originalProps.hidden,
+    showDivider,
     getBaseProps,
-    getHeadingProps,
-    getButtonProps,
-    getContentProps,
-    getIndicatorProps,
-    getTitleProps,
-    getSubtitleProps,
   };
 }
 

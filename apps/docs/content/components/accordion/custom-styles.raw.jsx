@@ -207,13 +207,13 @@ export default function App() {
   return (
     <Accordion
       className="p-2 flex flex-col gap-1 w-full max-w-[300px]"
-      itemClasses={itemClasses}
       showDivider={false}
       variant="shadow"
     >
       <AccordionItem
-        key="1"
         aria-label="Connected devices"
+        classNames={itemClasses}
+        id="1"
         startContent={<MonitorMobileIcon className="text-primary" />}
         subtitle={
           <p className="flex">
@@ -225,8 +225,9 @@ export default function App() {
         {defaultContent}
       </AccordionItem>
       <AccordionItem
-        key="2"
         aria-label="Apps Permissions"
+        classNames={itemClasses}
+        id="2"
         startContent={<ShieldSecurityIcon />}
         subtitle="3 apps have read permissions"
         title="Apps Permissions"
@@ -234,9 +235,9 @@ export default function App() {
         {defaultContent}
       </AccordionItem>
       <AccordionItem
-        key="3"
         aria-label="Pending tasks"
-        classNames={{subtitle: "text-warning"}}
+        classNames={{...itemClasses, subtitle: "text-warning"}}
+        id="3"
         startContent={<InfoIcon className="text-warning" />}
         subtitle="Complete your profile"
         title="Pending tasks"
@@ -244,9 +245,9 @@ export default function App() {
         {defaultContent}
       </AccordionItem>
       <AccordionItem
-        key="4"
         aria-label="Card expired"
-        classNames={{subtitle: "text-danger"}}
+        classNames={{...itemClasses, subtitle: "text-danger"}}
+        id="4"
         startContent={<InvalidCardIcon className="text-danger" />}
         subtitle="Please, update now"
         title={

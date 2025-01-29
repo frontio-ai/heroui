@@ -479,7 +479,7 @@ export default function HeroUIPerf() {
       </Select>
 
       <Accordion>
-        <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+        <AccordionItem aria-label="Accordion 1" id="1" title="Accordion 1">
           Non est aliqua tempor occaecat laborum. Lorem culpa minim irure mollit. Est qui
           reprehenderit commodo magna proident anim ipsum ex. Mollit id amet officia nisi excepteur
           eu. Commodo elit commodo nisi nisi aute eu aliquip aliquip voluptate exercitation ullamco
@@ -497,7 +497,7 @@ export default function HeroUIPerf() {
           elit consequat ea id. Lorem ea qui sunt enim occaecat excepteur officia ex consequat
           nostrud. Tempor sint Lorem est culpa do.
         </AccordionItem>
-        <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+        <AccordionItem aria-label="Accordion 2" id="2" title="Accordion 2">
           Non est aliqua tempor occaecat laborum. Lorem culpa minim irure mollit. Est qui
           reprehenderit commodo magna proident anim ipsum ex. Mollit id amet officia nisi excepteur
           eu. Commodo elit commodo nisi nisi aute eu aliquip aliquip voluptate exercitation ullamco
@@ -505,7 +505,7 @@ export default function HeroUIPerf() {
           Pariatur ullamco cillum proident aliqua nostrud. Labore ea veniam cillum duis veniam in
           cupidatat voluptate eu officia. Ut laborum sunt nostrud magna. Ex magna esse cillum enim
         </AccordionItem>
-        <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+        <AccordionItem aria-label="Accordion 3" id="3" title="Accordion 3">
           Non est aliqua tempor occaecat laborum. Lorem culpa minim irure mollit. Est qui
           reprehenderit commodo magna proident anim ipsum ex. Mollit id amet officia nisi excepteur
           eu. Commodo elit commodo nisi nisi aute eu aliquip aliquip voluptate exercitation ullamco

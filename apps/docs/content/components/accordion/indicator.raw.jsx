@@ -85,13 +85,13 @@ export default function App() {
 
   return (
     <Accordion>
-      <AccordionItem key="anchor" aria-label="Anchor" indicator={<AnchorIcon />} title="Anchor">
+      <AccordionItem aria-label="Anchor" id="anchor" indicator={<AnchorIcon />} title="Anchor">
         {defaultContent}
       </AccordionItem>
-      <AccordionItem key="moon" aria-label="Moon" indicator={<MoonIcon />} title="Moon">
+      <AccordionItem aria-label="Moon" id="moon" indicator={<MoonIcon />} title="Moon">
         {defaultContent}
       </AccordionItem>
-      <AccordionItem key="sun" aria-label="Sun" indicator={<SunIcon />} title="Sun">
+      <AccordionItem aria-label="Sun" id="sun" indicator={<SunIcon />} title="Sun">
         {defaultContent}
       </AccordionItem>
     </Accordion>
