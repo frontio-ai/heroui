@@ -172,7 +172,7 @@ export function useMultiSelect<T>(
       disallowEmptySelection,
       autoFocus: state.focusStrategy || true,
       shouldSelectOnPressUp: true,
-      shouldFocusOnHover: true,
+      shouldFocusOnHover: false,
       onBlur: (e) => {
         if (e.currentTarget.contains(e.relatedTarget as Node)) {
           return;

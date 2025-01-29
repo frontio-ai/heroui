@@ -583,6 +583,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         scrollRef: listBoxRef,
         triggerType: "listbox",
         classNames: {
+          base: slots.popover({class: classNames?.popover}),
           content: slots.popoverContent({
             class: clsx(classNames?.popoverContent, props.className),
           }),
