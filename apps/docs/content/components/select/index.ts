@@ -31,6 +31,7 @@ import virtualization from "./virtualization";
 import virtualizationTenThousand from "./virtualization-ten-thousand";
 import virtualizationCustomItemHeight from "./virtualization-custom-item-height";
 import virtualizationMaxListboxHeight from "./virtualization-max-listbox-height";
+import isClearable from "./is-clearable";
 
 export const selectContent = {
   usage,
@@ -66,4 +67,5 @@ export const selectContent = {
   virtualizationTenThousand,
   virtualizationCustomItemHeight,
   virtualizationMaxListboxHeight,
+  isClearable,
 };

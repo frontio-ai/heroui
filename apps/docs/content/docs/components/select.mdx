@@ -148,6 +148,12 @@ You can combine the `isInvalid` and `errorMessage` properties to show an invalid
 
 <CodeDemo title="With Error Message" files={selectContent.errorMessage} />
 
+### Clear Button
+
+If you pass the `isClearable` property to the select, it will have a clear button which will be visible only when a value is selected.
+
+<CodeDemo title="Clear Button" files={selectContent.isClearable} />
+
 ### Controlled
 
 You can use the `selectedKeys` and `onSelectionChange` / `onChange` properties to control the select value.
@@ -567,6 +573,12 @@ the popover and listbox components.
       default: "false"
     },
     {
+      attribute: "isClearable",
+      type: "boolean",
+      description: "Whether clear button is visible or not.",
+      default: "false"
+    },
+    {
       attribute: "validationState",
       type: "valid | invalid",
       description: "Whether the select should display its \"valid\" or \"invalid\" visual styling. (Deprecated) use isInvalid instead.",
@@ -656,6 +668,11 @@ the popover and listbox components.
       type: "(keys: \"all\" | Set<React.Key> & {anchorKey?: string; currentKey?: string}) => void",
       description: "Callback fired when the selected keys change.",
       default: "-"
+    },
+    {
+      attribute: "onClear",
+      type: "() => void",
+      description: "Handler that is called when the clear button is clicked."
     },
     {
       attribute: "onChange",

@@ -945,6 +945,194 @@ describe("Select", () => {
     // assert that the listbox items are not rendered
     expect(wrapper.queryByRole("option")).not.toBeInTheDocument();
   });
+
+  it("should show clear button when isClearable and a value is selected", async () => {
+    let onClear = jest.fn();
+
+    const wrapper = render(
+      <Select
+        disableAnimation
+        isClearable
+        isOpen
+        aria-label="Favorite Animal"
+        data-testid="select"
+        label="Favorite Animal"
+        selectionMode="single"
+        onClear={onClear}
+      >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("select");
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    await user.click(listboxItems[1]);
+
+    const buttons = select.querySelectorAll("button");
+
+    expect(buttons.length).toEqual(1);
+
+    const clearButton = buttons[0];
+
+    expect(clearButton).not.toBeNull();
+  });
+
+  it("should not show clear button when isClearable but no value is selected", async () => {
+    let onClear = jest.fn();
+
+    const wrapper = render(
+      <Select
+        disableAnimation
+        isClearable
+        isOpen
+        aria-label="Favorite Animal"
+        data-testid="select"
+        label="Favorite Animal"
+        selectionMode="single"
+        onClear={onClear}
+      >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("select");
+
+    const buttons = select.querySelectorAll("button");
+
+    expect(buttons.length).toEqual(0);
+  });
+
+  it("should not show clear button when not isClearable and a value is selected", async () => {
+    let onClear = jest.fn();
+
+    const wrapper = render(
+      <Select
+        disableAnimation
+        isOpen
+        aria-label="Favorite Animal"
+        data-testid="select"
+        label="Favorite Animal"
+        selectionMode="single"
+        onClear={onClear}
+      >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("select");
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    await user.click(listboxItems[1]);
+
+    const buttons = select.querySelectorAll("button");
+
+    expect(buttons.length).toEqual(0);
+  });
+
+  it("should not show clear button when not isClearable and no value is selected", async () => {
+    let onClear = jest.fn();
+
+    const wrapper = render(
+      <Select
+        disableAnimation
+        isOpen
+        aria-label="Favorite Animal"
+        data-testid="select"
+        label="Favorite Animal"
+        selectionMode="single"
+        onClear={onClear}
+      >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("select");
+
+    const buttons = select.querySelectorAll("button");
+
+    expect(buttons.length).toEqual(0);
+  });
+
+  it("should call onClear when clear button is clicked", async () => {
+    let onClear = jest.fn();
+
+    const wrapper = render(
+      <Select
+        disableAnimation
+        isClearable
+        isOpen
+        aria-label="Favorite Animal"
+        data-testid="select"
+        label="Favorite Animal"
+        selectionMode="single"
+        onClear={onClear}
+      >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("select");
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    await user.click(listboxItems[1]);
+
+    const clearButton = select.querySelectorAll("button")[0];
+
+    await user.click(clearButton);
+
+    expect(onClear).toHaveBeenCalledTimes(1);
+  });
+
+  it("should clear the selected value when clear button is clicked", async () => {
+    let onClear = jest.fn();
+
+    const wrapper = render(
+      <Select
+        disableAnimation
+        isClearable
+        isOpen
+        aria-label="Favorite Animal"
+        data-testid="select"
+        label="Favorite Animal"
+        selectionMode="single"
+        onClear={onClear}
+      >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("select");
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    await user.click(listboxItems[1]);
+
+    expect(select).toHaveTextContent("Favorite AnimalZebra");
+
+    const clearButton = select.querySelectorAll("button")[0];
+
+    await user.click(clearButton);
+
+    expect(select).toHaveTextContent("Favorite Animal");
+
+    expect(select).not.toHaveTextContent("Favorite Animalzebra");
+  });
 });
 
 describe("Select virtualization tests", () => {

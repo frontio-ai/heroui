@@ -2,7 +2,7 @@ import type {ForwardedRef, ReactElement} from "react";
 
 import {Listbox} from "@heroui/listbox";
 import {FreeSoloPopover} from "@heroui/popover";
-import {ChevronDownIcon} from "@heroui/shared-icons";
+import {ChevronDownIcon, CloseFilledIcon} from "@heroui/shared-icons";
 import {Spinner} from "@heroui/spinner";
 import {useMemo} from "react";
 import {forwardRef} from "@heroui/system";
@@ -54,11 +54,34 @@ const Select = forwardRef(function Select<T extends object>(
     getDescriptionProps,
     getErrorMessageProps,
     getSelectorIconProps,
+    isClearable,
+    getClearButtonProps,
   } = useSelect<T>({...props, ref});
 
   const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
 
   const clonedIcon = cloneElement(selectorIcon as ReactElement, getSelectorIconProps());
+
+  const clearButton = useMemo(() => {
+    if (isClearable && state.selectedItems?.length) {
+      return <button {...getClearButtonProps()}>{<CloseFilledIcon />}</button>;
+    }
+
+    return null;
+  }, [isClearable, getClearButtonProps, state.selectedItems?.length]);
+
+  const end = useMemo(() => {
+    if (clearButton) {
+      return (
+        <div className="flex end-18">
+          {clearButton}
+          {endContent && <span className="ms-3">{endContent}</span>}
+        </div>
+      );
+    }
+
+    return endContent && <span className="mb-4">{endContent}</span>;
+  }, [clearButton, endContent]);
 
   const helperWrapper = useMemo(() => {
     const shouldShowError = isInvalid && errorMessage;
@@ -138,7 +161,7 @@ const Select = forwardRef(function Select<T extends object>(
             {endContent && state.selectedItems && (
               <VisuallyHidden elementType="span">,</VisuallyHidden>
             )}
-            {endContent}
+            {end}
           </div>
           {renderIndicator}
         </Component>
