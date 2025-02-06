@@ -42,7 +42,7 @@
   "dependencies": {
     "@heroui/shared-utils": "workspace:*",
     "@heroui/react-utils": "workspace:*",
-    "@heroui/framer-utils": "workspace:*",
+    "@heroui/motion": "workspace:*",
     "@heroui/modal": "workspace:*"
   },
   "devDependencies": {

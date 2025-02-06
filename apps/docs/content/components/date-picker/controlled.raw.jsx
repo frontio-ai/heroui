@@ -1,6 +1,6 @@
 import {DatePicker} from "@heroui/react";
-import {parseDate, getLocalTimeZone} from "@internationalized/date";
-import {useDateFormatter} from "@react-aria/i18n";
+import {parseDate, getLocalTimeZone} from "@heroui/internationalized-date";
+import {useDateFormatter} from "@heroui/react-aria-i18n";
 
 export default function App() {
   const [value, setValue] = React.useState(parseDate("2024-04-04"));

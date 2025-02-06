@@ -3,7 +3,7 @@ import type {ValidationResult} from "@react-types/shared";
 import React, {Key} from "react";
 import {Meta} from "@storybook/react";
 import {useForm} from "react-hook-form";
-import {useFilter} from "@react-aria/i18n";
+import {useFilter} from "@heroui/react-aria-i18n";
 import {autocomplete, input, button} from "@heroui/theme";
 import {Pokemon, usePokemonList, animalsData, usersData, Animal, User} from "@heroui/stories-utils";
 import {useAsyncList} from "@react-stately/data";

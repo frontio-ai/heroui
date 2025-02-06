@@ -11,7 +11,7 @@ import {slider} from "@heroui/theme";
 import {ReactRef, useDOMRef, filterDOMProps} from "@heroui/react-utils";
 import {useSliderState} from "@react-stately/slider";
 import {ReactNode, useCallback, useMemo, useRef} from "react";
-import {useNumberFormatter, useLocale} from "@react-aria/i18n";
+import {useNumberFormatter, useLocale} from "@heroui/react-aria-i18n";
 import {mergeProps} from "@react-aria/utils";
 import {AriaSliderProps, useSlider as useAriaSlider} from "@react-aria/slider";
 import {clsx, objectToDeps} from "@heroui/shared-utils";

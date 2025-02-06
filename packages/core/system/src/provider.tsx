@@ -2,11 +2,11 @@ import type {ModalProviderProps} from "@react-aria/overlays";
 import type {ProviderContextProps} from "./provider-context";
 import type {Href, RouterOptions} from "@react-types/shared";
 
-import {I18nProvider, I18nProviderProps} from "@react-aria/i18n";
+import {useMemo} from "react";
+import {I18nProvider, I18nProviderProps} from "@heroui/react-aria-i18n";
+import {MotionConfig, MotionGlobalConfig} from "@heroui/motion";
 import {RouterProvider} from "@react-aria/utils";
 import {OverlayProvider} from "@react-aria/overlays";
-import {useMemo} from "react";
-import {MotionConfig, MotionGlobalConfig} from "framer-motion";
 
 import {ProviderContext} from "./provider-context";
 

@@ -5,7 +5,7 @@ import {Card, CardFooter, CardBody, CardHeader, Link, Avatar, Image} from "@hero
 import Balancer from "react-wrap-balancer";
 import {format, parseISO} from "date-fns";
 import NextLink from "next/link";
-import {AnimatePresence, motion} from "framer-motion";
+import {AnimatePresence, motion} from "@heroui/motion";
 import {usePostHog} from "posthog-js/react";
 
 import {useIsMounted} from "@/hooks/use-is-mounted";

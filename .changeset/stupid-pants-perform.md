@@ -15,7 +15,6 @@
 "@heroui/breadcrumbs": patch
 "@heroui/date-picker": patch
 "@heroui/use-callback-ref": patch
-"@heroui/framer-utils": patch
 "@heroui/shared-icons": patch
 "@heroui/date-input": patch
 "@heroui/pagination": patch

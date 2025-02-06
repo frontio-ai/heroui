@@ -14,10 +14,10 @@ import {
   startOfMonth,
   startOfWeek,
   today,
-} from "@internationalized/date";
+} from "@heroui/internationalized-date";
 import {RangeValue, ValidationResult} from "@react-types/shared";
 import {DateValue} from "@react-types/datepicker";
-import {I18nProvider, useDateFormatter, useLocale} from "@react-aria/i18n";
+import {I18nProvider, useDateFormatter, useLocale} from "@heroui/react-aria-i18n";
 import {Button, ButtonGroup} from "@heroui/button";
 import {Radio, RadioGroup, RadioProps} from "@heroui/radio";
 import {cn} from "@heroui/theme";

@@ -1,4 +1,4 @@
-import type {Target, TargetAndTransition, Transition} from "framer-motion";
+import type {Target, TargetAndTransition, Transition} from "motion/react";
 
 type WithMotionState<P> = Partial<Record<"enter" | "exit", P>>;
 
@@ -21,7 +21,7 @@ type TargetResolver<P = {}> = (props: P & TransitionProperties) => TargetAndTran
 
 type Variant<P = {}> = TargetAndTransition | TargetResolver<P>;
 
-export type Variants<P = {}> = Record<
+type Variants<P = {}> = Record<
   string,
   {
     enter: Variant<P>;

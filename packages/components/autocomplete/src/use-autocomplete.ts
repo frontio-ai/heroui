@@ -4,7 +4,7 @@ import type {DOMAttributes, HTMLHeroUIProps, PropGetter} from "@heroui/system";
 import {mapPropsVariants, useProviderContext} from "@heroui/system";
 import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 import {autocomplete} from "@heroui/theme";
-import {useFilter} from "@react-aria/i18n";
+import {useFilter} from "@heroui/react-aria-i18n";
 import {FilterFn, useComboBoxState} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@heroui/react-utils";
 import {ReactNode, useEffect, useMemo, useRef} from "react";

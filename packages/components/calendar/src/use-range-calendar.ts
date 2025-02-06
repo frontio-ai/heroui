@@ -6,7 +6,7 @@ import {useMemo, useRef} from "react";
 import {filterDOMProps} from "@heroui/react-utils";
 import {useRangeCalendar as useAriaRangeCalendar} from "@react-aria/calendar";
 import {useRangeCalendarState} from "@react-stately/calendar";
-import {createCalendar} from "@internationalized/date";
+import {createCalendar} from "@heroui/internationalized-date";
 import {clsx} from "@heroui/shared-utils";
 import {ButtonProps} from "@heroui/button";
 import {chain} from "@react-aria/utils";

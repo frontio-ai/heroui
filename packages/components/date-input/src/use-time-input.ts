@@ -4,7 +4,7 @@ import type {ReactRef} from "@heroui/react-utils";
 import type {DOMAttributes, GroupDOMAttributes} from "@react-types/shared";
 import type {DateInputGroupProps} from "./date-input-group";
 
-import {useLocale} from "@react-aria/i18n";
+import {useLocale} from "@heroui/react-aria-i18n";
 import {mergeProps} from "@react-aria/utils";
 import {PropGetter, useLabelPlacement, useProviderContext} from "@heroui/system";
 import {HTMLHeroUIProps, mapPropsVariants} from "@heroui/system";

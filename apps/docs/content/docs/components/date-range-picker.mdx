@@ -7,7 +7,7 @@ import {dateRangePickerContent} from "@/content/components/date-range-picker";
 
 # Date Range Picker
 
-Date Range Picker combines two DateInputs and a RangeCalendar popover to allow users to enter or select a date and time range.
+DateRangePicker combines two DateInputs and a RangeCalendar popover to allow users to enter or select a date and time range.
 
 <ComponentLinks component="date-picker" />
 
@@ -36,6 +36,36 @@ Date Range Picker combines two DateInputs and a RangeCalendar popover to allow u
     individual: 'import {DateRangePicker} from "@heroui/date-picker";',
   }}
 />
+
+For some usages, you may require [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/). The package provides objects and functions for representing and manipulating dates and times in a locale-aware manner. To avoid incompatibility issues, please use our internal one.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @heroui/internationalized-date",
+    yarn: "yarn add @heroui/internationalized-date",
+    pnpm: "pnpm add @heroui/internationalized-date",
+    bun: "bun add @heroui/internationalized-date",
+  }}
+/>
+
+<Blockquote color="warning">
+**Note**: <Code className="px-1 py-0.5 text-small md:text-tiny font-mono">@heroui/internationalized-date</Code> is only available for individual installation.
+</Blockquote>
+
+For some usages, you may require `@react-aria/i18n`. To avoid incompatibility issues, please use our internal one.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @heroui/react-aria-i18n",
+    yarn: "yarn add @heroui/react-aria-i18n",
+    pnpm: "pnpm add @heroui/react-aria-i18n",
+    bun: "bun add @heroui/react-aria-i18n",
+  }}
+/>
+
+<Blockquote color="warning">
+**Note**: <Code className="px-1 py-0.5 text-small md:text-tiny font-mono">@heroui/react-aria-i18n</Code> is only available for individual installation.
+</Blockquote>
 
 ## Usage
 
@@ -131,21 +161,6 @@ You can use the `value` and `onChange` properties to control the input value.
 DateRangePicker is time zone aware when a `ZonedDateTime` object is provided as the value. In this case, the time zone abbreviation is displayed,
 and time zone concerns such as daylight saving time are taken into account when the value is manipulated.
 
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
-in multiple formats into `ZonedDateTime` objects.
-
-<PackageManagers
-  commands={{
-    npm: "npm install @internationalized/date@3.6.0",
-    yarn: "yarn add @internationalized/date@3.6.0",
-    pnpm: "pnpm add @internationalized/date@3.6.0",
-  }}
-/>
-
-```jsx
-import {parseZonedDateTime} from "@internationalized/date";
-```
-
 <Spacer y={2} />
 
 <CodeDemo title="Time Zones" files={dateRangePickerContent.timeZones} />
@@ -156,22 +171,6 @@ The granularity prop allows you to control the smallest unit that is displayed b
 the value is displayed with "day" granularity (year, month, and day),
 and `CalendarDateTime` and `ZonedDateTime` values are displayed with "minute" granularity.
 
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
-in multiple formats into `ZonedDateTime` objects.
-
-<PackageManagers
-  commands={{
-    npm: "npm install @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-    yarn: "yarn add @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-    pnpm: "pnpm add @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-  }}
-/>
-
-```jsx
-import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
-import {useDateFormatter} from "@react-aria/i18n";
-```
-
 <Spacer y={2} />
 
 <CodeDemo title="Time Zones" files={dateRangePickerContent.granularity} />
@@ -179,21 +178,6 @@ import {useDateFormatter} from "@react-aria/i18n";
 ### Min Date And Max Date
 
 The minValue and maxValue props can also be used to ensure the value is within a specific range.
-
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
-in multiple formats into `ZonedDateTime` objects.
-
-<PackageManagers
-  commands={{
-    npm: "npm install @internationalized/date@3.6.0",
-    yarn: "yarn add @internationalized/date@3.6.0",
-    pnpm: "pnpm add @internationalized/date@3.6.0",
-  }}
-/>
-
-```jsx
-import {getLocalTimeZone, parseDate, today} from "@internationalized/date";
-```
 
 <CodeDemo title="Min Date And Max Date" files={dateRangePickerContent.minAndMaxDate} />
 
@@ -204,43 +188,11 @@ Dates are automatically displayed in the appropriate calendar system for the use
 The calendar system can be overridden using the [Unicode calendar locale extension](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar#adding_a_calendar_in_the_locale_string),
 passed to the [I18nProvider](https://react-spectrum.adobe.com/react-aria/I18nProvider.html) component.
 
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
-in multiple formats into `ZonedDateTime` objects.
-
-<PackageManagers
-  commands={{
-    npm: "npm install @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-    yarn: "yarn add @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-    pnpm: "pnpm add @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-  }}
-/>
-
-```jsx
-import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
-import {I18nProvider} from "@react-aria/i18n";
-```
-
 <CodeDemo title="International Calendar" files={dateRangePickerContent.internationalCalendar} />
 
 ### Unavailable Dates
 
 DateRangePicker supports marking certain dates as unavailable. These dates cannot be selected by the user and are displayed with a crossed out appearance in the calendar. In the date field, an invalid state is displayed if a user enters an unavailable date.
-
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
-in multiple formats into `ZonedDateTime` objects.
-
-<PackageManagers
-  commands={{
-    npm: "npm install @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-    yarn: "yarn add @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-    pnpm: "pnpm add @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-  }}
-/>
-
-```jsx
-import {today, isWeekend, getLocalTimeZone} from "@internationalized/date";
-import {useLocale} from "@react-aria/i18n";
-```
 
 <CodeDemo title="Unavailable Dates" files={dateRangePickerContent.unavailableDates} />
 
@@ -251,47 +203,9 @@ The value emitted in the onChange event will still be a single range with a star
 but unavailable dates will not be displayed as selected.
 It is up to applications to split the full selected range into multiple as needed for business logic.
 
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
-in multiple formats into `ZonedDateTime` objects.
-
-<PackageManagers
-  commands={{
-    npm: "npm install @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-    yarn: "yarn add @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-    pnpm: "pnpm add @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-  }}
-/>
-
-```jsx
-import {today, isWeekend, getLocalTimeZone} from "@internationalized/date";
-import {useLocale} from "@react-aria/i18n";
-```
-
 <CodeDemo title="Non Contiguous" files={dateRangePickerContent.nonContigous} />
 
 ### Presets
-
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
-in multiple formats into `ZonedDateTime` objects.
-
-<PackageManagers
-  commands={{
-    npm: "npm install @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-    yarn: "yarn add @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-    pnpm: "pnpm add @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-  }}
-/>
-
-```jsx
-import {
-  DateValue,
-  now,
-  startOfWeek,
-  startOfMonth,
-  getLocalTimeZone,
-} from "@internationalized/date";
-import {useLocale, useDateFormatter} from "@react-aria/i18n";
-```
 
 <CodeDemo title="Presets" files={dateRangePickerContent.presets} />
 

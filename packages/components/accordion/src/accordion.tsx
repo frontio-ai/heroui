@@ -1,5 +1,5 @@
 import {forwardRef} from "@heroui/system";
-import {LayoutGroup} from "framer-motion";
+import {LayoutGroup} from "@heroui/motion";
 import {Divider} from "@heroui/divider";
 import {Fragment, Key, useCallback, useMemo} from "react";
 

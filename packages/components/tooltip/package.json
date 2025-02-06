@@ -36,7 +36,6 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
     "@heroui/theme": ">=2.4.0",
     "@heroui/system": ">=2.4.0"
   },
@@ -44,9 +43,9 @@
     "@heroui/shared-utils": "workspace:*",
     "@heroui/react-utils": "workspace:*",
     "@heroui/aria-utils": "workspace:*",
-    "@heroui/framer-utils": "workspace:*",
     "@heroui/use-safe-layout-effect": "workspace:*",
     "@heroui/dom-animation": "workspace:*",
+    "@heroui/motion": "workspace:*",
     "@react-aria/interactions": "3.23.0",
     "@react-aria/overlays": "3.25.0",
     "@react-aria/tooltip": "3.7.11",
@@ -60,8 +59,7 @@
     "@heroui/system": "workspace:*",
     "@heroui/theme": "workspace:*",
     "@heroui/test-utils": "workspace:*",
-    "clean-package": "2.2.0",
-    "framer-motion": "11.9.0"
+    "clean-package": "2.2.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

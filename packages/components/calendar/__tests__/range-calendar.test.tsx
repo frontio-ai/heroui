@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import * as React from "react";
 import {render, act, fireEvent} from "@testing-library/react";
-import {CalendarDate} from "@internationalized/date";
+import {CalendarDate} from "@heroui/internationalized-date";
 import {keyCodes, triggerPress, type} from "@heroui/test-utils";
 
 import {RangeCalendar as RangeCalendarCalendarBase, RangeCalendarProps} from "../src";

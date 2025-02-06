@@ -4,7 +4,7 @@ import RangeCalendar from "./range-calendar";
 // export types
 export type {CalendarProps} from "./calendar";
 export type {RangeCalendarProps} from "./range-calendar";
-export type {CalendarDate} from "@internationalized/date";
+export type {CalendarDate} from "@heroui/internationalized-date";
 export type {DateValue} from "@react-types/calendar";
 export type {RangeValue} from "@react-types/shared";
 

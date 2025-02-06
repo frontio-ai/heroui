@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/i18n": "3.12.5",
+    "@heroui/react-aria-i18n": "workspace:*",
     "@react-aria/interactions": "3.23.0",
     "@react-aria/label": "3.7.14",
     "@react-aria/listbox": "3.14.0",

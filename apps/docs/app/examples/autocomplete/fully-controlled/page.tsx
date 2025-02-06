@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import {Autocomplete, AutocompleteItem, MenuTriggerAction} from "@heroui/react";
-import {useFilter} from "@react-aria/i18n";
+import {useFilter} from "@heroui/react-aria-i18n";
 
 const animals = [
   {label: "Cat", value: "cat", description: "The second most popular pet in the world"},

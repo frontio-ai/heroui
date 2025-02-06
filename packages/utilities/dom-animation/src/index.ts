@@ -1,3 +1,3 @@
-import {domAnimation} from "framer-motion";
+import {domAnimation} from "@heroui/motion";
 
 export default domAnimation;

@@ -1,5 +1,5 @@
 import type {ModalVariantProps, SlotsToClasses, ModalSlots} from "@heroui/theme";
-import type {HTMLMotionProps} from "framer-motion";
+import type {HTMLMotionProps} from "@heroui/motion";
 
 import {AriaModalOverlayProps} from "@react-aria/overlays";
 import {useAriaModalOverlay} from "@heroui/use-aria-modal-overlay";
@@ -22,7 +22,7 @@ interface Props extends HTMLHeroUIProps<"section"> {
   /**
    * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
    */
-  motionProps?: HTMLMotionProps<"section">;
+  motionProps?: Omit<HTMLMotionProps<"section">, "ref">;
   /**
    * Determines whether to hide the modal close button.
    * @default false

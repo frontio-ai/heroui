@@ -1,7 +1,12 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import * as React from "react";
 import {fireEvent, render} from "@testing-library/react";
-import {CalendarDate, CalendarDateTime, DateValue, ZonedDateTime} from "@internationalized/date";
+import {
+  CalendarDate,
+  CalendarDateTime,
+  DateValue,
+  ZonedDateTime,
+} from "@heroui/internationalized-date";
 import {pointerMap, triggerPress} from "@heroui/test-utils";
 import userEvent from "@testing-library/user-event";
 

@@ -6,7 +6,7 @@ import {Listbox} from "@heroui/listbox";
 import {Button} from "@heroui/button";
 import {Input} from "@heroui/input";
 import {ForwardedRef, ReactElement} from "react";
-import {AnimatePresence} from "framer-motion";
+import {AnimatePresence} from "@heroui/motion";
 
 import {UseAutocompleteProps, useAutocomplete} from "./use-autocomplete";
 

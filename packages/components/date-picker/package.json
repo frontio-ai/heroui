@@ -36,12 +36,10 @@
   "peerDependencies": {
     "@heroui/system": ">=2.4.8",
     "@heroui/theme": ">=2.4.7",
-    "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
-    "@internationalized/date": "3.7.0",
     "@heroui/aria-utils": "workspace:*",
     "@heroui/button": "workspace:*",
     "@heroui/calendar": "workspace:*",
@@ -51,8 +49,10 @@
     "@heroui/react-utils": "workspace:*",
     "@heroui/shared-icons": "workspace:*",
     "@heroui/shared-utils": "workspace:*",
+    "@heroui/motion": "workspace:*",
+    "@heroui/internationalized-date": "workspace:*",
+    "@heroui/react-aria-i18n": "workspace:*",
     "@react-aria/datepicker": "3.13.0",
-    "@react-aria/i18n": "3.12.5",
     "@react-aria/utils": "3.27.0",
     "@react-stately/datepicker": "3.12.0",
     "@react-stately/overlays": "3.6.13",
@@ -65,7 +65,6 @@
     "@heroui/system": "workspace:*",
     "@heroui/test-utils": "workspace:*",
     "@heroui/theme": "workspace:*",
-    "framer-motion": "11.9.0",
     "clean-package": "2.2.0",
     "react": "18.3.0",
     "react-dom": "18.3.0"

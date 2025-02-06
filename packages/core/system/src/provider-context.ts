@@ -1,5 +1,5 @@
 import type {SpinnerVariants, SupportedCalendars} from "./types";
-import type {Calendar} from "@internationalized/date";
+import type {Calendar} from "@heroui/internationalized-date";
 import type {DateValue} from "@react-types/datepicker";
 
 import {createContext} from "@heroui/react-utils";

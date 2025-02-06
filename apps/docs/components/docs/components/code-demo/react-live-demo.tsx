@@ -2,8 +2,8 @@ import React from "react";
 import {LivePreview, LiveProvider, LiveError} from "react-live";
 import {clsx} from "@heroui/shared-utils";
 import * as HeroUI from "@heroui/react";
-import * as intlDateUtils from "@internationalized/date";
-import * as reactAriaI18n from "@react-aria/i18n";
+import * as intlDateUtils from "@heroui/internationalized-date";
+import * as reactAriaI18n from "@heroui/react-aria-i18n";
 import * as reactHookFormBase from "react-hook-form";
 import {SandpackFiles} from "@codesandbox/sandpack-react/types";
 

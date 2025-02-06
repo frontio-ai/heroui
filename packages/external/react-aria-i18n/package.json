@@ -1,0 +1,52 @@
+{
+  "name": "@heroui/react-aria-i18n",
+  "version": "2.0.0",
+  "description": "Mirror package of @react-aria/i18n",
+  "keywords": [
+    "hero ui",
+    "@react-aria/i18n"
+  ],
+  "author": "HeroUI <support@heroui.com>",
+  "homepage": "https://heroui.com",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
+    "directory": "packages/external/react-aria-i18n"
+  },
+  "bugs": {
+    "url": "https://github.com/heroui-inc/heroui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "dependencies": {
+    "@react-aria/i18n": "3.12.5"
+  },
+  "devDependencies": {
+    "clean-package": "2.2.0"
+  },
+  "clean-package": "../../../clean-package.config.json",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  }
+}

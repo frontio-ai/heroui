@@ -9,7 +9,7 @@ import {
   warnSpy,
 } from "@heroui/test-utils";
 import userEvent from "@testing-library/user-event";
-import {CalendarDate, CalendarDateTime} from "@internationalized/date";
+import {CalendarDate, CalendarDateTime} from "@heroui/internationalized-date";
 import {HeroUIProvider} from "@heroui/system";
 import {Form} from "@heroui/form";
 

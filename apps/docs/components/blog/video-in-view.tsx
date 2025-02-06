@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 "use client";
 
-import {useInView} from "framer-motion";
+import {useInView} from "@heroui/motion";
 import {useRef, FC, useEffect, useState, useCallback} from "react";
 import {Button, cn, Spinner, Tooltip} from "@heroui/react";
 

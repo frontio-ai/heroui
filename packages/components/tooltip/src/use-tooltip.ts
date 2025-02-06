@@ -1,8 +1,8 @@
 import type {PopoverVariantProps, SlotsToClasses} from "@heroui/theme";
 import type {AriaTooltipProps} from "@react-types/tooltip";
 import type {OverlayTriggerProps} from "@react-types/overlays";
-import type {HTMLMotionProps} from "framer-motion";
 import type {OverlayOptions} from "@heroui/aria-utils";
+import type {HTMLMotionProps} from "@heroui/motion";
 
 import {ReactNode, Ref, useId, useImperativeHandle} from "react";
 import {useTooltipTriggerState} from "@react-stately/tooltip";
@@ -52,7 +52,7 @@ interface Props extends Omit<HTMLHeroUIProps, "content"> {
   /**
    * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
    */
-  motionProps?: HTMLMotionProps<"div">;
+  motionProps?: Omit<HTMLMotionProps<"div">, "ref">;
   /**
    * The container element in which the overlay portal will be placed.
    * @default document.body

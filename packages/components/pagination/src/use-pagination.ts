@@ -3,7 +3,7 @@ import type {Key, ReactNode, Ref} from "react";
 import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
 import {objectToDeps, Timer} from "@heroui/shared-utils";
-import {useLocale} from "@react-aria/i18n";
+import {useLocale} from "@heroui/react-aria-i18n";
 import {
   UsePaginationProps as UseBasePaginationProps,
   PaginationItemValue,

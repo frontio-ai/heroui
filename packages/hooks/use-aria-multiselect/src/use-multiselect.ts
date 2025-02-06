@@ -4,7 +4,7 @@ import type {
 } from "./use-multiselect-state";
 import type {AriaButtonProps} from "@react-types/button";
 
-import {useCollator} from "@react-aria/i18n";
+import {useCollator} from "@heroui/react-aria-i18n";
 import {setInteractionModality} from "@react-aria/interactions";
 import {useField} from "@react-aria/label";
 import {AriaListBoxOptions} from "@react-aria/listbox";

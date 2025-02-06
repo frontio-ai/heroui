@@ -3,7 +3,7 @@ import type {DateValue} from "@react-types/datepicker";
 
 import React from "react";
 import {DateRangePicker} from "@heroui/react";
-import {parseAbsoluteToLocal} from "@internationalized/date";
+import {parseAbsoluteToLocal} from "@heroui/internationalized-date";
 
 export default function App() {
   let [date, setDate] = React.useState<RangeValue<DateValue> | null>({

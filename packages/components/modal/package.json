@@ -36,7 +36,6 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
     "@heroui/theme": ">=2.4.0",
     "@heroui/system": ">=2.4.0"
   },
@@ -44,12 +43,12 @@
     "@heroui/use-disclosure": "workspace:*",
     "@heroui/use-draggable": "workspace:*",
     "@heroui/use-aria-button": "workspace:*",
-    "@heroui/framer-utils": "workspace:*",
     "@heroui/shared-utils": "workspace:*",
     "@heroui/react-utils": "workspace:*",
     "@heroui/shared-icons": "workspace:*",
     "@heroui/use-aria-modal-overlay": "workspace:*",
     "@heroui/dom-animation": "workspace:*",
+    "@heroui/motion": "workspace:*",
     "@react-aria/dialog": "3.5.21",
     "@react-aria/focus": "3.19.1",
     "@react-aria/interactions": "3.23.0",
@@ -68,7 +67,6 @@
     "@heroui/switch": "workspace:*",
     "@heroui/test-utils": "workspace:*",
     "react-lorem-component": "0.13.0",
-    "framer-motion": "11.9.0",
     "clean-package": "2.2.0",
     "react": "18.3.0",
     "react-dom": "18.3.0"

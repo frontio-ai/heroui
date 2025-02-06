@@ -3,7 +3,7 @@ import type {ModalProps} from "@heroui/modal";
 import {drawer} from "@heroui/theme";
 import {ReactRef, useDOMRef} from "@heroui/react-utils";
 import {useCallback, useMemo} from "react";
-import {TRANSITION_EASINGS} from "@heroui/framer-utils";
+import {TRANSITION_EASINGS} from "@heroui/motion";
 import {clsx, isEmpty} from "@heroui/shared-utils";
 import {PropGetter} from "@heroui/system";
 

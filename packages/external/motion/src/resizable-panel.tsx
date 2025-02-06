@@ -1,9 +1,22 @@
 import type {Ref} from "react";
 
 import {forwardRef} from "react";
-import {domAnimation, LazyMotion, m} from "framer-motion";
+import {domAnimation, LazyMotion, m} from "motion/react";
 import {useMeasure} from "@heroui/use-measure";
-import {HTMLHeroUIProps} from "@heroui/system";
+
+// extracted from `@heroui/system` to avoid circular dependencies
+type As<Props = any> = React.ElementType<Props>;
+
+type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
+  as?: As;
+};
+
+type HTMLHeroUIProps<T extends As = "div", OmitKeys extends keyof any = never> = Omit<
+  PropsOf<T>,
+  "ref" | "color" | "slot" | "size" | "defaultChecked" | "defaultValue" | OmitKeys
+> & {
+  as?: As;
+};
 
 /**
  * Props for the ResizablePanel component.

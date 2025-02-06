@@ -1,11 +1,12 @@
 {
-  "name": "@heroui/framer-utils",
-  "version": "2.1.7",
-  "description": "A set of framer motion transitions for react",
+  "name": "@heroui/motion",
+  "version": "2.0.0",
+  "description": "Mirror package of motion",
   "keywords": [
-    "framer-utils"
+    "hero ui",
+    "motion"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -19,35 +20,35 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heroui-inc/heroui.git",
-    "directory": "packages/utilities/framer-utils"
+    "directory": "packages/external/motion"
   },
   "bugs": {
     "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
-    "build:fast": "tsup src",
     "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
-  "peerDependencies": {
-    "react": ">=18 || >=19.0.0-rc.0",
-    "react-dom": ">=18 || >=19.0.0-rc.0",
-    "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1"
-  },
   "dependencies": {
-    "@heroui/system": "workspace:*",
     "@heroui/use-measure": "workspace:*",
-    "@heroui/shared-utils": "workspace:*"
+    "@heroui/shared-utils": "workspace:*",
+    "motion": "12.3.1"
   },
   "devDependencies": {
-    "react": "18.3.0",
-    "react-dom": "18.3.0",
-    "clean-package": "2.2.0",
-    "framer-motion": "11.9.0"
+    "clean-package": "2.2.0"
   },
-  "clean-package": "../../../clean-package.config.json"
+  "clean-package": "../../../clean-package.config.json",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  }
 }

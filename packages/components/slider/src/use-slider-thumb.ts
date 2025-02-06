@@ -11,7 +11,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
 import {dataAttr} from "@heroui/shared-utils";
 import {TooltipProps} from "@heroui/tooltip";
-import {useNumberFormatter} from "@react-aria/i18n";
+import {useNumberFormatter} from "@heroui/react-aria-i18n";
 
 import {UseSliderProps} from "./use-slider";
 

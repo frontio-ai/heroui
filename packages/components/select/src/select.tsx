@@ -9,7 +9,7 @@ import {forwardRef} from "@heroui/system";
 import {ScrollShadow} from "@heroui/scroll-shadow";
 import {cloneElement} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
-import {AnimatePresence} from "framer-motion";
+import {AnimatePresence} from "@heroui/motion";
 
 import {HiddenSelect} from "./hidden-select";
 import {UseSelectProps, useSelect} from "./use-select";

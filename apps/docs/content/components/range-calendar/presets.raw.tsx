@@ -10,8 +10,8 @@ import {
   endOfWeek,
   startOfMonth,
   endOfMonth,
-} from "@internationalized/date";
-import {useLocale} from "@react-aria/i18n";
+} from "@heroui/internationalized-date";
+import {useLocale} from "@heroui/react-aria-i18n";
 
 export default function App() {
   let [value, setValue] = React.useState<RangeValue<DateValue> | null>({

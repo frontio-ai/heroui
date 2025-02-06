@@ -1,6 +1,6 @@
 import {DatePicker} from "@heroui/react";
-import {today, isWeekend, getLocalTimeZone} from "@internationalized/date";
-import {useLocale} from "@react-aria/i18n";
+import {today, isWeekend, getLocalTimeZone} from "@heroui/internationalized-date";
+import {useLocale} from "@heroui/react-aria-i18n";
 
 export default function App() {
   let now = today(getLocalTimeZone());

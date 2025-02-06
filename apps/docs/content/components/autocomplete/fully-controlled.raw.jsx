@@ -1,5 +1,5 @@
 import {Autocomplete, AutocompleteItem} from "@heroui/react";
-import {useFilter} from "@react-aria/i18n";
+import {useFilter} from "@heroui/react-aria-i18n";
 
 export const animals = [
   {label: "Cat", key: "cat", description: "The second most popular pet in the world"},

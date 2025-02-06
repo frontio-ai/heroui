@@ -1,6 +1,6 @@
 import React from "react";
 import {DatePicker} from "@heroui/react";
-import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
+import {DateValue, now, parseAbsoluteToLocal} from "@heroui/internationalized-date";
 
 export default function App() {
   let [date, setDate] = React.useState<DateValue | null>(

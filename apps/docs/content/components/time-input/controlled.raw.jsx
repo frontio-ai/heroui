@@ -1,6 +1,6 @@
 import {TimeInput} from "@heroui/react";
-import {parseAbsoluteToLocal, Time, ZonedDateTime} from "@internationalized/date";
-import {useDateFormatter} from "@react-aria/i18n";
+import {parseAbsoluteToLocal, Time, ZonedDateTime} from "@heroui/internationalized-date";
+import {useDateFormatter} from "@heroui/react-aria-i18n";
 
 export default function App() {
   let [value, setValue] = React.useState(parseAbsoluteToLocal("2024-04-08T18:45:22Z"));

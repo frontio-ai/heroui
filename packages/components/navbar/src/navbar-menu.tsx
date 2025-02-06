@@ -1,7 +1,9 @@
+import type {HTMLMotionProps} from "@heroui/motion";
+
 import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
 import {useDOMRef} from "@heroui/react-utils";
 import {clsx, dataAttr} from "@heroui/shared-utils";
-import {AnimatePresence, HTMLMotionProps, LazyMotion, m} from "framer-motion";
+import {AnimatePresence, LazyMotion, m} from "@heroui/motion";
 import {mergeProps} from "@react-aria/utils";
 import {Overlay} from "@react-aria/overlays";
 import React from "react";
@@ -19,7 +21,7 @@ export interface NavbarMenuProps extends HTMLHeroUIProps<"ul"> {
   /**
    * The props to modify the framer motion animation. Use the `variants` API to create your own animation.
    */
-  motionProps?: HTMLMotionProps<"ul">;
+  motionProps?: Omit<HTMLMotionProps<"ul">, "ref">;
 }
 
 const domAnimation = () => import("@heroui/dom-animation").then((res) => res.default);

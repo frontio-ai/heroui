@@ -1,5 +1,5 @@
 import {RangeCalendar} from "@heroui/react";
-import {today, getLocalTimeZone} from "@internationalized/date";
+import {today, getLocalTimeZone} from "@heroui/internationalized-date";
 
 export default function App() {
   let [value, setValue] = React.useState({

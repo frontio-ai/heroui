@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import * as React from "react";
 import {fireEvent, render} from "@testing-library/react";
-import {Time, ZonedDateTime} from "@internationalized/date";
+import {Time, ZonedDateTime} from "@heroui/internationalized-date";
 import {TimeValue} from "@react-types/datepicker";
 import {pointerMap, triggerPress} from "@heroui/test-utils";
 import userEvent from "@testing-library/user-event";

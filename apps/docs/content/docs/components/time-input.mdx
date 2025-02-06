@@ -38,6 +38,21 @@ The `TimeInput` component consists of a label, and a group of segments represent
   }}
 />
 
+For some usages, you may require [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/). The package provides objects and functions for representing and manipulating dates and times in a locale-aware manner. To avoid incompatibility issues, please use our internal one.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @heroui/internationalized-date",
+    yarn: "yarn add @heroui/internationalized-date",
+    pnpm: "pnpm add @heroui/internationalized-date",
+    bun: "bun add @heroui/internationalized-date",
+  }}
+/>
+
+<Blockquote color="warning">
+**Note**: <Code className="px-1 py-0.5 text-small md:text-tiny font-mono">@heroui/internationalized-date</Code> is only available for individual installation.
+</Blockquote>
+
 ## Usage
 
 A `TimeInput` displays a placeholder by default. An initial, uncontrolled value can be provided to the TimeField using the defaultValue prop. Alternatively, a controlled value can be provided using the value prop.

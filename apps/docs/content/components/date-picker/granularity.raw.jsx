@@ -1,5 +1,5 @@
 import {DatePicker} from "@heroui/react";
-import {now, parseAbsoluteToLocal} from "@internationalized/date";
+import {now, parseAbsoluteToLocal} from "@heroui/internationalized-date";
 
 export default function App() {
   let [date, setDate] = React.useState(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));

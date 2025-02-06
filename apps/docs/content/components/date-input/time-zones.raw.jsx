@@ -1,5 +1,5 @@
 import {DateInput} from "@heroui/react";
-import {parseZonedDateTime, parseAbsoluteToLocal} from "@internationalized/date";
+import {parseZonedDateTime, parseAbsoluteToLocal} from "@heroui/internationalized-date";
 
 export default function App() {
   return (

@@ -1,5 +1,5 @@
 import {Calendar} from "@heroui/react";
-import {I18nProvider} from "@react-aria/i18n";
+import {I18nProvider} from "@heroui/react-aria-i18n";
 
 export default function App() {
   return (

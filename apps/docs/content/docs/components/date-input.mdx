@@ -1,5 +1,5 @@
 ---
-title: "DateInput"
+title: "Date Input"
 description: "DateInput is a component that allows users to enter and edit date and time values using a keyboard. Each part of a date value is displayed in an individually editable segment."
 ---
 
@@ -37,6 +37,36 @@ Each part of a date value is displayed in an individually editable segment.
     individual: 'import {DateInput} from "@heroui/date-input";',
   }}
 />
+
+For some usages, you may require [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/). The package provides objects and functions for representing and manipulating dates and times in a locale-aware manner. To avoid incompatibility issues, please use our internal one.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @heroui/internationalized-date",
+    yarn: "yarn add @heroui/internationalized-date",
+    pnpm: "pnpm add @heroui/internationalized-date",
+    bun: "bun add @heroui/internationalized-date",
+  }}
+/>
+
+<Blockquote color="warning">
+**Note**: <Code className="px-1 py-0.5 text-small md:text-tiny font-mono">@heroui/internationalized-date</Code> is only available for individual installation.
+</Blockquote>
+
+For some usages, you may require `@react-aria/i18n`. To avoid incompatibility issues, please use our internal one.
+
+<PackageManagers
+  commands={{
+    npm: "npm install @heroui/react-aria-i18n",
+    yarn: "yarn add @heroui/react-aria-i18n",
+    pnpm: "pnpm add @heroui/react-aria-i18n",
+    bun: "bun add @heroui/react-aria-i18n",
+  }}
+/>
+
+<Blockquote color="warning">
+**Note**: <Code className="px-1 py-0.5 text-small md:text-tiny font-mono">@heroui/react-aria-i18n</Code> is only available for individual installation.
+</Blockquote>
 
 ## Usage
 
@@ -99,21 +129,6 @@ You can use the `value` and `onChange` properties to control the input value.
 DateInput is time zone aware when a `ZonedDateTime` object is provided as the value. In this case, the time zone abbreviation is displayed,
 and time zone concerns such as daylight saving time are taken into account when the value is manipulated.
 
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
-in multiple formats into `ZonedDateTime` objects.
-
-<PackageManagers
-  commands={{
-    npm: "npm install @internationalized/date@3.6.0",
-    yarn: "yarn add @internationalized/date@3.6.0",
-    pnpm: "pnpm add @internationalized/date@3.6.0",
-  }}
-/>
-
-```jsx
-import {parseZonedDateTime} from "@internationalized/date";
-```
-
 <Spacer y={2} />
 
 <CodeDemo title="Time Zones" files={dateInputContent.timeZones} />
@@ -124,22 +139,6 @@ The granularity prop allows you to control the smallest unit that is displayed b
 the value is displayed with "day" granularity (year, month, and day),
 and `CalendarDateTime` and `ZonedDateTime` values are displayed with "minute" granularity.
 
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
-in multiple formats into `ZonedDateTime` objects.
-
-<PackageManagers
-  commands={{
-    npm: "npm install @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-    yarn: "yarn add @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-    pnpm: "pnpm add @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-  }}
-/>
-
-```jsx
-import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
-import {useDateFormatter} from "@react-aria/i18n";
-```
-
 <Spacer y={2} />
 
 <CodeDemo title="Time Zones" files={dateInputContent.granularity} />
@@ -147,21 +146,6 @@ import {useDateFormatter} from "@react-aria/i18n";
 ### Min Date And Max Date
 
 The minValue and maxValue props can also be used to ensure the value is within a specific range.
-
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
-in multiple formats into `ZonedDateTime` objects.
-
-<PackageManagers
-  commands={{
-    npm: "npm install @internationalized/date@3.6.0",
-    yarn: "yarn add @internationalized/date@3.6.0",
-    pnpm: "pnpm add @internationalized/date@3.6.0",
-  }}
-/>
-
-```jsx
-import {getLocalTimeZone, parseDate, today} from "@internationalized/date";
-```
 
 <CodeDemo title="Min Date And Max Date" files={dateInputContent.minAndMaxDate} />
 
@@ -172,21 +156,6 @@ Dates are automatically displayed in the appropriate calendar system for the use
 The calendar system can be overridden using the [Unicode calendar locale extension](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar#adding_a_calendar_in_the_locale_string),
 passed to the [I18nProvider](https://react-spectrum.adobe.com/react-aria/I18nProvider.html) component.
 
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
-in multiple formats into `ZonedDateTime` objects.
-
-<PackageManagers
-  commands={{
-    npm: "npm install @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-    yarn: "yarn add @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-    pnpm: "pnpm add @internationalized/date@3.6.0 @react-aria/i18n@3.12.4",
-  }}
-/>
-
-```jsx
-import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
-import {I18nProvider} from "@react-aria/i18n";
-```
 
 <CodeDemo title="International Calendar" files={dateInputContent.internationalCalendar} />
 
@@ -194,21 +163,6 @@ import {I18nProvider} from "@react-aria/i18n";
 
 When a `ZonedDateTime` object is provided as the value to DateInput, the time zone abbreviation is displayed by default.
 However, if this is displayed elsewhere or implicit based on the usecase, it can be hidden using the hideTimeZone option.
-
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
-in multiple formats into `ZonedDateTime` objects.
-
-<PackageManagers
-  commands={{
-    npm: "npm install @internationalized/date@3.6.0",
-    yarn: "yarn add @internationalized/date@3.6.0",
-    pnpm: "pnpm add @internationalized/date@3.6.0",
-  }}
-/>
-
-```jsx
-import {parseZonedDateTime} from "@internationalized/date";
-```
 
 <CodeDemo title="Hide Time Zone" files={dateInputContent.hideTimeZone} />
 
@@ -218,20 +172,6 @@ By default, DateInput displays times in either 12 or 24 hour hour format dependi
 However, this can be overridden using the `hourCycle` prop if needed for a specific usecase.
 This example forces DateInput to use 24-hour time, regardless of the locale.
 
-[@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) includes functions for parsing strings
-in multiple formats into `ZonedDateTime` objects.
-
-<PackageManagers
-  commands={{
-    npm: "npm install @internationalized/date@3.6.0",
-    yarn: "yarn add @internationalized/date@3.6.0",
-    pnpm: "pnpm add @internationalized/date@3.6.0",
-  }}
-/>
-
-```jsx
-import {parseZonedDateTime} from "@internationalized/date";
-```
 
 <CodeDemo title="Hide Time Zone" files={dateInputContent.hourlyCycle} />
 

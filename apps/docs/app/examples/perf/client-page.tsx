@@ -17,7 +17,7 @@ import {
   extendVariants,
   PaginationItem,
 } from "@heroui/react";
-import {useFilter} from "@react-aria/i18n";
+import {useFilter} from "@heroui/react-aria-i18n";
 import {useEffect, useMemo, useRef, useState} from "react";
 import {useSearchParams} from "next/navigation";
 

@@ -1,7 +1,6 @@
 import {forwardRef} from "@heroui/system";
 import {OverlayContainer} from "@react-aria/overlays";
-import {AnimatePresence, m, LazyMotion} from "framer-motion";
-import {TRANSITION_VARIANTS} from "@heroui/framer-utils";
+import {AnimatePresence, m, LazyMotion, TRANSITION_VARIANTS} from "@heroui/motion";
 import {warn} from "@heroui/shared-utils";
 import {Children, cloneElement, isValidElement} from "react";
 import {getTransformOrigins} from "@heroui/aria-utils";

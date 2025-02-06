@@ -1,15 +1,13 @@
-# @heroui/framer-utils
+# @heroui/internationalized-date
 
-A Quick description of the component
-
-> This is an internal utility, not intended for public usage.
+Mirror package of `@internationalized/date`
 
 ## Installation
 
 ```sh
-yarn add @heroui/framer-utils
+yarn add @heroui/internationalized-date
 # or
-npm i @heroui/framer-utils
+npm i @heroui/internationalized-date
 ```
 
 ## Contribution

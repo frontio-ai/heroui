@@ -12,8 +12,8 @@ import {
   startOfWeek,
   endOfMonth,
   endOfWeek,
-} from "@internationalized/date";
-import {I18nProvider, useLocale} from "@react-aria/i18n";
+} from "@heroui/internationalized-date";
+import {I18nProvider, useLocale} from "@heroui/react-aria-i18n";
 import {Button, ButtonGroup} from "@heroui/button";
 import {Radio, RadioGroup} from "@heroui/radio";
 import {cn} from "@heroui/theme";

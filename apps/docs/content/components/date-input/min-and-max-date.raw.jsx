@@ -1,5 +1,5 @@
 import {DateInput} from "@heroui/react";
-import {getLocalTimeZone, today} from "@internationalized/date";
+import {getLocalTimeZone, today} from "@heroui/internationalized-date";
 
 export default function App() {
   return (
