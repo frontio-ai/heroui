@@ -12,6 +12,7 @@ import controlled from "./controlled";
 import customStyles from "./custom-styles";
 import placement from "./placement";
 import vertical from "./vertical";
+import overflow from "./overflow";
 
 export const tabsContent = {
   usage,
@@ -28,4 +29,5 @@ export const tabsContent = {
   customStyles,
   placement,
   vertical,
+  overflow,
 };

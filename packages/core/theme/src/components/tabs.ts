@@ -8,7 +8,7 @@ import {colorVariants, dataFocusVisibleClasses} from "../utils";
  *
  * @example
  * ```js
- * const {base, tabList, tab, panel} = tabs({...})
+ * const {base, tabList, tab, panel, moreButton, moreIcon} = tabs({...})
  *
  * <div className={base())}>
  *  <div className={tabList())}>
@@ -17,13 +17,30 @@ import {colorVariants, dataFocusVisibleClasses} from "../utils";
  *    <div className={tab())} data-selected="boolean">Tab 3</div>
  *  </div>
  *  <div className={panel())}>Selected panel</div>
+ *  <button className={moreButton())}>
+ *    <span className={moreIcon())}>Custom icon </span>
+ *  </button>
  * </div>
+ * ```
+ *
+ * You can customize the "show more" button appearance:
+ * ```js
+ * <Tabs
+ *   moreIcon={CustomIcon}
+ *   classNames={{
+ *     moreButton: "custom-button-styles",
+ *     moreIcon: "custom-icon-styles"
+ *   }}
+ * >
+ *    tabs content
+ * </Tabs>
  * ```
  */
 const tabs = tv({
   slots: {
-    base: "inline-flex",
+    base: "relative flex w-full items-center gap-2",
     tabList: [
+      "relative",
       "flex",
       "p-1",
       "h-fit",
@@ -33,6 +50,8 @@ const tabs = tv({
       "overflow-x-scroll",
       "scrollbar-hide",
       "bg-default-100",
+      "w-full",
+      "data-[has-overflow=true]:w-[calc(100%-32px)]",
     ],
     tab: [
       "z-0",
@@ -73,6 +92,17 @@ const tabs = tv({
       ...dataFocusVisibleClasses,
     ],
     tabWrapper: [],
+    moreButton: [
+      "flex",
+      "items-center",
+      "justify-center",
+      "hover:bg-default-100",
+      "rounded-small",
+      "transition-colors",
+      "px-0",
+      "min-w-8",
+    ],
+    moreIcon: "w-5 h-5",
   },
   variants: {
     variant: {

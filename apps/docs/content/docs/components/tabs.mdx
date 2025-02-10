@@ -98,6 +98,29 @@ Change the orientation of the tabs it will invalidate the placement prop when th
 
 <CodeDemo title="Vertical" files={tabsContent.vertical} />
 
+### Overflow Behavior
+
+When there are too many tabs to fit in the container, a "show more" button appears:
+
+- Hidden tabs are accessible through a dropdown menu
+- The button can be customized with a different icon or styles
+
+<CodeDemo title="Overflow" files={tabsContent.overflow} />
+
+You can customize the overflow button appearance:
+
+```jsx
+<Tabs
+  moreIcon={CustomIcon}
+  classNames={{
+    moreButton: "custom-button-styles",
+    moreIcon: "custom-icon-styles"
+  }}
+>
+  // ... tabs content
+</Tabs>
+```
+
 ### Links
 
 Tabs items can be rendered as links by passing the `href` prop to the `Tab` component. By
@@ -200,6 +223,8 @@ function AppTabs() {
 - **cursor**: The cursor slot, it wraps the cursor. This is only visible when `disableAnimation=false`
 - **panel**: The panel slot, it wraps the tab panel (content).
 - **tabWrapper**: The tab wrapper slot, it wraps the tab and the tab content.
+- **moreButton**: The "show more" button that appears when tabs overflow
+- **moreIcon**: The icon inside the "show more" button
 
 ### Custom Styles
 
@@ -344,7 +369,7 @@ You can customize the `Tabs` component by passing custom Tailwind CSS classes to
     },
     {
       attribute: "classNames",
-      type: "Partial<Record<\"base\"｜ \"tabList\"｜ \"tab\"｜ \"tabContent\"｜ \"cursor\" ｜ \"panel\" ｜ \"tabWrapper\", string>>",
+      type: "Partial<Record<\"base\"｜ \"tabList\"｜ \"tab\"｜ \"tabContent\"｜ \"cursor\" ｜ \"panel\" ｜ \"tabWrapper\" ｜ \"moreButton\" ｜ \"moreIcon\", string>>",
       description: "Allows to set custom class names for the card slots.",
       default: "-"
     },

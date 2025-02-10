@@ -63,6 +63,7 @@
     "react-lorem-component": "0.13.0",
     "@heroui/card": "workspace:*",
     "@heroui/input": "workspace:*",
+    "@heroui/dropdown": "workspace:*",
     "@heroui/test-utils": "workspace:*",
     "@heroui/button": "workspace:*",
     "@heroui/shared-icons": "workspace:*",

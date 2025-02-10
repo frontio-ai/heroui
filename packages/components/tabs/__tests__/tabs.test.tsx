@@ -400,4 +400,105 @@ describe("Tabs", () => {
     );
     expect(ref.current).not.toBeNull();
   });
+
+  const mockTabListDimensions = (el: HTMLElement | null, overflowing: boolean) => {
+    if (!el) return;
+
+    Object.defineProperty(el, "scrollWidth", {
+      configurable: true,
+      value: overflowing ? 500 : 200,
+    });
+    Object.defineProperty(el, "clientWidth", {
+      configurable: true,
+      value: 200,
+    });
+  };
+
+  const mockTabPositions = (container: HTMLElement | null) => {
+    const CONTAINER_WIDTH = 200;
+    const TAB_WIDTH = 100;
+    const VISIBLE_TABS = 2;
+
+    if (!container) return;
+
+    // Mock getBoundingClientRect for container
+    const containerRect = {left: 0, right: CONTAINER_WIDTH};
+
+    const containerSpy = jest
+      .spyOn(container, "getBoundingClientRect")
+      .mockImplementation(() => containerRect as DOMRect);
+
+    // Mock tab elements positions
+    const tabs = container.querySelectorAll("[data-key]");
+    const spies: jest.SpyInstance[] = [];
+
+    tabs.forEach((tab, index) => {
+      if (!(tab instanceof HTMLElement)) return;
+
+      const isHidden = index >= VISIBLE_TABS;
+      const left = isHidden ? CONTAINER_WIDTH + TAB_WIDTH : index * TAB_WIDTH;
+      const right = left + TAB_WIDTH;
+
+      spies.push(
+        jest
+          .spyOn(tab, "getBoundingClientRect")
+          .mockImplementation(() => ({left, right} as DOMRect)),
+      );
+    });
+
+    return () => {
+      containerSpy.mockRestore();
+      spies.forEach((spy) => spy.mockRestore());
+    };
+  };
+
+  it("should show overflow menu when tabs overflow", () => {
+    const {container, getByLabelText} = render(
+      <Tabs aria-label="Tabs">
+        <Tab key="1" title="Tab 1">
+          Content 1
+        </Tab>
+        <Tab key="2" title="Tab 2">
+          Content 2
+        </Tab>
+        <Tab key="3" title="Tab 3">
+          Content 3
+        </Tab>
+        <Tab key="4" title="Tab 4">
+          Content 4
+        </Tab>
+      </Tabs>,
+    );
+
+    const tabList = container.querySelector('[role="tablist"]') as HTMLElement;
+
+    mockTabListDimensions(tabList, true);
+    mockTabPositions(tabList);
+
+    fireEvent.scroll(tabList);
+
+    expect(getByLabelText("Show more tabs")).toBeInTheDocument();
+  });
+
+  it("should not show overflow menu when tabs don't overflow", () => {
+    const {container, queryByLabelText} = render(
+      <Tabs aria-label="Tabs">
+        <Tab key="1" title="Tab 1">
+          Content 1
+        </Tab>
+        <Tab key="2" title="Tab 2">
+          Content 2
+        </Tab>
+      </Tabs>,
+    );
+
+    const tabList = container.querySelector('[role="tablist"]') as HTMLElement;
+
+    mockTabListDimensions(tabList, false);
+    mockTabPositions(tabList);
+
+    fireEvent.scroll(tabList);
+
+    expect(queryByLabelText("Show more tabs")).not.toBeInTheDocument();
+  });
 });
