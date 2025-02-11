@@ -87,7 +87,7 @@ export const shopCartStyles = tv({
           "lg:scale-[1.3]",
           "before:rounded-3xl",
           "before:from-[#870172] before:to-[#18000E]",
-          "shadow-lg",
+          "shadow-lg rounded-3xl",
         ],
         img: "sm:scale-90 sm:left-0",
         title: "text-2xl",
