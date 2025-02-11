@@ -35,7 +35,6 @@ const card = tv({
     header: [
       "flex",
       "p-3",
-      "z-10",
       "w-full",
       "justify-start",
       "items-center",
