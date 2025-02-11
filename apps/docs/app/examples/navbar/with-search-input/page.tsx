@@ -31,7 +31,7 @@ export default function Page() {
   return (
     <Navbar isBordered>
       <NavbarContent justify="start">
-        <NavbarBrand className="mr-4">
+        <NavbarBrand className="mr-0 sm:mr-2">
           <AcmeLogo />
           <p className="hidden sm:block font-bold text-inherit">ACME</p>
         </NavbarBrand>
@@ -56,7 +56,7 @@ export default function Page() {
       <NavbarContent as="div" className="items-center" justify="end">
         <Input
           classNames={{
-            base: "max-w-full sm:max-w-[10rem] h-10",
+            base: "max-w-full sm:max-w-[10rem] min-w-[8rem] h-10",
             input: "text-small",
             inputWrapper:
               "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
