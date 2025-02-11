@@ -9,7 +9,7 @@ import {tv} from "../utils/tv";
  */
 const dateInput = tv({
   slots: {
-    base: "group flex flex-col",
+    base: "group flex flex-col overflow-hidden",
     label: [
       "block subpixel-antialiased text-small text-default-600",
       // isRequired=true
@@ -21,7 +21,7 @@ const dateInput = tv({
       "relative px-3 gap-3 w-full inline-flex flex-row items-center",
       "cursor-text tap-highlight-transparent shadow-sm",
     ],
-    input: "flex h-full gap-x-0.5 w-full font-normal",
+    input: "flex h-full gap-x-0.5 w-full font-normal overflow-hidden",
     innerWrapper: [
       "flex items-center text-default-400 w-full gap-x-2 h-6",
       // isInValid=true

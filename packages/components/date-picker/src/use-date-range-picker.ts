@@ -294,6 +294,7 @@ export function useDateRangePicker<T extends DateValue>({
       style: {
         ...props.style,
         maxWidth: "fit-content",
+        flexShrink: 0,
       },
       className: dateInputSlots.input({
         class: clsx(classNames?.input, props?.className),
