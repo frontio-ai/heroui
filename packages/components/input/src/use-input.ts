@@ -173,8 +173,10 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   useSafeLayoutEffect(() => {
     if (!domRef.current) return;
 
+    if (typeof ref == "function") ref(domRef as any);
+
     setInputValue(domRef.current.value);
-  }, [domRef.current]);
+  }, [domRef.current, domRef.current?.value]);
 
   const {
     labelProps,
