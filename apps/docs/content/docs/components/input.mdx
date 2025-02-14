@@ -75,11 +75,15 @@ the end of the label and the input will be required.
 
 ### Label Placements
 
-You can change the position of the label by setting the `labelPlacement` property to `inside`, `outside` or `outside-left`.
+You can change the position of the label by setting the `labelPlacement` property to `inside`, `outside`, `outside-left` or `outside-top`.
 
 <CodeDemo title="Label Placements" files={inputContent.labelPlacements} />
 
 > **Note**: If the `label` is not passed, the `labelPlacement` property will be `outside` by default.
+
+> **Note**: If the `labelPlacement` is `outside`, `label` is outside only when a placeholder is provided. 
+
+> **Note**: If the `labelPlacement` is `outside-top` or `outside-left`, `label` is outside even if a placeholder is not provided.
 
 ### Password Input
 

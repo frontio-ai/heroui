@@ -178,6 +178,12 @@ const input = tv({
         mainWrapper: "flex flex-col",
         label: "relative text-foreground pe-2 ps-2 pointer-events-auto",
       },
+      "outside-top": {
+        base: "flex-col items-center flex-nowrap data-[has-helper=true]:items-start",
+        inputWrapper: "flex-1",
+        mainWrapper: "flex flex-col",
+        label: "relative text-foreground pb-2",
+      },
       inside: {
         label: "cursor-text",
         inputWrapper: "flex-col items-start justify-center gap-0",

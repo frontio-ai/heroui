@@ -50,7 +50,7 @@ export default {
       control: {
         type: "select",
       },
-      options: ["inside", "outside", "outside-left"],
+      options: ["inside", "outside", "outside-left", "outside-top"],
     },
     isDisabled: {
       control: {
@@ -175,15 +175,16 @@ const LabelPlacementTemplate = (args) => (
   <div className="w-full flex flex-col items-center gap-12">
     <div className="flex flex-col gap-3">
       <h3>Without placeholder</h3>
-      <div className="w-full max-w-xl flex flex-row items-end gap-4">
+      <div className="w-full flex flex-row items-end gap-4">
         <Input {...args} description="inside" />
         <Input {...args} description="outside" labelPlacement="outside" />
         <Input {...args} description="outside-left" labelPlacement="outside-left" />
+        <Input {...args} description="outside-top" labelPlacement="outside-top" />
       </div>
     </div>
     <div className="flex flex-col gap-3">
       <h3>With placeholder</h3>
-      <div className="w-full max-w-xl flex flex-row items-end gap-4">
+      <div className="w-full flex flex-row items-end gap-4">
         <Input {...args} description="inside" placeholder="Enter your email" />
         <Input
           {...args}
@@ -195,6 +196,12 @@ const LabelPlacementTemplate = (args) => (
           {...args}
           description="outside-left"
           labelPlacement="outside-left"
+          placeholder="Enter your email"
+        />
+        <Input
+          {...args}
+          description="outside-top"
+          labelPlacement="outside-top"
           placeholder="Enter your email"
         />
       </div>

@@ -1,7 +1,7 @@
 import {Input} from "@heroui/react";
 
 export default function App() {
-  const placements = ["inside", "outside", "outside-left"];
+  const placements = ["inside", "outside", "outside-left", "outside-top"];
 
   return (
     <div className="flex flex-col gap-4">

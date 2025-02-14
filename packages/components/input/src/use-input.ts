@@ -1,13 +1,7 @@
 import type {InputVariantProps, SlotsToClasses, InputSlots} from "@heroui/theme";
 import type {AriaTextFieldOptions} from "@react-aria/textfield";
 
-import {
-  HTMLHeroUIProps,
-  mapPropsVariants,
-  PropGetter,
-  useLabelPlacement,
-  useProviderContext,
-} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useFocusRing} from "@react-aria/focus";
@@ -20,6 +14,7 @@ import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useTextField} from "@react-aria/textfield";
 import {FormContext, useSlottedContext} from "@heroui/form";
+import {warn} from "@heroui/shared-utils";
 
 export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>
   extends Omit<HTMLHeroUIProps<"input">, keyof InputVariantProps> {
@@ -233,10 +228,37 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
 
   const isInvalid = validationState === "invalid" || isAriaInvalid;
 
-  const labelPlacement = useLabelPlacement({
-    labelPlacement: originalProps.labelPlacement,
-    label,
-  });
+  /**
+   * Following code is not used because adding 'outside-top' to
+   * 'use-label-placement' hook breaks other component.
+   *  Folowing code is replaced with the old way of computing
+   * 'labelPlacement' for 'input' component.
+   *
+   *  const labelPlacement = useLabelPlacement({
+   *       labelPlacement: originalProps.labelPlacement,
+   *       label,
+   *     });
+   */
+
+  const labelPlacement = useMemo<InputVariantProps["labelPlacement"]>(() => {
+    if (isFileTypeInput) {
+      // if `labelPlacement` is not defined, choose `outside` instead
+      // since the default value `inside` is not supported in file input
+      if (!originalProps.labelPlacement) return "outside";
+      // throw a warning if `labelPlacement` is `inside`
+      // and change it to `outside`
+      if (originalProps.labelPlacement === "inside") {
+        warn("Input with file type doesn't support inside label. Converting to outside ...");
+
+        return "outside";
+      }
+    }
+    if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
+      return "outside";
+    }
+
+    return originalProps.labelPlacement ?? "inside";
+  }, [originalProps.labelPlacement, label]);
 
   const errorMessage =
     typeof props.errorMessage === "function"
@@ -247,17 +269,26 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const hasPlaceholder = !!props.placeholder;
   const hasLabel = !!label;
   const hasHelper = !!description || !!errorMessage;
-  const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
+  const isOutsideLeft = labelPlacement === "outside-left";
+  const isOutsideTop = labelPlacement === "outside-top";
+
+  const shouldLabelBeOutside =
+    // label is outside only when some placeholder is there
+    labelPlacement === "outside" ||
+    // label is outside regardless of placeholder
+    isOutsideLeft ||
+    isOutsideTop;
+
   const shouldLabelBeInside = labelPlacement === "inside";
   const isPlaceholderShown = domRef.current
     ? (!domRef.current.value || domRef.current.value === "" || !inputValue || inputValue === "") &&
       hasPlaceholder
     : false;
-  const isOutsideLeft = labelPlacement === "outside-left";
 
   const hasStartContent = !!startContent;
   const isLabelOutside = shouldLabelBeOutside
-    ? labelPlacement === "outside-left" ||
+    ? isOutsideLeft ||
+      isOutsideTop ||
       hasPlaceholder ||
       (labelPlacement === "outside" && hasStartContent)
     : false;
@@ -531,6 +562,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     hasStartContent,
     isLabelOutside,
     isOutsideLeft,
+    isOutsideTop,
     isLabelOutsideAsPlaceholder,
     shouldLabelBeOutside,
     shouldLabelBeInside,
