@@ -6,7 +6,7 @@ export default function App() {
       <Button className="rounded-[4px] bg-[#BEF264] text-[#000000] data-[focus-visible=true]:outline-[#BEF264]">
         Solid
       </Button>
-      <Button variant="ghost" className="rounded-[4px] border-[1px] border-[#BEF264] hover:!bg-[#BEF264] hover:!text-[#000000] data-[focus-visible=true]:outline-[#BEF264]">
+      <Button variant="ghost" className="rounded-[4px] border-[1px] border-[#BEF264] hover:bg-[#BEF264]! hover:text-[#000000]! data-[focus-visible=true]:outline-[#BEF264]">
         Ghost
       </Button>
     </div>  

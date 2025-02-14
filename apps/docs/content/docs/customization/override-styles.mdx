@@ -25,7 +25,7 @@ export default function App() {
   return (
     <Button
       disableRipple
-      className="relative overflow-visible rounded-full hover:-translate-y-1 px-12 shadow-xl bg-background/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
+      className="relative overflow-visible rounded-full hover:-translate-y-1 px-12 shadow-sm bg-background/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:duration-500! hover:after:scale-150 hover:after:opacity-0"
       size="lg"
     >
       Press me
@@ -71,7 +71,7 @@ import {CircularProgress, Card, CardBody} from "@heroui/react";
 
 export default function App() {
   return (
-    <Card className="w-[240px] h-[240px] bg-gradient-to-br from-violet-500 to-fuchsia-500">
+    <Card className="w-[240px] h-[240px] bg-linear-to-br from-violet-500 to-fuchsia-500">
       <CardBody className="justify-center items-center py-0">
         <CircularProgress
           classNames={{

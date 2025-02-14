@@ -18,7 +18,7 @@ const breadcrumbItem = tv({
       "cursor-pointer",
       "whitespace-nowrap",
       "line-clamp-1",
-      "outline-none",
+      "outline-hidden",
       "tap-highlight-transparent",
       // focus ring
       ...dataFocusVisibleClasses,
@@ -211,7 +211,7 @@ const breadcrumbs = tv({
         list: "bg-default-100",
       },
       bordered: {
-        list: "border-medium border-default-200 shadow-sm",
+        list: "border-medium border-default-200 shadow-xs",
       },
       light: {},
     },

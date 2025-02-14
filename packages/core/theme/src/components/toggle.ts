@@ -37,7 +37,7 @@ const toggle = tv({
       "inline-flex",
       "items-center",
       "justify-start",
-      "flex-shrink-0",
+      "shrink-0",
       "overflow-hidden",
       "bg-default-200",
       "rounded-full",

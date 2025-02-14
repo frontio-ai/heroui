@@ -2,7 +2,7 @@ const App = `import {CircularProgress, Card, CardBody, CardFooter, Chip} from "@
 
 export default function App() {
   return (
-    <Card className="w-[240px] h-[240px] bg-gradient-to-br from-violet-500 to-fuchsia-500">
+    <Card className="w-[240px] h-[240px] bg-linear-to-br from-violet-500 to-fuchsia-500">
       <CardBody className="justify-center items-center py-0">
         <CircularProgress
           classNames={{

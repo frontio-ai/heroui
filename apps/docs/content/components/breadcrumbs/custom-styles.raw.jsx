@@ -36,7 +36,7 @@ export default function App() {
   return (
     <Breadcrumbs
       classNames={{
-        list: "bg-gradient-to-br from-violet-500 to-fuchsia-500 shadow-small",
+        list: "bg-linear-to-br from-violet-500 to-fuchsia-500 shadow-small",
       }}
       itemClasses={{
         item: "text-white/60 data-[current=true]:text-white",

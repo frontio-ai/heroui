@@ -164,7 +164,7 @@ const CustomValueTemplate = (args: SliderProps) => {
             >
               <input
                 aria-label="Temperature"
-                className="px-1 py-0.5 w-12 text-right text-small text-default-700 font-medium bg-default-100 outline-none transition-colors rounded-small border-medium border-transparent hover:border-primary focus:border-primary"
+                className="px-1 py-0.5 w-12 text-right text-small text-default-700 font-medium bg-default-100 outline-hidden transition-colors rounded-small border-medium border-transparent hover:border-primary focus:border-primary"
                 type="text"
                 value={inputValue}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

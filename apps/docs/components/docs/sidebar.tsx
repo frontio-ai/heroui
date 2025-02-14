@@ -192,7 +192,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       aria-expanded={dataAttr(hasChildNodes ? isExpanded : undefined)}
       aria-selected={dataAttr(isSelected)}
       className={clsx(
-        "flex flex-col outline-none w-full tap-highlight-transparent",
+        "flex flex-col outline-hidden w-full tap-highlight-transparent",
         hasChildNodes ? "mb-4" : "first:mt-4",
         // focus ring
         ...dataFocusVisibleClasses,

@@ -19,7 +19,7 @@ const dateInput = tv({
     ],
     inputWrapper: [
       "relative px-3 gap-3 w-full inline-flex flex-row items-center",
-      "cursor-text tap-highlight-transparent shadow-sm",
+      "cursor-text tap-highlight-transparent shadow-xs",
     ],
     input: "flex h-full gap-x-0.5 w-full font-normal",
     innerWrapper: [
@@ -29,7 +29,7 @@ const dateInput = tv({
     ], // this wraps the input and the start/end content
     segment: [
       "group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start",
-      "inline-block outline-none focus:shadow-sm rounded-md",
+      "inline-block outline-hidden focus:shadow-xs rounded-md",
       "text-foreground-500 data-[editable=true]:text-foreground",
       "data-[editable=true]:data-[placeholder=true]:text-foreground-500",
       // isInvalid=true

@@ -152,7 +152,7 @@ const CodeBlockHighlight = ({
                         "px-2": showLines,
                       },
                       {
-                        "before:to-code-background before:absolute before:left-0 before:z-0 before:h-full before:w-full before:bg-gradient-to-r before:from-white/10 before:content-[''] before:pointer-events-none":
+                        "before:to-code-background before:absolute before:left-0 before:z-0 before:h-full before:w-full before:bg-linear-to-r before:from-white/10 before:content-[''] before:pointer-events-none":
                           shouldHighlightLine(i),
                       },
                     )}

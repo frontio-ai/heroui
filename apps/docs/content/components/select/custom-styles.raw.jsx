@@ -238,12 +238,7 @@ export default function App() {
       renderValue={(items) => {
         return items.map((item) => (
           <div key={item.key} className="flex items-center gap-2">
-            <Avatar
-              alt={item.data.name}
-              className="flex-shrink-0"
-              size="sm"
-              src={item.data.avatar}
-            />
+            <Avatar alt={item.data.name} className="shrink-0" size="sm" src={item.data.avatar} />
             <div className="flex flex-col">
               <span>{item.data.name}</span>
               <span className="text-default-500 text-tiny">({item.data.email})</span>
@@ -256,7 +251,7 @@ export default function App() {
       {(user) => (
         <SelectItem key={user.id} textValue={user.name}>
           <div className="flex gap-2 items-center">
-            <Avatar alt={user.name} className="flex-shrink-0" size="sm" src={user.avatar} />
+            <Avatar alt={user.name} className="shrink-0" size="sm" src={user.avatar} />
             <div className="flex flex-col">
               <span className="text-small">{user.name}</span>
               <span className="text-tiny text-default-400">{user.email}</span>

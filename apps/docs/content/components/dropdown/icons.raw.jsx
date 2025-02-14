@@ -111,7 +111,7 @@ export const DeleteDocumentIcon = (props) => {
 };
 
 export default function App() {
-  const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
+  const iconClasses = "text-xl text-default-500 pointer-events-none shrink-0";
 
   return (
     <Dropdown>

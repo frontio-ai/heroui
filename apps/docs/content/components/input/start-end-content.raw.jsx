@@ -29,7 +29,7 @@ export default function App() {
           labelPlacement="outside"
           placeholder="you@example.com"
           startContent={
-            <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+            <MailIcon className="text-2xl text-default-400 pointer-events-none shrink-0" />
           }
           type="email"
         />
@@ -59,7 +59,7 @@ export default function App() {
       <div className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
         <Input
           endContent={
-            <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+            <MailIcon className="text-2xl text-default-400 pointer-events-none shrink-0" />
           }
           label="Email"
           labelPlacement="outside"
@@ -100,7 +100,7 @@ export default function App() {
           labelPlacement="outside"
           placeholder="heroui"
           startContent={
-            <MailIcon className="text-xl text-default-400 pointer-events-none flex-shrink-0" />
+            <MailIcon className="text-xl text-default-400 pointer-events-none shrink-0" />
           }
         />
         <Input
@@ -110,7 +110,7 @@ export default function App() {
                 Currency
               </label>
               <select
-                className="outline-none border-0 bg-transparent text-default-400 text-small"
+                className="outline-hidden border-0 bg-transparent text-default-400 text-small"
                 id="currency"
                 name="currency"
               >

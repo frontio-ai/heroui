@@ -17,7 +17,7 @@ export default function App() {
           "group-data-[selected=true]:ms-6",
           // pressed
           "group-data-[pressed=true]:w-7",
-          "group-data-[selected]:group-data-[pressed]:ms-4",
+          "group-data-pressed:group-data-selected:ms-4",
         ),
       }}
     >

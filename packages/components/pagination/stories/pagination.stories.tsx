@@ -200,7 +200,7 @@ export const CustomWithClassNames = {
     ...defaultProps,
     showShadow: true,
     classNames: {
-      base: "gap-0 rounded border-2 border-default",
+      base: "gap-0 rounded-sm border-2 border-default",
       item: "w-8 h-8 text-sm rounded-none bg-transparent",
       cursor:
         "bg-gradient-to-b shadow-lg shadow-default from-default-500 to-default-800 dark:from-default-300 dark:to-default-100 text-white font-bold",

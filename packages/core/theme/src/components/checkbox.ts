@@ -27,7 +27,7 @@ const checkbox = tv({
       "inline-flex",
       "items-center",
       "justify-center",
-      "flex-shrink-0",
+      "shrink-0",
       "overflow-hidden",
       // before
       "before:content-['']",

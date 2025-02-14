@@ -3,7 +3,7 @@
 }
 
 #nprogress .bar {
-  @apply bg-secondary fixed z-[9999999] top-0 left-0 w-full h-0.5;
+  @apply bg-secondary fixed z-9999999 top-0 left-0 w-full h-0.5;
 }
 
 #nprogress .peg {

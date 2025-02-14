@@ -343,7 +343,7 @@ Popover changes:
       backdrop="opaque"
       placement="right"
       classNames={{
--        base: "py-3 px-4 border border-default-200 bg-gradient-to-br from-white to-default-300 dark:from-default-100 dark:to-default-50",
+-        base: "py-3 px-4 border border-default-200 bg-linear-to-br from-white to-default-300 dark:from-default-100 dark:to-default-50",
 -        arrow: "bg-default-200",
 +        base: [
 +          // the "before" pseudo element is now the popover' arrow
@@ -351,7 +351,7 @@ Popover changes:
 +        ],
 +        content: [ // now we need to use the "content" slot to actually modify the popover' content styles
 +          "py-3 px-4 border border-default-200",
-+          "bg-gradient-to-br from-white to-default-300",
++          "bg-linear-to-br from-white to-default-300",
 +          "dark:from-default-100 dark:to-default-50",
         ],
       }}
@@ -368,7 +368,7 @@ Tooltip changes:
       placement="right"
       content="I am a tooltip"
       classNames={{
--        base: "py-2 px-4 shadow-xl text-black bg-gradient-to-br from-white to-neutral-400",
+-        base: "py-2 px-4 shadow-xl text-black bg-linear-to-br from-white to-neutral-400",
 -        arrow: "bg-neutral-400 dark:bg-white",
 +        base: [
 +          // the "before" pseudo element is now the popover' arrow
@@ -376,7 +376,7 @@ Tooltip changes:
 +        ],
 +        content: [ // now we need to use the "content" slot to actually modify the popover' content styles
 +          "py-2 px-4 shadow-xl",
-+          "text-black bg-gradient-to-br from-white to-neutral-400",
++          "text-black bg-linear-to-br from-white to-neutral-400",
 +        ],
       }}
     >
@@ -413,9 +413,9 @@ Dropdown Changes
     <Dropdown
       showArrow
       classNames={{
--        base: "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black",
+-        base: "py-1 px-1 border border-default-200 bg-linear-to-br from-white to-default-200 dark:from-default-50 dark:to-black",
 -        arrow: "bg-default-200",
-+        content: "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black",  // now instead of the "base" slot we use the "content"
++        content: "py-1 px-1 border border-default-200 bg-linear-to-br from-white to-default-200 dark:from-default-50 dark:to-black",  // now instead of the "base" slot we use the "content"
 +        base: "before:bg-default-200",  // the before pseudo element controls the popover's arrow
       }}
     >

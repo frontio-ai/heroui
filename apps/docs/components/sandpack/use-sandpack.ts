@@ -177,9 +177,9 @@ export const useSandpack = ({
     dependencies,
     entry: entryFile,
     devDependencies: {
-      autoprefixer: "^10.4.14",
       postcss: "^8.4.21",
-      tailwindcss: "^3.2.7",
+      tailwindcss: "^4.0.0",
+      "@tailwindcss/postcss": "^4.0.0",
     },
   };
 

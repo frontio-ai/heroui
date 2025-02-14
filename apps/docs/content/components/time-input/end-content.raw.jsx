@@ -26,7 +26,7 @@ export default function App() {
     <TimeInput
       defaultValue={new Time(11, 45)}
       endContent={
-        <ClockCircleLinearIcon className="text-xl text-default-400 pointer-events-none flex-shrink-0" />
+        <ClockCircleLinearIcon className="text-xl text-default-400 pointer-events-none shrink-0" />
       }
       label="Event Time"
       labelPlacement="outside"

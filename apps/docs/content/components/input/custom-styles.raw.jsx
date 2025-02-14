@@ -32,7 +32,7 @@ export const SearchIcon = (props) => {
 
 export default function App() {
   return (
-    <div className="w-[340px] h-[240px] px-8 rounded-2xl flex justify-center items-center bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">
+    <div className="w-[340px] h-[240px] px-8 rounded-2xl flex justify-center items-center bg-linear-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">
       <Input
         isClearable
         classNames={{
@@ -44,7 +44,7 @@ export default function App() {
           ],
           innerWrapper: "bg-transparent",
           inputWrapper: [
-            "shadow-xl",
+            "shadow-sm",
             "bg-default-200/50",
             "dark:bg-default/60",
             "backdrop-blur-xl",
@@ -53,14 +53,14 @@ export default function App() {
             "dark:hover:bg-default/70",
             "group-data-[focus=true]:bg-default-200/50",
             "dark:group-data-[focus=true]:bg-default/60",
-            "!cursor-text",
+            "cursor-text!",
           ],
         }}
         label="Search"
         placeholder="Type to search..."
         radius="lg"
         startContent={
-          <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
+          <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none shrink-0" />
         }
       />
     </div>

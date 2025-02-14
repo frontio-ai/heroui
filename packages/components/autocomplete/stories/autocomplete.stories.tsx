@@ -583,7 +583,7 @@ const CustomItemsTemplate = ({color, variant, ...args}: AutocompleteProps<User>)
     {(item) => (
       <AutocompleteItem key={item.id} textValue={item.name}>
         <div className="flex gap-2 items-center">
-          <Avatar alt={item.name} className="flex-shrink-0" size="sm" src={item.avatar} />
+          <Avatar alt={item.name} className="shrink-0" size="sm" src={item.avatar} />
           <div className="flex flex-col">
             <span className="text-small">{item.name}</span>
             <span className="text-tiny text-default-400">{item.email}</span>
@@ -724,7 +724,7 @@ const CustomStylesTemplate = ({color, variant, ...args}: AutocompleteProps<User>
       {(item) => (
         <AutocompleteItem key={item.id} textValue={item.name}>
           <div className="flex gap-2 items-center">
-            <Avatar alt={item.name} className="flex-shrink-0" size="sm" src={item.avatar} />
+            <Avatar alt={item.name} className="shrink-0" size="sm" src={item.avatar} />
             <div className="flex flex-col">
               <span className="text-small">{item.name}</span>
               <span className="text-tiny text-default-400">{item.email}</span>
@@ -785,7 +785,7 @@ const CustomStylesWithCustomItemsTemplate = ({color, ...args}: AutocompleteProps
         <AutocompleteItem key={item.id} textValue={item.name}>
           <div className="flex justify-between items-center">
             <div className="flex gap-2 items-center">
-              <Avatar alt={item.name} className="flex-shrink-0" size="sm" src={item.avatar} />
+              <Avatar alt={item.name} className="shrink-0" size="sm" src={item.avatar} />
               <div className="flex flex-col">
                 <span className="text-small">{item.name}</span>
                 <span className="text-tiny text-default-400">{item.team}</span>

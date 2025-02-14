@@ -33,7 +33,7 @@ const radio = tv({
       "inline-flex",
       "items-center",
       "justify-center",
-      "flex-shrink-0",
+      "shrink-0",
       "overflow-hidden",
       "border-solid",
       "border-medium",

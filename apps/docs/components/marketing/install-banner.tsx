@@ -66,7 +66,7 @@ export const InstallBanner = () => {
               color="secondary"
               endContent={
                 <ArrowRightIcon
-                  className="group-data-[hover=true]:translate-x-0.5 outline-none transition-transform"
+                  className="group-data-[hover=true]:translate-x-0.5 outline-hidden transition-transform"
                   strokeWidth={2}
                 />
               }
@@ -119,7 +119,7 @@ export const InstallBanner = () => {
           "data-[mounted=true]:opacity-100 transition-opacity",
           "bg-left bg-no-repeat bg-[url('/gradients/looper-pattern.svg')]",
           "after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-[-1]",
-          "after:bg-gradient-to-b after:from-transparent after:to-white/80 dark:after:to-black/20 after:z-[-1]",
+          "after:bg-linear-to-b after:from-transparent after:to-white/80 dark:after:to-black/20 after:z-[-1]",
         )}
         data-mounted={isMounted}
       />

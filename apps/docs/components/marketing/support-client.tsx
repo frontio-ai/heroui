@@ -187,7 +187,7 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
                   <Button
                     isIconOnly
                     aria-label="Become a sponsor"
-                    className="z-50 w-auto h-auto bg-gradient-to-b from-[#FF1CF7] to-[#7928CA]"
+                    className="z-50 w-auto h-auto bg-linear-to-b from-[#FF1CF7] to-[#7928CA]"
                     radius="full"
                     onPress={handleBecomeSponsor}
                   >

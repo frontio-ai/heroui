@@ -29,7 +29,7 @@ const input = tv({
       "z-10",
       "pointer-events-none",
       "origin-top-left",
-      "flex-shrink-0",
+      "shrink-0",
       // Using RTL here as Tailwind CSS doesn't support `start` and `end` logical properties for transforms yet.
       "rtl:origin-top-right",
       "subpixel-antialiased",
@@ -39,10 +39,10 @@ const input = tv({
     ],
     mainWrapper: "h-full",
     inputWrapper:
-      "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3",
+      "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-xs px-3 gap-3",
     innerWrapper: "inline-flex w-full items-center h-full box-border",
     input: [
-      "w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none",
+      "w-full font-normal bg-transparent !outline-hidden placeholder:text-foreground-500 focus-visible:outline-hidden",
       "data-[has-start-content=true]:ps-1.5",
       "data-[has-end-content=true]:pe-1.5",
       "file:cursor-pointer file:bg-transparent file:border-0",
@@ -57,7 +57,7 @@ const input = tv({
       "start-auto",
       "pointer-events-none",
       "appearance-none",
-      "outline-none",
+      "outline-hidden",
       "select-none",
       "opacity-0",
       "hover:!opacity-100",

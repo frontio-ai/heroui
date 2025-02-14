@@ -12,7 +12,7 @@ export default function App() {
         ],
         content: [
           "py-3 px-4 border border-default-200",
-          "bg-gradient-to-br from-white to-default-300",
+          "bg-linear-to-br from-white to-default-300",
           "dark:from-default-100 dark:to-default-50",
         ],
       }}

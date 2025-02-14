@@ -15,7 +15,7 @@ export const CustomCheckbox = (props) => {
       },
       isFocusVisible: {
         true: {
-          base: "outline-none ring-2 ring-focus ring-offset-2 ring-offset-background",
+          base: "outline-hidden ring-2 ring-focus ring-offset-2 ring-offset-background",
         },
       },
     },

@@ -33,7 +33,7 @@ export const FbRoadmapLink = ({className, innerClassName}: Props) => {
       <div className={clsx("relative", innerClassName)}>
         Roadmap
         <Icon
-          className="absolute right-[-10px] top-0 outline-none transition-transform group-data-[hover=true]:translate-y-0.5 [&>path]:stroke-[2.5px]"
+          className="absolute right-[-10px] top-0 outline-hidden transition-transform group-data-[hover=true]:translate-y-0.5 [&>path]:stroke-[2.5px]"
           icon={arrowRightUpIcon}
           width={10}
         />

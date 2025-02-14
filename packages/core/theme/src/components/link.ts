@@ -11,7 +11,7 @@ import {dataFocusVisibleClasses} from "../utils";
  */
 const link = tv({
   base: [
-    "relative inline-flex items-center outline-none tap-highlight-transparent",
+    "relative inline-flex items-center outline-hidden tap-highlight-transparent",
     // focus ring
     ...dataFocusVisibleClasses,
   ],

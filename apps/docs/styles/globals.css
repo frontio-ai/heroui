@@ -1,50 +1,45 @@
-@import 'prism.css';
-@import 'nprogress.css';
-@import 'ads.css';
+@import './prism.css';
+@import './nprogress.css';
+@import './ads.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-html {
-  font-size: 16px;
-  padding: 0px !important;
-  overflow-x: hidden;
-  scroll-padding-top: 64px;
-}
+@config '../tailwind.config.js';
 
-body {
-  min-height: 100vh;
-}
-/* Experimental */
-/* body::after { 
-  background-image: radial-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0) 40%),
-  radial-gradient(rgb(255, 209, 82) 30%, rgb(226, 105, 150), rgba(226, 105, 150, 0.4) 41%, transparent 52%),
-  radial-gradient(rgb(160, 51, 255) 37%, transparent 46%),
-  linear-gradient(155deg, transparent 65%, rgb(37, 212, 102) 95%),
-  linear-gradient(45deg, rgb(0, 101, 224), rgb(15, 139, 255));
-background-position: left bottom, 109% 68%, 109% 68%, center center, center center;
-background-repeat: no-repeat;
-background-size: 200% 200%, 285% 500%, 285% 500%, cover, cover;
-content: "";
-display: block;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-opacity: 0.17;
-position: fixed;
-z-index: 0;
-} */
+@plugin '@tailwindcss/typography';
 
-/* 
-@media screen and (max-width: 640px) {
-  #app-container {
-    height: 100vh;
-    overflow-x: hidden;
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  /* 
+    Default button style missing pointer cursor property  
+    Issue: https://github.com/tailwindlabs/tailwindcss/issues/15773
+  */
+  button, [role="button"] {
+    cursor: pointer;
+  }
+
+  /*
+    Make sure disabled buttons don't get the pointer cursor.
+  */
+  :disabled {
+    cursor: default;
   }
 }
- */
 
 @layer base {
   :root {
@@ -84,18 +79,55 @@ z-index: 0;
   }
 }
 
+@utility step {
+  counter-increment: step;
 
-@layer utilities {
-  .step {
-    counter-increment: step;
-  }
-
-  .step:before {
+  &:before {
     @apply absolute w-7 h-7 border-1 border-default-200 bg-default-100 rounded-full font-semibold text-center text-base inline-flex items-center justify-center -indent-px;
     @apply ml-[-41px];
     content: counter(step);
   }
 }
+
+html {
+  font-size: 16px;
+  padding: 0px !important;
+  overflow-x: hidden;
+  scroll-padding-top: 64px;
+}
+
+body {
+  min-height: 100vh;
+}
+/* Experimental */
+/* body::after { 
+  background-image: radial-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0) 40%),
+  radial-gradient(rgb(255, 209, 82) 30%, rgb(226, 105, 150), rgba(226, 105, 150, 0.4) 41%, transparent 52%),
+  radial-gradient(rgb(160, 51, 255) 37%, transparent 46%),
+  linear-gradient(155deg, transparent 65%, rgb(37, 212, 102) 95%),
+  linear-gradient(45deg, rgb(0, 101, 224), rgb(15, 139, 255));
+  background-position: left bottom, 109% 68%, 109% 68%, center center, center center;
+  background-repeat: no-repeat;
+  background-size: 200% 200%, 285% 500%, 285% 500%, cover, cover;
+  content: "";
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.17;
+  position: fixed;
+  z-index: 0;
+  } */
+
+  /* 
+  @media screen and (max-width: 640px) {
+    #app-container {
+      height: 100vh;
+      overflow-x: hidden;
+    }
+  }
+ */
 
 pre details[open]>summary>span:first-child::before {
   transform: rotate(90deg);

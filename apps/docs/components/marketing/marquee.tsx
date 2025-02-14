@@ -62,7 +62,7 @@ export const Marquee = ({
     >
       <div
         className={cn(
-          "flex w-max items-stretch gap-[--gap]",
+          "flex w-max items-stretch gap-(--gap)",
           {
             "flex-col": vertical,
             "h-full": vertical,

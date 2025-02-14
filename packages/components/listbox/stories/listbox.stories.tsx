@@ -271,7 +271,7 @@ const MultipleSelectionTemplate = ({color, variant, ...args}: ListboxProps) => {
 };
 
 const WithStartContentTemplate = ({color, variant, disableAnimation, ...args}: ListboxProps) => {
-  const iconClasses = "text-2xl text-secondary pointer-events-none flex-shrink-0";
+  const iconClasses = "text-2xl text-secondary pointer-events-none shrink-0";
 
   return (
     <Listbox
@@ -304,7 +304,7 @@ const WithStartContentTemplate = ({color, variant, disableAnimation, ...args}: L
 };
 
 const WithEndContentTemplate = ({color, variant, disableAnimation, ...args}) => {
-  const iconClasses = "text-2xl text-default-500 pointer-events-none flex-shrink-0";
+  const iconClasses = "text-2xl text-default-500 pointer-events-none shrink-0";
 
   return (
     <Listbox
@@ -378,7 +378,7 @@ const WithTopContentTemplate = ({color, ...args}) => {
       {(item) => (
         <ListboxItem key={item.id} textValue={item.name}>
           <div className="flex gap-2 items-center">
-            <Avatar alt={item.name} className="flex-shrink-0" size="sm" src={item.avatar} />
+            <Avatar alt={item.name} className="shrink-0" size="sm" src={item.avatar} />
             <div className="flex flex-col">
               <span className="text-small">{item.name}</span>
               <span className="text-tiny text-default-400">{item.email}</span>
@@ -432,7 +432,7 @@ const WithBottomContentTemplate = ({color, ...args}) => {
       {(item) => (
         <ListboxItem key={item.id} textValue={item.name}>
           <div className="flex gap-2 items-center">
-            <Avatar alt={item.name} className="flex-shrink-0" size="sm" src={item.avatar} />
+            <Avatar alt={item.name} className="shrink-0" size="sm" src={item.avatar} />
             <div className="flex flex-col">
               <span className="text-small">{item.name}</span>
               <span className="text-tiny text-default-400">{item.email}</span>
@@ -445,7 +445,7 @@ const WithBottomContentTemplate = ({color, ...args}) => {
 };
 
 const WithDescriptionTemplate = ({color, variant, disableAnimation, ...args}) => {
-  const iconClasses = "text-2xl text-secondary pointer-events-none flex-shrink-0";
+  const iconClasses = "text-2xl text-secondary pointer-events-none shrink-0";
 
   return (
     <Listbox
@@ -491,7 +491,7 @@ const WithDescriptionTemplate = ({color, variant, disableAnimation, ...args}) =>
 };
 
 const WithSectionsTemplate = ({color, variant, disableAnimation, ...args}) => {
-  const iconClasses = "text-2xl text-secondary pointer-events-none flex-shrink-0";
+  const iconClasses = "text-2xl text-secondary pointer-events-none shrink-0";
 
   return (
     <Listbox

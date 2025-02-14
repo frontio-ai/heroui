@@ -4,6 +4,7 @@
  */
 
 import Color from "color";
+// @ts-ignore
 import plugin from "tailwindcss/plugin.js";
 import deepMerge from "deepmerge";
 import {omit, kebabCase, mapKeys} from "@heroui/shared-utils";
@@ -31,10 +32,7 @@ const resolveConfig = (
   const resolved: {
     variants: {name: string; definition: string[]}[];
     utilities: Record<string, Record<string, any>>;
-    colors: Record<
-      string,
-      ({opacityValue, opacityVariable}: {opacityValue: string; opacityVariable: string}) => string
-    >;
+    colors: Record<string, string>;
   } = {
     variants: [],
     utilities: {},
@@ -42,12 +40,12 @@ const resolveConfig = (
   };
 
   for (const [themeName, {extend, layout, colors}] of Object.entries(themes)) {
-    let cssSelector = `.${themeName},[data-theme="${themeName}"]`;
+    let cssSelector = `.${themeName}`;
     const scheme = themeName === "light" || themeName === "dark" ? themeName : extend;
 
     // if the theme is the default theme, add the selector to the root element
     if (themeName === defaultTheme) {
-      cssSelector = `:root,${cssSelector}`;
+      cssSelector = `${cssSelector}`;
     }
 
     resolved.utilities[cssSelector] = scheme
@@ -81,30 +79,13 @@ const resolveConfig = (
 
         const [h, s, l, defaultAlphaValue] = parsedColor;
         const herouiColorVariable = `--${prefix}-${colorName}`;
-        const herouiOpacityVariable = `--${prefix}-${colorName}-opacity`;
 
         // set the css variable in "@layer utilities"
         resolved.utilities[cssSelector]![herouiColorVariable] = `${h} ${s}% ${l}%`;
-        // if an alpha value was provided in the color definition, store it in a css variable
-        if (typeof defaultAlphaValue === "number") {
-          resolved.utilities[cssSelector]![herouiOpacityVariable] = defaultAlphaValue.toFixed(2);
-        }
         // set the dynamic color in tailwind config theme.colors
-        resolved.colors[colorName] = ({opacityVariable, opacityValue}) => {
-          // if the opacity is set  with a slash (e.g. bg-primary/90), use the provided value
-          if (!isNaN(+opacityValue)) {
-            return `hsl(var(${herouiColorVariable}) / ${opacityValue})`;
-          }
-          // if no opacityValue was provided (=it is not parsable to a number)
-          // the herouiOpacityVariable (opacity defined in the color definition rgb(0, 0, 0, 0.5)) should have the priority
-          // over the tw class based opacity(e.g. "bg-opacity-90")
-          // This is how tailwind behaves as for v3.2.4
-          if (opacityVariable) {
-            return `hsl(var(${herouiColorVariable}) / var(${herouiOpacityVariable}, var(${opacityVariable})))`;
-          }
-
-          return `hsl(var(${herouiColorVariable}) / var(${herouiOpacityVariable}, 1))`;
-        };
+        resolved.colors[colorName] = `hsl(var(${herouiColorVariable}) / ${
+          defaultAlphaValue ?? "<alpha-value>"
+        })`;
       } catch (error: any) {
         // eslint-disable-next-line no-console
         console.log("error", error?.message);
@@ -185,12 +166,6 @@ const corePlugin = (
           },
           width: {
             divider: `var(--${prefix}-divider-weight)`,
-          },
-          fontSize: {
-            tiny: [`var(--${prefix}-font-size-tiny)`, `var(--${prefix}-line-height-tiny)`],
-            small: [`var(--${prefix}-font-size-small)`, `var(--${prefix}-line-height-small)`],
-            medium: [`var(--${prefix}-font-size-medium)`, `var(--${prefix}-line-height-medium)`],
-            large: [`var(--${prefix}-font-size-large)`, `var(--${prefix}-line-height-large)`],
           },
           borderRadius: {
             small: `var(--${prefix}-radius-small)`,

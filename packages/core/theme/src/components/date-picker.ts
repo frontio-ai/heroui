@@ -11,7 +11,7 @@ const datePicker = tv({
   slots: {
     base: "group w-full",
     selectorButton: "-mx-2 text-inherit",
-    selectorIcon: "text-lg text-inherit pointer-events-none flex-shrink-0",
+    selectorIcon: "text-lg text-inherit pointer-events-none shrink-0",
     popoverContent: "p-0 w-full",
     calendar: "w-[calc(var(--visible-months)_*_var(--calendar-width))] shadow-none",
     calendarContent: "w-[calc(var(--visible-months)_*_var(--calendar-width))]",

@@ -18,7 +18,7 @@ export const focusVisibleClasses = [
 ];
 
 export const dataFocusVisibleClasses = [
-  "outline-none",
+  "outline-hidden",
   "data-[focus-visible=true]:z-10",
   "data-[focus-visible=true]:outline-2",
   "data-[focus-visible=true]:outline-focus",
@@ -26,7 +26,7 @@ export const dataFocusVisibleClasses = [
 ];
 
 export const groupDataFocusVisibleClasses = [
-  "outline-none",
+  "outline-hidden",
   "group-data-[focus-visible=true]:z-10",
   "group-data-[focus-visible=true]:ring-2",
   "group-data-[focus-visible=true]:ring-focus",
@@ -35,7 +35,7 @@ export const groupDataFocusVisibleClasses = [
 ];
 
 export const ringClasses = [
-  "outline-none",
+  "outline-hidden",
   "ring-2",
   "ring-focus",
   "ring-offset-2",

@@ -5,13 +5,13 @@ export default function App() {
     <Slider
       classNames={{
         base: "max-w-md",
-        filler: "bg-gradient-to-r from-primary-500 to-secondary-400",
+        filler: "bg-linear-to-r from-primary-500 to-secondary-400",
         labelWrapper: "mb-2",
         label: "font-medium text-default-700 text-medium",
         value: "font-medium text-default-500 text-small",
         thumb: [
           "transition-size",
-          "bg-gradient-to-r from-secondary-400 to-primary-500",
+          "bg-linear-to-r from-secondary-400 to-primary-500",
           "data-[dragging=true]:shadow-lg data-[dragging=true]:shadow-black/20",
           "data-[dragging=true]:w-7 data-[dragging=true]:h-7 data-[dragging=true]:after:h-6 data-[dragging=true]:after:w-6",
         ],
@@ -33,11 +33,11 @@ export default function App() {
         classNames: {
           base: [
             // arrow color
-            "before:bg-gradient-to-r before:from-secondary-400 before:to-primary-500",
+            "before:bg-linear-to-r before:from-secondary-400 before:to-primary-500",
           ],
           content: [
             "py-2 shadow-xl",
-            "text-white bg-gradient-to-r from-secondary-400 to-primary-500",
+            "text-white bg-linear-to-r from-secondary-400 to-primary-500",
           ],
         },
       }}

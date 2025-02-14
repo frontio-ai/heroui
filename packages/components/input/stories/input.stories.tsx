@@ -208,7 +208,7 @@ const StartContentTemplate = (args) => (
       {...args}
       // placeholder="you@example.com"
       startContent={
-        <MailFilledIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+        <MailFilledIcon className="text-2xl text-default-400 pointer-events-none shrink-0" />
       }
     />
     <Input
@@ -241,7 +241,7 @@ const EndContentTemplate = (args) => (
     <Input
       {...args}
       endContent={
-        <MailFilledIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+        <MailFilledIcon className="text-2xl text-default-400 pointer-events-none shrink-0" />
       }
       placeholder="you@example.com"
     />
@@ -281,7 +281,7 @@ const StartAndEndContentTemplate = (args) => (
       }
       placeholder="heroui"
       startContent={
-        <MailFilledIcon className="text-xl text-default-400 pointer-events-none flex-shrink-0" />
+        <MailFilledIcon className="text-xl text-default-400 pointer-events-none shrink-0" />
       }
     />
     <Input
@@ -292,7 +292,7 @@ const StartAndEndContentTemplate = (args) => (
             Currency
           </label>
           <select
-            className="outline-none border-0 bg-transparent text-default-400 text-sm"
+            className="outline-hidden border-0 bg-transparent text-default-400 text-sm"
             id="currency"
             name="currency"
           >
@@ -358,7 +358,7 @@ const CustomWithClassNamesTemplate = (args) => (
         inputWrapper: [
           "bg-slate-100",
           "border",
-          "shadow",
+          "shadow-sm",
           "hover:bg-slate-200",
           "focus-within:!bg-slate-100",
           "dark:bg-slate-900",
@@ -387,9 +387,7 @@ const CustomWithClassNamesTemplate = (args) => (
       }
       labelPlacement="outside"
       placeholder="Quick search..."
-      startContent={
-        <SearchIcon className="text-xl text-slate-400 pointer-events-none flex-shrink-0" />
-      }
+      startContent={<SearchIcon className="text-xl text-slate-400 pointer-events-none shrink-0" />}
     />
   </div>
 );
@@ -775,7 +773,7 @@ export const CustomWithHooks = {
     type: "search",
     placeholder: "Type to search...",
     startContent: (
-      <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
+      <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none shrink-0" />
     ),
   },
 };

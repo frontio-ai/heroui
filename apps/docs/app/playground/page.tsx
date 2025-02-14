@@ -5,7 +5,7 @@ import PlaygroundTabs from "./playground-tabs";
 export default function FigmaPage() {
   return (
     <>
-      <main className="prose prose-neutral relative container mx-auto max-w-3xl z-10 px-6 min-h-[calc(100vh_-_64px_-_108px)] mb-12 flex-grow">
+      <main className="prose prose-neutral relative container mx-auto max-w-3xl z-10 px-6 min-h-[calc(100vh_-_64px_-_108px)] mb-12 grow">
         <section className="w-full flex flex-col items-center mt-12 gap-6">
           <div className="text-center">
             <h1 className="mb-2">Playground</h1>

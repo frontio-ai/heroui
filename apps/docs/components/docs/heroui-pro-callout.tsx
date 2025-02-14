@@ -18,7 +18,7 @@ export const HeroUIProCallout = () => {
       <div>
         <p className="leading-[1.025] tracking-tight text-center text-large font-semibold">
           Ship&nbsp;
-          <span className="bg-clip-text text-transparent bg-gradient-to-b from-[#5EA2EF] to-[#0072F5]">
+          <span className="bg-clip-text text-transparent bg-linear-to-b from-[#5EA2EF] to-[#0072F5]">
             faster
           </span>
           <br />
@@ -37,7 +37,7 @@ export const HeroUIProCallout = () => {
         </div>
       </div>
       <NextLink
-        className="absolute inset-0 z-[1]"
+        className="absolute inset-0 z-1"
         href="https://heroui.pro/components?utm_source=heroui.com&utm_medium=callout"
         onClick={handleClick}
       />

@@ -55,8 +55,9 @@
 }
 
 .sp-tab-button {
-  @apply block !font-sans bg-transparent appearance-none;
+  @apply block bg-transparent appearance-none;
 
+  font-family: var(--font-sans) !important;
   font-size: inherit;
   padding: 0 var(--sp-space-2);
   color: var(--sp-colors-fg-default) !important;
@@ -83,5 +84,5 @@
 }
 
 .sp-highlight {
-  @apply relative z-10 before:content-[''] before:w-full before:h-full before:absolute before:z-[-1] before:left-0 before:bg-gradient-to-r before:from-white/10 before:to-code-background before:border-l-2 border-l-white/80 dark:before:border-l-white/50;
+  @apply relative z-10 before:content-[''] before:w-full before:h-full before:absolute before:z-[-1] before:left-[0px] before:bg-gradient-to-r before:from-[var(--white/10)] before:to-[var(--code-background)] before:border-l-2 border-l-[var(--white/80)] dark:before:border-l-[var(--white/50)];
 }

@@ -59,11 +59,11 @@ const accordionItem = tv({
     base: "",
     heading: "",
     trigger: [
-      "flex py-4 w-full h-full gap-3 outline-none items-center tap-highlight-transparent",
+      "flex py-4 w-full h-full gap-3 outline-hidden items-center tap-highlight-transparent",
       // focus ring
       ...dataFocusVisibleClasses,
     ],
-    startContent: "flex-shrink-0",
+    startContent: "shrink-0",
     indicator: "text-default-400",
     titleWrapper: "flex-1 flex flex-col text-start",
     title: "text-foreground text-medium",

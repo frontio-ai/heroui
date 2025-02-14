@@ -28,7 +28,7 @@
   transition: color 0.25s ease;
 }
 #carbonads a:hover {
-  @apply !text-default-500;
+  @apply text-default-500!;
 }
 #carbonads span {
   width: 100%;
@@ -56,7 +56,7 @@
   margin: 0px;
 }
 #carbonads .carbon-text {
-  @apply !text-default-500;
+  @apply text-default-500!;
   display: block;
   font-size: 1rem;
   width: 100%;
@@ -64,7 +64,7 @@
   padding-right: 8px;
 }
 #carbonads .carbon-poweredby {
-  @apply text-default-400 dark:!text-default-300;
+  @apply text-default-400 dark:text-default-300!;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -80,7 +80,7 @@
   transition: all 0.25 ease;
 }
 
-@media only screen and (max-width:600px) {
+@media only screen and (max-width: 600px) {
   #carbonads .carbon-text {
     font-size: 0.9rem;
   }
@@ -124,13 +124,13 @@
 .ea-container .ea-type-image .ea-callout a,
 .ea-container .ea-type-image .ea-callout a .ea-headline,
 .ea-container .ea-type-image .ea-callout a .ea-cta {
-  @apply text-default-400 dark:!text-default-300;
+  @apply text-default-400 dark:text-default-300!;
   font-weight: 600 !important;
   font-size: 9px !important;
 }
 
 [data-ea-publisher].loaded .ea-content a strong {
-  @apply !text-default-500;
+  @apply text-default-500!;
 }
 
 .ea-container .ea-type-image .ea-content a {
@@ -149,7 +149,7 @@
 }
 
 .ea-container .ea-type-image .ea-text a {
-  @apply !text-default-300;
+  @apply text-default-300!;
   width: 100%;
   max-width: 100%;
   display: block;
@@ -158,7 +158,7 @@
 }
 
 .ea-container .ea-type-image .ea-text .ea-body {
-  @apply !text-default-500;
+  @apply text-default-500!;
 }
 
 .ea-container .ea-type-image img {

@@ -37,13 +37,13 @@ export default function App() {
           labelPlacement="outside"
           placeholderValue={new CalendarDate(1995, 11, 6)}
           startContent={
-            <CalendarIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+            <CalendarIcon className="text-2xl text-default-400 pointer-events-none shrink-0" />
           }
         />
         <DateInput
           defaultValue={parseDate("2024-04-04")}
           endContent={
-            <CalendarIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+            <CalendarIcon className="text-2xl text-default-400 pointer-events-none shrink-0" />
           }
           label="Date Input"
           labelPlacement="outside"

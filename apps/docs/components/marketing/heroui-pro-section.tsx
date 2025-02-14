@@ -61,7 +61,7 @@ export const HeroUIProSection = () => {
         <div className="z-30 flex w-screen h-full flex-col items-start justify-center leading-8 pt-4">
           <Chip
             classNames={{
-              base: "ml-0.5 transition-colors bg-gradient-to-br from-cyan-600 to-blue-600",
+              base: "ml-0.5 transition-colors bg-linear-to-br from-cyan-600 to-blue-600",
               content: "text-tiny font-semibold",
             }}
             color="primary"

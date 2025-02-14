@@ -1,5 +1,5 @@
 const Content = () => (
-  <div className="px-6 flex gap-4 flex-col pb-16 flex-grow">
+  <div className="px-6 flex gap-4 flex-col pb-16 grow">
     <h1 className="mt-4 font-bold text-4xl">Lorem ipsum dolor sit amet</h1>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

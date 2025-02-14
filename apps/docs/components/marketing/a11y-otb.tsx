@@ -70,7 +70,7 @@ const a11yItems = [
   },
 ];
 
-const iconClasses = "text-2xl text-default-500 pointer-events-none flex-shrink-0";
+const iconClasses = "text-2xl text-default-500 pointer-events-none shrink-0";
 
 export const A11yOtb = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -148,7 +148,7 @@ export const A11yOtb = () => {
               <Button
                 isIconOnly
                 aria-label="Show code"
-                className="absolute top-1 right-1 text-success-50 data-[hover]:bg-foreground/10"
+                className="absolute top-1 right-1 text-success-50 data-hover:bg-foreground/10"
                 radius="full"
                 variant="light"
                 onPress={() => setIsModalOpen(true)}
@@ -218,7 +218,7 @@ export const A11yOtb = () => {
                       description="Permanently delete the file"
                       shortcut="⌘⇧D"
                       startContent={
-                        <DeleteDocumentBulkIcon className={clsx(iconClasses, "!text-danger")} />
+                        <DeleteDocumentBulkIcon className={clsx(iconClasses, "text-danger!")} />
                       }
                     >
                       Delete file

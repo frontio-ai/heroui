@@ -209,7 +209,7 @@ const CustomButton = () => {
     <Button
       ref={buttonRef}
       disableRipple
-      className="relative overflow-visible rounded-full hover:-translate-y-1 px-12 shadow-xl bg-background/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
+      className="relative overflow-visible rounded-full hover:-translate-y-1 px-12 shadow-sm bg-background/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:duration-500! hover:after:scale-150 hover:after:opacity-0"
       size="lg"
       onPress={handleConfetti}
     >
@@ -236,7 +236,7 @@ import {
   DeleteDocumentBulkIcon,
 } from "@heroui/shared-icons";
 
-const iconClasses = "text-2xl text-default-500 pointer-events-none flex-shrink-0";
+const iconClasses = "text-2xl text-default-500 pointer-events-none shrink-0";
 
 export const Example = () => {
   return (
@@ -287,7 +287,7 @@ export const Example = () => {
             shortcut="⌘⇧D"
             startContent={
               <DeleteDocumentBulkIcon
-                className={clsx(iconClasses, "!text-danger")}
+                className={clsx(iconClasses, "text-danger!")}
               />
             }
           >
@@ -349,7 +349,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
               </div>
               <Button
                 isIconOnly
-                className="text-default-900/60 data-[hover]:bg-foreground/10 -translate-y-2 translate-x-2"
+                className="text-default-900/60 data-hover:bg-foreground/10 -translate-y-2 translate-x-2"
                 radius="full"
                 variant="light"
                 onPress={() => setLiked((v) => !v)}
@@ -381,7 +381,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
             <div className="flex w-full items-center justify-center">
               <Button
                 isIconOnly
-                className="data-[hover]:bg-foreground/10"
+                className="data-hover:bg-foreground/10"
                 radius="full"
                 variant="light"
               >
@@ -389,7 +389,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
               </Button>
               <Button
                 isIconOnly
-                className="data-[hover]:bg-foreground/10"
+                className="data-hover:bg-foreground/10"
                 radius="full"
                 variant="light"
               >
@@ -397,7 +397,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
               </Button>
               <Button
                 isIconOnly
-                className="w-auto h-auto data-[hover]:bg-foreground/10"
+                className="w-auto h-auto data-hover:bg-foreground/10"
                 radius="full"
                 variant="light"
               >
@@ -405,7 +405,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
               </Button>
               <Button
                 isIconOnly
-                className="data-[hover]:bg-foreground/10"
+                className="data-hover:bg-foreground/10"
                 radius="full"
                 variant="light"
               >
@@ -413,7 +413,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
               </Button>
               <Button
                 isIconOnly
-                className="data-[hover]:bg-foreground/10"
+                className="data-hover:bg-foreground/10"
                 radius="full"
                 variant="light"
               >

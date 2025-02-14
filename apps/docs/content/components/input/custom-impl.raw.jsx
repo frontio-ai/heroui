@@ -65,10 +65,10 @@ const styles = {
     "backdrop-blur-xl",
     "backdrop-saturate-200",
     "hover:bg-default-200/70",
-    "focus-within:!bg-default-200/50",
+    "focus-within:bg-default-200/50!",
     "dark:hover:bg-default/70",
-    "dark:focus-within:!bg-default/60",
-    "!cursor-text",
+    "dark:focus-within:bg-default/60!",
+    "cursor-text!",
   ],
 };
 
@@ -100,7 +100,7 @@ const MyInput = forwardRef((props, ref) => {
     type: "search",
     placeholder: "Type to search...",
     startContent: (
-      <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
+      <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none shrink-0" />
     ),
     // custom styles
     classNames: {
@@ -133,7 +133,7 @@ const MyInput = forwardRef((props, ref) => {
   }, [startContent, end, getInputProps, getInnerWrapperProps]);
 
   return (
-    <div className="w-[340px] h-[300px] px-8 rounded-2xl flex justify-center items-center bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">
+    <div className="w-[340px] h-[300px] px-8 rounded-2xl flex justify-center items-center bg-linear-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">
       <Component {...getBaseProps()}>
         {shouldLabelBeOutside ? labelContent : null}
         <div

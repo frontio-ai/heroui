@@ -119,7 +119,7 @@ export const DeleteDocumentIcon = (props) => {
 };
 
 export default function App() {
-  const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
+  const iconClasses = "text-xl text-default-500 pointer-events-none shrink-0";
 
   return (
     <Dropdown
@@ -127,7 +127,7 @@ export default function App() {
       classNames={{
         base: "before:bg-default-200", // change arrow background
         content:
-          "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black",
+          "py-1 px-1 border border-default-200 bg-linear-to-br from-white to-default-200 dark:from-default-50 dark:to-black",
       }}
     >
       <DropdownTrigger>

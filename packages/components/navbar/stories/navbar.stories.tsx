@@ -514,7 +514,7 @@ const WithSearchInputTemplate = (args: NavbarProps) => {
             }}
             placeholder="Search..."
             size="sm"
-            startContent={<SearchIcon className="text-base pointer-events-none flex-shrink-0" />}
+            startContent={<SearchIcon className="text-base pointer-events-none shrink-0" />}
             onClear={() => {
               // eslint-disable-next-line no-console
               console.log("clear");

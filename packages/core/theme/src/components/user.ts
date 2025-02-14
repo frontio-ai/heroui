@@ -18,7 +18,7 @@ import {dataFocusVisibleClasses} from "../utils";
 const user = tv({
   slots: {
     base: [
-      "inline-flex items-center justify-center gap-2 rounded-small outline-none",
+      "inline-flex items-center justify-center gap-2 rounded-small outline-hidden",
       // focus ring
       ...dataFocusVisibleClasses,
     ],

@@ -38,7 +38,7 @@ export default function App() {
         hideCloseButton
         backdrop="blur"
         classNames={{
-          base: "data-[placement=right]:sm:m-2 data-[placement=left]:sm:m-2  rounded-medium",
+          base: "sm:data-[placement=right]:m-2 sm:data-[placement=left]:m-2  rounded-medium",
         }}
         isOpen={isOpen}
         onOpenChange={onOpenChange}
@@ -293,28 +293,28 @@ export default function App() {
                         >
                           <Tooltip content="Alex">
                             <Avatar
-                              className="data-[hover=true]:!translate-x-0"
+                              className="data-[hover=true]:translate-x-0!"
                               name="Alex"
                               src="https://i.pravatar.cc/150?u=a04258114e29026708c"
                             />
                           </Tooltip>
                           <Tooltip content="Joe">
                             <Avatar
-                              className="data-[hover=true]:!translate-x-0"
+                              className="data-[hover=true]:translate-x-0!"
                               name="Joe"
                               src="https://i.pravatar.cc/150?u=a04258114e290267084"
                             />
                           </Tooltip>
                           <Tooltip content="John">
                             <Avatar
-                              className="data-[hover=true]:!translate-x-0"
+                              className="data-[hover=true]:translate-x-0!"
                               name="John"
                               src="https://i.pravatar.cc/150?u=a04258a2462d826712d"
                             />
                           </Tooltip>
                           <Tooltip content="Jane">
                             <Avatar
-                              className="data-[hover=true]:!translate-x-0"
+                              className="data-[hover=true]:translate-x-0!"
                               name="Jane"
                               src="https://i.pravatar.cc/150?u=a04258114e29026702d"
                             />

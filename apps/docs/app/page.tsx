@@ -17,7 +17,7 @@ import {HeroUIProSection} from "@/components/marketing/heroui-pro-section";
 
 export default async function Home() {
   return (
-    <main className="container mx-auto max-w-7xl px-6 flex-grow">
+    <main className="container mx-auto max-w-7xl px-6 grow">
       <section className="flex flex-col items-center justify-center">
         <Hero />
         <FeaturesGrid features={landingContent.topFeatures} />

@@ -469,7 +469,7 @@ export default function Page() {
           <label className="flex items-center text-default-400 text-small">
             Rows per page:
             <select
-              className="bg-transparent outline-none text-default-400 text-small"
+              className="bg-transparent outline-hidden text-default-400 text-small"
               onChange={onRowsPerPageChange}
             >
               <option value="5">5</option>
@@ -521,13 +521,13 @@ export default function Page() {
       td: [
         // changing the rows border radius
         // first
-        "group-data-[first=true]:first:before:rounded-none",
-        "group-data-[first=true]:last:before:rounded-none",
+        "first:group-data-[first=true]:before:rounded-none",
+        "last:group-data-[first=true]:before:rounded-none",
         // middle
         "group-data-[middle=true]:before:rounded-none",
         // last
-        "group-data-[last=true]:first:before:rounded-none",
-        "group-data-[last=true]:last:before:rounded-none",
+        "first:group-data-[last=true]:before:rounded-none",
+        "last:group-data-[last=true]:before:rounded-none",
       ],
     }),
     [],

@@ -34,11 +34,11 @@ const chip = tv({
     ],
     content: "flex-1 text-inherit font-normal",
     dot: ["w-2", "h-2", "ml-1", "rounded-full"],
-    avatar: "flex-shrink-0",
+    avatar: "shrink-0",
     closeButton: [
       "z-10",
       "appearance-none",
-      "outline-none",
+      "outline-hidden",
       "select-none",
       "transition-opacity",
       "opacity-70",
