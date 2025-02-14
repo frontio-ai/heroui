@@ -2,16 +2,12 @@ import * as React from "react";
 import {act, render, fireEvent} from "@testing-library/react";
 import {Button} from "@heroui/button";
 import userEvent, {UserEvent} from "@testing-library/user-event";
-import {keyCodes} from "@heroui/test-utils";
+import {keyCodes, shouldIgnoreReactWarning, spy} from "@heroui/test-utils";
 import {User} from "@heroui/user";
 import {Image} from "@heroui/image";
 import {Avatar} from "@heroui/avatar";
 
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSection} from "../src";
-
-// e.g. console.error Warning: Function components cannot be given refs.
-// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
-const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
 describe("Dropdown", () => {
   let user: UserEvent;
@@ -25,7 +21,7 @@ describe("Dropdown", () => {
 
   it("should render correctly (static)", () => {
     const wrapper = render(
-      <Dropdown>
+      <Dropdown disableAnimation>
         <DropdownTrigger>
           <Button>Trigger</Button>
         </DropdownTrigger>
@@ -52,7 +48,7 @@ describe("Dropdown", () => {
     ];
 
     const wrapper = render(
-      <Dropdown>
+      <Dropdown disableAnimation>
         <DropdownTrigger>
           <Button>Trigger</Button>
         </DropdownTrigger>
@@ -67,7 +63,7 @@ describe("Dropdown", () => {
 
   it("should render correctly with section (static)", () => {
     const wrapper = render(
-      <Dropdown>
+      <Dropdown disableAnimation>
         <DropdownTrigger>
           <Button>Trigger</Button>
         </DropdownTrigger>
@@ -106,7 +102,7 @@ describe("Dropdown", () => {
     ];
 
     const wrapper = render(
-      <Dropdown>
+      <Dropdown disableAnimation>
         <DropdownTrigger>
           <Button>Trigger</Button>
         </DropdownTrigger>
@@ -130,7 +126,7 @@ describe("Dropdown", () => {
 
   it("should not throw any error when clicking button", async () => {
     const wrapper = render(
-      <Dropdown>
+      <Dropdown disableAnimation>
         <DropdownTrigger>
           <Button data-testid="trigger-test">Trigger</Button>
         </DropdownTrigger>
@@ -149,7 +145,14 @@ describe("Dropdown", () => {
 
     expect(triggerButton).toBeTruthy();
 
-    await user.click(triggerButton);
+    await act(async () => {
+      await user.click(triggerButton);
+    });
+
+    if (shouldIgnoreReactWarning(spy)) {
+      return;
+    }
+
     expect(spy).toHaveBeenCalledTimes(0);
 
     let menu = wrapper.queryByRole("menu");
@@ -186,7 +189,9 @@ describe("Dropdown", () => {
 
     expect(onOpenChange).toHaveBeenCalledTimes(0);
 
-    await user.click(triggerButton);
+    await act(async () => {
+      await user.click(triggerButton);
+    });
 
     expect(onOpenChange).toHaveBeenCalledTimes(1);
 
@@ -201,7 +206,9 @@ describe("Dropdown", () => {
 
     expect(menuItems.length).toBe(4);
 
-    await user.click(menuItems[1]);
+    await act(async () => {
+      await user.click(menuItems[1]);
+    });
 
     expect(onSelectionChange).toHaveBeenCalledTimes(1);
     expect(onOpenChange).toHaveBeenCalled();
@@ -236,7 +243,9 @@ describe("Dropdown", () => {
 
     expect(onOpenChange).toHaveBeenCalledTimes(0);
 
-    await user.click(triggerButton);
+    await act(async () => {
+      await user.click(triggerButton);
+    });
 
     expect(onOpenChange).toHaveBeenCalledTimes(1);
 
@@ -251,7 +260,9 @@ describe("Dropdown", () => {
 
     expect(menuItems.length).toBe(4);
 
-    await user.click(menuItems[0]);
+    await act(async () => {
+      await user.click(menuItems[0]);
+    });
 
     expect(onSelectionChange).toHaveBeenCalledTimes(1);
     expect(onOpenChange).toHaveBeenCalled();
@@ -362,7 +373,7 @@ describe("Dropdown", () => {
 
   it("should not open on disabled button", async () => {
     const wrapper = render(
-      <Dropdown>
+      <Dropdown disableAnimation>
         <DropdownTrigger>
           <Button isDisabled data-testid="trigger-test">
             Trigger
@@ -383,7 +394,9 @@ describe("Dropdown", () => {
 
     expect(triggerButton).toBeTruthy();
 
-    await user.click(triggerButton);
+    await act(async () => {
+      await user.click(triggerButton);
+    });
 
     let menu = wrapper.queryByRole("menu");
 
@@ -411,7 +424,9 @@ describe("Dropdown", () => {
 
     expect(triggerButton).toBeTruthy();
 
-    await user.click(triggerButton);
+    await act(async () => {
+      await user.click(triggerButton);
+    });
 
     let menu = wrapper.queryByRole("menu");
 
@@ -445,7 +460,9 @@ describe("Dropdown", () => {
 
     expect(menuItems.length).toBe(4);
 
-    await user.click(menuItems[1]);
+    await act(async () => {
+      await user.click(menuItems[1]);
+    });
 
     expect(onSelectionChange).toHaveBeenCalledTimes(0);
   });
@@ -466,7 +483,7 @@ describe("Dropdown", () => {
       );
     };
 
-    // Non Next UI Element in DropdownTrigger
+    // Non Hero UI Element in DropdownTrigger
     render(
       <Dropdown isDisabled>
         <DropdownTrigger>
@@ -480,7 +497,7 @@ describe("Dropdown", () => {
 
     spy.mockRestore();
 
-    // Next UI Element in DropdownTrigger
+    // Hero UI Element in DropdownTrigger
     render(
       <Dropdown isDisabled>
         <DropdownTrigger>
@@ -530,7 +547,7 @@ describe("Dropdown", () => {
   it("should close listbox by clicking another dropdown", async () => {
     const wrapper = render(
       <>
-        <Dropdown>
+        <Dropdown disableAnimation>
           <DropdownTrigger>
             <Button data-testid="dropdown">Trigger</Button>
           </DropdownTrigger>
@@ -543,7 +560,7 @@ describe("Dropdown", () => {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
-        <Dropdown>
+        <Dropdown disableAnimation>
           <DropdownTrigger>
             <Button data-testid="dropdown2">Trigger</Button>
           </DropdownTrigger>
@@ -565,29 +582,26 @@ describe("Dropdown", () => {
     expect(dropdown).toBeVisible();
     expect(dropdown2).toBeVisible();
 
-    // open the dropdown listbox by clicking dropdown button in the first dropdown
-    await user.click(dropdown);
+    // Wrap click events in act()
+    await act(async () => {
+      await user.click(dropdown);
+    });
 
-    // assert that the first dropdown listbox is open
     expect(dropdown).toHaveAttribute("aria-expanded", "true");
-
-    // assert that the second dropdown listbox is close
     expect(dropdown2).toHaveAttribute("aria-expanded", "false");
 
-    // close the dropdown listbox by clicking the second dropdown
-    await user.click(dropdown2);
+    await act(async () => {
+      await user.click(dropdown2);
+    });
 
-    // assert that the first dropdown listbox is closed
     expect(dropdown).toHaveAttribute("aria-expanded", "false");
-
-    // assert that the second dropdown listbox is open
     expect(dropdown2).toHaveAttribute("aria-expanded", "true");
   });
 
   describe("Keyboard interactions", () => {
     it("should focus on the first item on keyDown (Enter)", async () => {
       const wrapper = render(
-        <Dropdown>
+        <Dropdown disableAnimation>
           <DropdownTrigger>
             <Button data-testid="trigger-test">Trigger</Button>
           </DropdownTrigger>
@@ -625,7 +639,7 @@ describe("Dropdown", () => {
 
     it("should focus on the first item on keyDown (Space)", async () => {
       const wrapper = render(
-        <Dropdown>
+        <Dropdown disableAnimation>
           <DropdownTrigger>
             <Button data-testid="trigger-test">Trigger</Button>
           </DropdownTrigger>
@@ -665,7 +679,7 @@ describe("Dropdown", () => {
       const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
 
       const wrapper = render(
-        <Dropdown>
+        <Dropdown disableAnimation>
           <DropdownTrigger>
             <Button data-testid="trigger-test">Trigger</Button>
           </DropdownTrigger>
@@ -708,7 +722,9 @@ describe("Dropdown", () => {
 
       expect(menuItems[0]).toHaveFocus();
 
-      await user.keyboard("[Enter]");
+      await act(async () => {
+        await user.keyboard("[Enter]");
+      });
 
       expect(logSpy).toHaveBeenCalledWith("ENTER");
 
@@ -719,7 +735,7 @@ describe("Dropdown", () => {
       const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
 
       const wrapper = render(
-        <Dropdown>
+        <Dropdown disableAnimation>
           <DropdownTrigger>
             <Button data-testid="trigger-test">Trigger</Button>
           </DropdownTrigger>
@@ -762,7 +778,9 @@ describe("Dropdown", () => {
 
       expect(menuItems[0]).toHaveFocus();
 
-      await user.keyboard("[Space]");
+      await act(async () => {
+        await user.keyboard("[Space]");
+      });
 
       expect(logSpy).toHaveBeenCalledWith("SPACE");
 
@@ -787,16 +805,24 @@ describe("Dropdown", () => {
 
       let triggerButton = wrapper.getByTestId("trigger-test");
 
-      await user.click(triggerButton);
+      await act(async () => {
+        await user.click(triggerButton);
+      });
 
       expect(onOpenChange).toHaveBeenCalledTimes(1);
 
       let menuItems = wrapper.getAllByRole("menuitem");
 
-      await user.click(menuItems[0]);
+      await act(async () => {
+        await user.click(menuItems[0]);
+      });
+
       expect(onOpenChange).toHaveBeenCalledTimes(1);
 
-      await user.click(menuItems[1]);
+      await act(async () => {
+        await user.click(menuItems[1]);
+      });
+
       expect(onOpenChange).toHaveBeenCalledTimes(2);
     });
 
@@ -829,12 +855,18 @@ describe("Dropdown", () => {
 
       let triggerButton = wrapper.getByTestId("trigger-test");
 
-      await user.click(triggerButton);
+      await act(async () => {
+        await user.click(triggerButton);
+      });
+
       expect(onOpenChange).toHaveBeenCalledTimes(1);
 
       let menuItems = wrapper.getAllByRole("menuitem");
 
-      await user.click(menuItems[0]);
+      await act(async () => {
+        await user.click(menuItems[0]);
+      });
+
       expect(onOpenChange).toHaveBeenCalledTimes(2);
     });
   });

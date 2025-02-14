@@ -10,7 +10,7 @@ export const getSponsors = async () => {
     // if (!__PROD__) {
     //   return mockData;
     // }
-    const res = await fetch("https://opencollective.com/nextui/members/all.json");
+    const res = await fetch("https://opencollective.com/heroui/members/all.json");
     const data = (await res.json()) as Sponsor[];
 
     // filter out repeated sponsors

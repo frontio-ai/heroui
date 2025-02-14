@@ -6,24 +6,27 @@ function CheckIcon(props: CheckboxIconProps) {
   const {isSelected, disableAnimation, ...otherProps} = props;
 
   return (
-    <svg aria-hidden="true" role="presentation" viewBox="0 0 17 18" {...otherProps}>
-      <polyline
-        fill="none"
-        points="1 9 7 14 15 4"
-        stroke="currentColor"
-        strokeDasharray={22}
-        strokeDashoffset={isSelected ? 44 : 66}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        style={
-          !disableAnimation && isSelected
-            ? {
-                transition: "stroke-dashoffset 250ms linear 0.2s",
-              }
-            : {}
-        }
-      />
+    <svg
+      aria-hidden="true"
+      fill="none"
+      role="presentation"
+      stroke="currentColor"
+      strokeDasharray={22}
+      strokeDashoffset={isSelected ? 44 : 66}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      style={
+        !disableAnimation && isSelected
+          ? {
+              transition: "stroke-dashoffset 250ms linear 0.2s",
+            }
+          : {}
+      }
+      viewBox="0 0 17 18"
+      {...otherProps}
+    >
+      <polyline points="1 9 7 14 15 4" />
     </svg>
   );
 }

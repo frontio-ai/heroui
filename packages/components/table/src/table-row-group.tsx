@@ -1,4 +1,6 @@
-import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
+import type {HTMLHeroUIProps} from "@heroui/system";
+
+import {forwardRef} from "react";
 import {useDOMRef} from "@heroui/react-utils";
 import {clsx} from "@heroui/shared-utils";
 import {useTableRowGroup} from "@react-aria/table";
@@ -11,10 +13,11 @@ export interface TableRowGroupProps extends HTMLHeroUIProps<"thead"> {
   classNames?: ValuesType["classNames"];
 }
 
-const TableRowGroup = forwardRef<"thead", TableRowGroupProps>((props, ref) => {
+const TableRowGroup = forwardRef<HTMLTableSectionElement, TableRowGroupProps>((props, ref) => {
   const {as, className, children, slots, classNames, ...otherProps} = props;
 
   const Component = as || "thead";
+
   const domRef = useDOMRef(ref);
 
   const {rowGroupProps} = useTableRowGroup();

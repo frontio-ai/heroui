@@ -5,7 +5,7 @@
   "keywords": [
     "date-picker"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -34,14 +34,14 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@heroui/system": ">=2.4.0",
-    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.8",
+    "@heroui/theme": ">=2.4.6",
     "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
-    "@internationalized/date": "3.6.0",
+    "@internationalized/date": "3.7.0",
     "@heroui/aria-utils": "workspace:*",
     "@heroui/button": "workspace:*",
     "@heroui/calendar": "workspace:*",
@@ -51,14 +51,14 @@
     "@heroui/react-utils": "workspace:*",
     "@heroui/shared-icons": "workspace:*",
     "@heroui/shared-utils": "workspace:*",
-    "@react-aria/datepicker": "3.12.0",
-    "@react-aria/i18n": "3.12.4",
-    "@react-aria/utils": "3.26.0",
-    "@react-stately/datepicker": "3.11.0",
-    "@react-stately/overlays": "3.6.12",
+    "@react-aria/datepicker": "3.13.0",
+    "@react-aria/i18n": "3.12.5",
+    "@react-aria/utils": "3.27.0",
+    "@react-stately/datepicker": "3.12.0",
+    "@react-stately/overlays": "3.6.13",
     "@react-stately/utils": "3.10.5",
-    "@react-types/datepicker": "3.9.0",
-    "@react-types/shared": "3.26.0"
+    "@react-types/datepicker": "3.10.0",
+    "@react-types/shared": "3.27.0"
   },
   "devDependencies": {
     "@heroui/radio": "workspace:*",
@@ -67,8 +67,8 @@
     "@heroui/theme": "workspace:*",
     "framer-motion": "11.9.0",
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

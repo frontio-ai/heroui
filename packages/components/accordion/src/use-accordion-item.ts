@@ -141,6 +141,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
       return {
         "data-open": dataAttr(isOpen),
         "data-disabled": dataAttr(isDisabled),
+        "data-slot": "base",
         className: slots.base({class: baseStyles}),
         ...mergeProps(
           filterDOMProps(otherProps, {
@@ -162,6 +163,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
       "data-disabled": dataAttr(isDisabled),
       "data-hover": dataAttr(isHovered),
       "data-pressed": dataAttr(isPressed),
+      "data-slot": "trigger",
       className: slots.trigger({class: classNames?.trigger}),
       onFocus: callAllHandlers(
         handleFocus,
@@ -188,6 +190,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
       return {
         "data-open": dataAttr(isOpen),
         "data-disabled": dataAttr(isDisabled),
+        "data-slot": "content",
         className: slots.content({class: classNames?.content}),
         ...mergeProps(regionProps, props),
       };
@@ -201,6 +204,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         "aria-hidden": dataAttr(true),
         "data-open": dataAttr(isOpen),
         "data-disabled": dataAttr(isDisabled),
+        "data-slot": "indicator",
         className: slots.indicator({class: classNames?.indicator}),
         ...props,
       };
@@ -213,6 +217,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
       return {
         "data-open": dataAttr(isOpen),
         "data-disabled": dataAttr(isDisabled),
+        "data-slot": "heading",
         className: slots.heading({class: classNames?.heading}),
         ...props,
       };
@@ -225,6 +230,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
       return {
         "data-open": dataAttr(isOpen),
         "data-disabled": dataAttr(isDisabled),
+        "data-slot": "title",
         className: slots.title({class: classNames?.title}),
         ...props,
       };
@@ -237,6 +243,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
       return {
         "data-open": dataAttr(isOpen),
         "data-disabled": dataAttr(isDisabled),
+        "data-slot": "subtitle",
         className: slots.subtitle({class: classNames?.subtitle}),
         ...props,
       };

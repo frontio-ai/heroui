@@ -725,9 +725,7 @@ const LargeDatasetTemplate = (args: ListboxProps & {numItems: number}) => {
     <div className="flex w-full max-w-full py-20 px-20">
       <Listbox label={`Select from ${args.numItems} items`} {...args}>
         {largeDataset.map((item, index) => (
-          <ListboxItem key={index} value={item.value}>
-            {item.label}
-          </ListboxItem>
+          <ListboxItem key={index}>{item.label}</ListboxItem>
         ))}
       </Listbox>
     </div>

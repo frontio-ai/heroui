@@ -6,7 +6,7 @@ import type {DateInputGroupProps} from "./date-input-group";
 
 import {useLocale} from "@react-aria/i18n";
 import {mergeProps} from "@react-aria/utils";
-import {PropGetter, useProviderContext} from "@heroui/system";
+import {PropGetter, useLabelPlacement, useProviderContext} from "@heroui/system";
 import {HTMLHeroUIProps, mapPropsVariants} from "@heroui/system";
 import {useDOMRef} from "@heroui/react-utils";
 import {useTimeField as useAriaTimeField} from "@react-aria/datepicker";
@@ -133,16 +133,10 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
 
   const baseStyles = clsx(classNames?.base, className);
 
-  const labelPlacement = useMemo<DateInputVariantProps["labelPlacement"]>(() => {
-    if (
-      (!originalProps.labelPlacement || originalProps.labelPlacement === "inside") &&
-      !props.label
-    ) {
-      return "outside";
-    }
-
-    return originalProps.labelPlacement ?? "inside";
-  }, [originalProps.labelPlacement, props.label]);
+  const labelPlacement = useLabelPlacement({
+    labelPlacement: originalProps.labelPlacement,
+    label,
+  });
 
   const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
 
@@ -152,9 +146,8 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
         ...variantProps,
         disableAnimation,
         labelPlacement,
-        className,
       }),
-    [objectToDeps(variantProps), labelPlacement, disableAnimation, className],
+    [objectToDeps(variantProps), labelPlacement, disableAnimation],
   );
 
   const getLabelProps: PropGetter = (props) => {

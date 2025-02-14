@@ -5,7 +5,7 @@
   "keywords": [
     "use-aria-accordion-item"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -34,17 +34,17 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/button": "3.11.0",
-    "@react-aria/focus": "3.19.0",
-    "@react-stately/tree": "3.8.6",
-    "@react-types/shared": "3.26.0"
+    "@react-aria/button": "3.11.1",
+    "@react-aria/focus": "3.19.1",
+    "@react-stately/tree": "3.8.7",
+    "@react-types/shared": "3.27.0"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.3.0"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {

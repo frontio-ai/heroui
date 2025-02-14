@@ -1,9 +1,27 @@
+"use client";
+
 import * as React from "react";
 import Script from "next/script";
+import { usePathname } from "next/navigation";
 
+export function ScriptProviders({ isKapaEnabled = true }: { isKapaEnabled?: boolean }) {
+  const pathname = usePathname();
+  const [isMounted, setIsMounted] = React.useState(false);
 
-export function ScriptProviders({isKapaEnabled = true}: {isKapaEnabled?: boolean}) {
-  if (!isKapaEnabled) return null;
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  React.useEffect(() => {
+    const kapaElements = document.querySelectorAll('[id^="kapa-"]');
+    const display = pathname.includes("toast") ? "none" : "block";
+
+    kapaElements.forEach(element => (element as HTMLElement).style.display = display);
+  }, [pathname]);
+
+  if (!isKapaEnabled || !isMounted) {
+    return null;
+  }
 
   return (
     <>

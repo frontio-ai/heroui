@@ -3,13 +3,19 @@ import {Spacer} from "@heroui/spacer";
 import {forwardRef} from "@heroui/system";
 
 import {UseTableProps, useTable} from "./use-table";
+import VirtualizedTable from "./virtualized-table";
 import TableRowGroup from "./table-row-group";
 import TableHeaderRow from "./table-header-row";
 import TableColumnHeader from "./table-column-header";
 import TableSelectAllCheckbox from "./table-select-all-checkbox";
 import TableBody from "./table-body";
 
-export interface TableProps extends Omit<UseTableProps, "isSelectable" | "isMultiSelectable"> {}
+export interface TableProps<T = object>
+  extends Omit<UseTableProps<T>, "isSelectable" | "isMultiSelectable"> {
+  isVirtualized?: boolean;
+  rowHeight?: number;
+  maxTableHeight?: number;
+}
 
 const Table = forwardRef<"table", TableProps>((props, ref) => {
   const {
@@ -30,6 +36,14 @@ const Table = forwardRef<"table", TableProps>((props, ref) => {
     ref,
   });
 
+  const {isVirtualized, rowHeight = 40, maxTableHeight = 600} = props;
+
+  // TODO: remove this after testing the table on production, users can only
+  // enable the virtualization if the passed `isVirtualized` prop is true
+  // const shouldVirtualize = values.collection.size > 50 || isVirtualized;
+
+  const shouldVirtualize = isVirtualized;
+
   const Wrapper = useCallback(
     ({children}: {children: JSX.Element}) => {
       if (removeWrapper) {
@@ -40,6 +54,17 @@ const Table = forwardRef<"table", TableProps>((props, ref) => {
     },
     [removeWrapper, getWrapperProps],
   );
+
+  if (shouldVirtualize) {
+    return (
+      <VirtualizedTable
+        {...(props as TableProps)}
+        ref={ref}
+        maxTableHeight={maxTableHeight}
+        rowHeight={rowHeight}
+      />
+    );
+  }
 
   return (
     <div {...getBaseProps()}>

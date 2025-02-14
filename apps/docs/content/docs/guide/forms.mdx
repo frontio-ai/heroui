@@ -65,7 +65,7 @@ function Example() {
   };
 
   return (
-    <Form onSubmit={onSubmit} validationBehavior="native">
+    <Form onSubmit={onSubmit}>
       <Input
         isRequired
         errorMessage="Please enter a valid email"
@@ -111,7 +111,7 @@ function Example() {
   };
 
   return (
-    <Form className="w-full max-w-xs" validationBehavior="native" onSubmit={onSubmit}>
+    <Form className="w-full max-w-xs" onSubmit={onSubmit}>
       <Input
         isRequired
         errorMessage="Please enter a valid email"
@@ -155,7 +155,7 @@ export default function App() {
   };
 
   return (
-    <Form validationBehavior="native" onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit}>
       <Input
         isRequired
         errorMessage={({validationDetails}) => {
@@ -208,7 +208,7 @@ export default function App() {
   };
 
   return (
-    <Form validationBehavior="native" onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit}>
       <Input
         isRequired
         label="Email"
@@ -225,14 +225,14 @@ export default function App() {
 }
 ```
 
-To enable native validation, set `validationBehavior="native"`.
-By default, `validationBehavior="aria"` is set, which only marks the field as required or invalid for assistive technologies, without preventing form submission.
+To enable ARIA validation, set `validationBehavior="aria"`.
+When`validationBehavior="aria"` is set, fields are only marked as required or invalid for assistive technologies, without preventing form submission.
 You can change the form defaults for your entire app using [HeroUI Provider](/docs/api-references/heroui-provider).
 
 Supported constraints include:
 
 - `isRequired` indicates that a field must have a value before the form can be submitted.
-- `minValue` and `maxValue` specify the minimum and maximum value in a date picker or number field.
+- `minValue` and `maxValue` specify the minimum and maximum value in a date picker or number input.
 - `minLength` and `maxLength` specify the minimum and length of text input.
 - `pattern` provides a custom regular expression that a text input must conform to.
 - `type="email"` and `type="url"` provide built-in validation for email addresses and URLs.
@@ -256,7 +256,7 @@ export default function App() {
   };
 
   return (
-    <Form validationBehavior="native" onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit}>
       <Input
         isRequired
         label="Username"

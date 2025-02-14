@@ -2,7 +2,7 @@ const warningStack: {[key: string]: boolean} = {};
 
 export function warn(message: string, component?: string, ...args: any[]) {
   const tag = component ? ` [${component}]` : " ";
-  const log = `[Next UI]${tag}: ${message}`;
+  const log = `[Hero UI]${tag}: ${message}`;
 
   if (typeof console === "undefined") return;
   if (warningStack[log]) return;

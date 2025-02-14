@@ -5,7 +5,7 @@
   "keywords": [
     "dropdown"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -34,8 +34,8 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@heroui/system": ">=2.4.0",
-    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.7",
+    "@heroui/theme": ">=2.4.6",
     "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0"
@@ -46,11 +46,11 @@
     "@heroui/popover": "workspace:*",
     "@heroui/react-utils": "workspace:*",
     "@heroui/shared-utils": "workspace:*",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/menu": "3.16.0",
-    "@react-aria/utils": "3.26.0",
-    "@react-stately/menu": "3.9.0",
-    "@react-types/menu": "3.9.13"
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/menu": "3.17.0",
+    "@react-aria/utils": "3.27.0",
+    "@react-stately/menu": "3.9.1",
+    "@react-types/menu": "3.9.14"
   },
   "devDependencies": {
     "@heroui/avatar": "workspace:*",
@@ -63,8 +63,8 @@
     "@heroui/user": "workspace:*",
     "clean-package": "2.2.0",
     "framer-motion": "11.9.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

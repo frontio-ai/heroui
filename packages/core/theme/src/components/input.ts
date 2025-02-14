@@ -258,7 +258,6 @@ const input = tv({
     color: "default",
     size: "md",
     fullWidth: true,
-    labelPlacement: "inside",
     isDisabled: false,
     isMultiline: false,
   },

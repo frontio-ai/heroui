@@ -21,7 +21,7 @@ export function useCode(originalProps: UseCodeProps) {
 
   const Component = as || "code";
 
-  const classNames = useMemo(
+  const styles = useMemo(
     () =>
       code({
         ...variantProps,
@@ -32,7 +32,7 @@ export function useCode(originalProps: UseCodeProps) {
 
   const getCodeProps: PropGetter = () => {
     return {
-      className: classNames,
+      className: styles,
       ...otherProps,
     };
   };

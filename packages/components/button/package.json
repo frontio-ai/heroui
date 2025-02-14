@@ -5,7 +5,7 @@
   "keywords": [
     "button"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -37,8 +37,8 @@
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
     "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
-    "@heroui/theme": ">=2.4.0",
-    "@heroui/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.6",
+    "@heroui/system": ">=2.4.7"
   },
   "dependencies": {
     "@heroui/shared-utils": "workspace:*",
@@ -46,12 +46,12 @@
     "@heroui/use-aria-button": "workspace:*",
     "@heroui/ripple": "workspace:*",
     "@heroui/spinner": "workspace:*",
-    "@react-aria/button": "3.11.0",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/utils": "3.26.0",
-    "@react-aria/focus": "3.19.0",
-    "@react-types/shared": "3.26.0",
-    "@react-types/button": "3.10.1"
+    "@react-aria/button": "3.11.1",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/utils": "3.27.0",
+    "@react-aria/focus": "3.19.1",
+    "@react-types/shared": "3.27.0",
+    "@react-types/button": "3.10.2"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",
@@ -59,8 +59,8 @@
     "@heroui/shared-icons": "workspace:*",
     "framer-motion": "11.9.0",
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

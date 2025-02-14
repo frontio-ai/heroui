@@ -31,6 +31,12 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
   disconnect: jest.fn(),
 }));
 
+global.console.error = jest.fn().mockImplementation((message) => {
+  if (message && typeof message === "string" && message.includes("Warning: `ReactDOMTestUtils.act`")) {
+    return;
+  }
+});
+
 configure({
   reactStrictMode: process.env.STRICT_MODE === "true",
 });

@@ -1,4 +1,4 @@
-# @heroui-org/accordion
+# @heroui-inc/accordion
 
 Accordion display a list of high-level options that can expand/collapse to reveal more information.
 
@@ -15,10 +15,10 @@ npm i @heroui/accordion
 ## Contribution
 
 Yes please! See the
-[contributing guidelines](https://github.com/frontio-ai/heroui/blob/master/CONTRIBUTING.md)
+[contributing guidelines](https://github.com/heroui-inc/heroui/blob/master/CONTRIBUTING.md)
 for details.
 
 ## License
 
 This project is licensed under the terms of the
-[MIT license](https://github.com/frontio-ai/heroui/blob/master/LICENSE).
+[MIT license](https://github.com/heroui-inc/heroui/blob/master/LICENSE).

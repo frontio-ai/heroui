@@ -103,7 +103,7 @@ export type ListboxItemBaseProps<T extends object = {}> = Omit<Props<T>, "onClic
   };
 
 const ListboxItemBase = BaseItem as <T extends object>(
-  props: ListboxItemBaseProps<T>,
+  props: Omit<ListboxItemBaseProps<T>, "value">,
 ) => JSX.Element;
 
 export default ListboxItemBase;

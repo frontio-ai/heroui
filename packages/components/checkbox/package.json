@@ -5,7 +5,7 @@
   "keywords": [
     "checkbox"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@heroui/system": ">=2.4.0",
+    "@heroui/system": ">=2.4.7",
     "@heroui/theme": ">=2.4.3",
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0"
@@ -45,15 +45,15 @@
     "@heroui/shared-utils": "workspace:*",
     "@heroui/use-callback-ref": "workspace:*",
     "@heroui/use-safe-layout-effect": "workspace:*",
-    "@react-aria/checkbox": "3.15.0",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/utils": "3.26.0",
-    "@react-aria/visually-hidden": "3.8.18",
-    "@react-stately/checkbox": "3.6.10",
-    "@react-stately/toggle": "3.8.0",
-    "@react-types/checkbox": "3.9.0",
-    "@react-types/shared": "3.26.0"
+    "@react-aria/checkbox": "3.15.1",
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/utils": "3.27.0",
+    "@react-aria/visually-hidden": "3.8.19",
+    "@react-stately/checkbox": "3.6.11",
+    "@react-stately/toggle": "3.8.1",
+    "@react-types/checkbox": "3.9.1",
+    "@react-types/shared": "3.27.0"
   },
   "devDependencies": {
     "@heroui/chip": "workspace:*",
@@ -63,8 +63,8 @@
     "@heroui/theme": "workspace:*",
     "@heroui/user": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "18.3.0",
+    "react-dom": "18.3.0",
     "react-hook-form": "^7.51.3"
   },
   "clean-package": "../../../clean-package.config.json"

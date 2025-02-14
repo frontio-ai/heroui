@@ -1,14 +1,11 @@
+import "@testing-library/jest-dom";
 import * as React from "react";
 import {act, render} from "@testing-library/react";
-import {focus} from "@heroui/test-utils";
+import {focus, shouldIgnoreReactWarning, spy} from "@heroui/test-utils";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 import {Input} from "@heroui/input";
 
 import {Accordion, AccordionItem} from "../src";
-
-// e.g. console.error Warning: Function components cannot be given refs.
-// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
-const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
 describe("Accordion", () => {
   let user: UserEvent;
@@ -29,6 +26,10 @@ describe("Accordion", () => {
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
+
+    if (shouldIgnoreReactWarning(spy)) {
+      return;
+    }
 
     expect(spy).toHaveBeenCalledTimes(0);
   });

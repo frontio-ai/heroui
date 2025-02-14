@@ -180,7 +180,7 @@ const WithFormTemplate = (args: CheckboxProps) => {
   };
 
   return (
-    <Form validationBehavior="native" validationErrors={errors} onSubmit={onSubmit}>
+    <Form validationErrors={errors} onSubmit={onSubmit}>
       <Checkbox
         isRequired
         classNames={{

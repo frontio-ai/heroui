@@ -1,0 +1,64 @@
+{
+  "name": "@heroui/toast",
+  "version": "2.0.0",
+  "description": "Toast are temporary notifications that provide concise feedback about an action or event",
+  "keywords": [
+    "toast"
+  ],
+  "author": "HeroUI <support@heroui.com>",
+  "homepage": "https://heroui.com",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
+    "directory": "packages/components/toast"
+  },
+  "bugs": {
+    "url": "https://github.com/heroui-inc/heroui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "@heroui/system": ">=2.4.8",
+    "@heroui/theme": ">=2.4.6",
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0",
+    "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1"
+  },
+  "dependencies": {
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
+    "@heroui/use-is-mobile": "workspace:*",
+    "@heroui/spinner": "workspace:*",
+    "@react-aria/toast": "3.0.0-beta.19",
+    "@react-aria/utils": "3.27.0",
+    "@react-aria/interactions": "3.23.0",
+    "@react-stately/toast": "3.0.0-beta.7",
+    "@react-stately/utils": "3.10.5"
+  },
+  "devDependencies": {
+    "@heroui/system": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/button": "workspace:*",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}

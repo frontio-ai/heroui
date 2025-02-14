@@ -17,6 +17,7 @@ export const CloseIcon = (
   return (
     <svg
       aria-hidden="true"
+      className="fill-current"
       fill="none"
       focusable="false"
       height="1em"

@@ -21,6 +21,8 @@ export interface AriaLinkOptions extends AriaLinkProps {
   isDisabled?: boolean;
   /** The role of the element */
   role?: string;
+  /** The type of the element, e.g. 'button' */
+  type?: string;
   /**
    * The HTML element used to render the link, e.g. 'a', or 'span'.
    * @default 'a'
@@ -50,6 +52,7 @@ export function useAriaLink(props: AriaLinkOptions, ref: RefObject<FocusableElem
     onClick: deprecatedOnClick,
     role,
     isDisabled,
+    type,
     ...otherProps
   } = props;
 
@@ -64,7 +67,14 @@ export function useAriaLink(props: AriaLinkOptions, ref: RefObject<FocusableElem
 
   let isMobile = isIOS() || isAndroid();
 
-  if (deprecatedOnClick && typeof deprecatedOnClick === "function" && role !== "button") {
+  if (
+    deprecatedOnClick &&
+    typeof deprecatedOnClick === "function" &&
+    // bypass since onClick is passed from <Link as="button" /> internally
+    type !== "button" &&
+    // bypass since onClick is passed from <Button as={Link} /> internally
+    role !== "button"
+  ) {
     warn(
       "onClick is deprecated, please use onPress instead. See: https://github.com/heroui-inc/heroui/issues/4292",
       "useLink",

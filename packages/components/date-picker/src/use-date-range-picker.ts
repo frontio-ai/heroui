@@ -1,5 +1,4 @@
 import type {DateValue} from "@internationalized/date";
-import type {DateInputVariantProps} from "@heroui/theme";
 import type {TimeInputProps} from "@heroui/date-input";
 import type {ButtonProps} from "@heroui/button";
 import type {RangeCalendarProps} from "@heroui/calendar";
@@ -14,7 +13,7 @@ import type {DateInputGroupProps} from "@heroui/date-input";
 import type {DateRangePickerSlots, SlotsToClasses} from "@heroui/theme";
 import type {DateInputProps} from "@heroui/date-input";
 
-import {useProviderContext} from "@heroui/system";
+import {useLabelPlacement, useProviderContext} from "@heroui/system";
 import {useMemo, useRef} from "react";
 import {useDateRangePickerState} from "@react-stately/datepicker";
 import {useDateRangePicker as useAriaDateRangePicker} from "@react-aria/datepicker";
@@ -47,6 +46,8 @@ interface Props<T extends DateValue>
    *    separator: "separator-classes",
    *    bottomContent: "bottom-content-classes",
    *    timeInputWrapper: "time-input-wrapper-classes",
+   *    timeInputLabel: "time-input-label-classes",
+   *    timeInput: "time-input-classes",
    *    helperWrapper: "helper-wrapper-classes",
    *    description: "description-classes",
    *    errorMessage: "error-message-classes",
@@ -60,6 +61,7 @@ export type UseDateRangePickerProps<T extends DateValue> = Props<T> & AriaDateRa
 
 export function useDateRangePicker<T extends DateValue>({
   as,
+  label,
   isInvalid: isInvalidProp,
   description,
   startContent,
@@ -143,16 +145,10 @@ export function useDateRangePicker<T extends DateValue>({
 
   const showTimeField = !!timeGranularity;
 
-  const labelPlacement = useMemo<DateInputVariantProps["labelPlacement"]>(() => {
-    if (
-      (!originalProps.labelPlacement || originalProps.labelPlacement === "inside") &&
-      !originalProps.label
-    ) {
-      return "outside";
-    }
-
-    return originalProps.labelPlacement ?? "inside";
-  }, [originalProps.labelPlacement, originalProps.label]);
+  const labelPlacement = useLabelPlacement({
+    labelPlacement: originalProps.labelPlacement,
+    label,
+  });
 
   const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
 
@@ -278,9 +274,8 @@ export function useDateRangePicker<T extends DateValue>({
       dateInput({
         ...variantProps,
         labelPlacement,
-        className,
       }),
-    [objectToDeps(variantProps), className],
+    [objectToDeps(variantProps)],
   );
 
   const getStartDateInputProps = (props: DOMAttributes = {}) => {
@@ -395,7 +390,7 @@ export function useDateRangePicker<T extends DateValue>({
   const getDateInputGroupProps = () => {
     return {
       as,
-      label: originalProps.label,
+      label,
       description,
       endContent,
       errorMessage,
@@ -423,7 +418,7 @@ export function useDateRangePicker<T extends DateValue>({
 
   return {
     state,
-    label: originalProps.label,
+    label,
     slots,
     classNames,
     startContent,

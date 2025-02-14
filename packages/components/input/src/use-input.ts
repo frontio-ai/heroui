@@ -1,7 +1,13 @@
 import type {InputVariantProps, SlotsToClasses, InputSlots} from "@heroui/theme";
 import type {AriaTextFieldOptions} from "@react-aria/textfield";
 
-import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {
+  HTMLHeroUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useLabelPlacement,
+  useProviderContext,
+} from "@heroui/system";
 import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useFocusRing} from "@react-aria/focus";
@@ -140,21 +146,26 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     handleValueChange,
   );
 
+  const isFileTypeInput = type === "file";
+  const hasUploadedFiles = ((domRef?.current as HTMLInputElement)?.files?.length ?? 0) > 0;
   const isFilledByDefault = ["date", "time", "month", "week", "range"].includes(type!);
-  const isFilled = !isEmpty(inputValue) || isFilledByDefault;
+  const isFilled = !isEmpty(inputValue) || isFilledByDefault || hasUploadedFiles;
   const isFilledWithin = isFilled || isFocusWithin;
   const isHiddenType = type === "hidden";
   const isMultiline = originalProps.isMultiline;
-  const isFileTypeInput = type === "file";
 
   const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
 
   const handleClear = useCallback(() => {
-    setInputValue("");
+    if (isFileTypeInput) {
+      (domRef.current as HTMLInputElement).value = "";
+    } else {
+      setInputValue("");
+    }
 
     onClear?.();
     domRef.current?.focus();
-  }, [setInputValue, onClear]);
+  }, [setInputValue, onClear, isFileTypeInput]);
 
   // if we use `react-hook-form`, it will set the input value using the ref in register
   // i.e. setting ref.current.value to something which is uncontrolled
@@ -222,13 +233,10 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
 
   const isInvalid = validationState === "invalid" || isAriaInvalid;
 
-  const labelPlacement = useMemo<InputVariantProps["labelPlacement"]>(() => {
-    if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
-      return "outside";
-    }
-
-    return originalProps.labelPlacement ?? "inside";
-  }, [originalProps.labelPlacement, label]);
+  const labelPlacement = useLabelPlacement({
+    labelPlacement: originalProps.labelPlacement,
+    label,
+  });
 
   const errorMessage =
     typeof props.errorMessage === "function"

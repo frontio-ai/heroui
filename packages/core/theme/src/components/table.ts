@@ -208,13 +208,13 @@ const table = tv({
       true: {
         td: [
           // first
-          "group-data-[first=true]/tr:first:before:rounded-ts-lg",
-          "group-data-[first=true]/tr:last:before:rounded-te-lg",
+          "group-data-[first=true]/tr:first:before:rounded-ss-lg",
+          "group-data-[first=true]/tr:last:before:rounded-se-lg",
           // middle
           "group-data-[middle=true]/tr:before:rounded-none",
           // last
-          "group-data-[last=true]/tr:first:before:rounded-bs-lg",
-          "group-data-[last=true]/tr:last:before:rounded-be-lg",
+          "group-data-[last=true]/tr:first:before:rounded-es-lg",
+          "group-data-[last=true]/tr:last:before:rounded-ee-lg",
         ],
       },
       false: {

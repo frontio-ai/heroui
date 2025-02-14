@@ -337,6 +337,8 @@ The `maxListboxHeight` prop is used to set the maximum height of the listbox. Th
 
 The `itemHeight` prop is used to set the height of each item in the listbox. This is required when using virtualization. By default, it's set to `32`.
 
+> **Note**: If the height of the list items differs from the default due to `startContent` or other custom content, be sure to pass the correct value to `itemHeight` to prevent layout issues.
+
 <CodeDemo title="Custom Item Height" files={autocompleteContent.virtualizationCustomItemHeight} />
 
 ### With Sections

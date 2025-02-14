@@ -19,6 +19,8 @@ import {usePress} from "@react-aria/interactions";
 export type AriaButtonProps<T extends ElementType = "button"> = BaseAriaButtonProps<T> & {
   /** Whether text selection should be enabled on the pressable element. */
   allowTextSelectionOnPress?: boolean;
+  /** The role of the button element. */
+  role?: string;
 };
 
 export interface ButtonAria<T> {
@@ -81,6 +83,7 @@ export function useAriaButton(
     rel,
     type = "button",
     allowTextSelectionOnPress,
+    role,
   } = props;
   let additionalProps;
 
@@ -104,7 +107,14 @@ export function useAriaButton(
 
   let isMobile = isIOS() || isAndroid();
 
-  if (deprecatedOnClick && typeof deprecatedOnClick === "function") {
+  if (
+    deprecatedOnClick &&
+    typeof deprecatedOnClick === "function" &&
+    // bypass since onClick is passed from <Link as={Button} /> internally
+    role !== "link" &&
+    // bypass since onClick is passed from useDisclosure's `getButtonProps` internally
+    !(props.hasOwnProperty("aria-expanded") && props.hasOwnProperty("aria-controls"))
+  ) {
     warn(
       "onClick is deprecated, please use onPress instead. See: https://github.com/heroui-inc/heroui/issues/4292",
       "useButton",

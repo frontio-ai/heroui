@@ -299,4 +299,48 @@ describe("Listbox", () => {
 
     expect(menuItem).not.toHaveProperty("className", expect.stringContaining("truncate"));
   });
+
+  it("should trigger press events", async () => {
+    const onPress = jest.fn();
+    const onPressStart = jest.fn();
+    const onPressEnd = jest.fn();
+    const onPressUp = jest.fn();
+    const onPressChange = jest.fn();
+
+    const {getAllByRole} = render(
+      <Listbox aria-label="Actions">
+        <ListboxItem
+          key="new"
+          onPress={onPress}
+          onPressChange={onPressChange}
+          onPressEnd={onPressEnd}
+          onPressStart={onPressStart}
+          onPressUp={onPressUp}
+        >
+          New file
+        </ListboxItem>
+        <ListboxItem key="copy">Copy link</ListboxItem>
+        <ListboxItem key="edit">Edit file</ListboxItem>
+        <ListboxItem key="delete" color="danger">
+          Delete file
+        </ListboxItem>
+      </Listbox>,
+    );
+
+    let listboxItems = getAllByRole("option");
+
+    expect(listboxItems.length).toBe(4);
+
+    await user.click(listboxItems[0]);
+
+    expect(onPress).toHaveBeenCalled();
+
+    expect(onPressStart).toHaveBeenCalled();
+
+    expect(onPressEnd).toHaveBeenCalled();
+
+    expect(onPressUp).toHaveBeenCalled();
+
+    expect(onPressChange).toHaveBeenCalled();
+  });
 });

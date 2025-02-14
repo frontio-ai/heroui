@@ -5,13 +5,14 @@
   "keywords": [
     "system"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "scripts"
   ],
   "publishConfig": {
     "access": "public"
@@ -25,13 +26,15 @@
     "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
+    "postinstall": "node -e \"try{require('./scripts/postinstall.js')}catch(e){}\"",
     "build": "tsup src --dts",
     "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",
     "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "postpack": "clean-package restore",
+    "postbuild": "npm run postinstall"
   },
   "devDependencies": {
     "clean-package": "2.2.0"
@@ -43,6 +46,8 @@
     "format": [
       "cjs",
       "esm"
-    ]
+    ],
+    "splitting": false,
+    "entry": ["src/demi/react18", "src/demi/react19"]
   }
 }

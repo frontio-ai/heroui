@@ -145,9 +145,8 @@ export function useBreadcrumbs(originalProps: UseBreadcrumbsProps) {
     () =>
       breadcrumbs({
         ...variantProps,
-        className,
       }),
-    [objectToDeps(variantProps), className],
+    [objectToDeps(variantProps)],
   );
 
   const baseStyles = clsx(classNames?.base, className);

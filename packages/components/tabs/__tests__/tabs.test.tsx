@@ -2,6 +2,7 @@ import * as React from "react";
 import {act, render, fireEvent, within} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 import {focus} from "@heroui/test-utils";
+import {spy, shouldIgnoreReactWarning} from "@heroui/test-utils";
 
 import {Tabs, Tab, TabsProps} from "../src";
 
@@ -45,10 +46,6 @@ function getPlacementTemplate(position: TabsProps["placement"]) {
   );
 }
 
-// e.g. console.error Warning: Function components cannot be given refs.
-// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
-const spy = jest.spyOn(console, "error").mockImplementation(() => {});
-
 describe("Tabs", () => {
   let user: UserEvent;
 
@@ -76,7 +73,9 @@ describe("Tabs", () => {
 
     expect(() => wrapper.unmount()).not.toThrow();
 
-    expect(spy).toHaveBeenCalledTimes(0);
+    if (!shouldIgnoreReactWarning(spy)) {
+      expect(spy).toHaveBeenCalledTimes(0);
+    }
   });
 
   it("should render correctly (dynamic)", () => {

@@ -1,12 +1,12 @@
 import type { {{capitalize componentName}}VariantProps } from "@heroui/theme";
 
-import {HTMLNextUIProps,mapPropsVariants} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants} from "@heroui/system";
 import { {{componentName}} } from "@heroui/theme";
 import {ReactRef, useDOMRef} from "@heroui/react-utils";
 import {objectToDeps} from "@heroui/shared-utils";
 import {useMemo} from "react";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */

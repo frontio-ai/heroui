@@ -11,7 +11,7 @@
     "classNames",
     "css"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -47,21 +47,21 @@
   },
   "dependencies": {
     "color": "^4.2.3",
-    "color2k": "^2.0.2",
+    "color2k": "^2.0.3",
     "deepmerge": "4.3.1",
     "flat": "^5.0.2",
     "clsx": "^1.2.1",
-    "tailwind-variants": "^0.1.20",
-    "tailwind-merge": "^2.5.2",
+    "tailwind-variants": "0.3.0",
+    "tailwind-merge": "2.5.4",
     "@heroui/shared-utils": "workspace:*"
   },
   "peerDependencies": {
     "tailwindcss": ">=3.4.0"
   },
   "devDependencies": {
-    "@types/color": "^3.0.3",
+    "@types/color": "^4.2.0",
     "@types/flat": "^5.0.2",
-    "tailwindcss": "^3.4.0",
+    "tailwindcss": "^3.4.16",
     "clean-package": "2.2.0"
   },
   "tsup": {

@@ -294,12 +294,8 @@ describe("Checkbox.Group", () => {
           };
 
           return (
-            <Form validationErrors={serverErrors} onSubmit={onSubmit}>
-              <CheckboxGroup
-                label="Agree to the following"
-                name="terms"
-                validationBehavior="native"
-              >
+            <Form validationBehavior="native" validationErrors={serverErrors} onSubmit={onSubmit}>
+              <CheckboxGroup label="Agree to the following" name="terms">
                 <Checkbox value="terms">Terms and conditions</Checkbox>
                 <Checkbox value="cookies">Cookies</Checkbox>
                 <Checkbox value="privacy">Privacy policy</Checkbox>

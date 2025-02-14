@@ -683,7 +683,7 @@ export const WithDateInputClassNames = {
   render: Template,
   args: {
     ...defaultProps,
-    dateInputClassNames: {
+    classNames: {
       base: "bg-gray-200 p-2 rounded-md",
       label: "text-blue-400 font-semibold",
       inputWrapper: "border-3 border-solid border-blue-400 p-2 rounded-md",

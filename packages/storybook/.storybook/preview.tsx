@@ -7,13 +7,13 @@ import "./style.css";
 import {withStrictModeSwitcher} from "./addons/react-strict-mode";
 
 const decorators: Preview["decorators"] = [
-  (Story, {globals: {locale, disableAnimation}}) => {
+  (Story, {globals: {locale, disableAnimation, labelPlacement}}) => {
     const direction =
       // @ts-ignore
       locale && new Intl.Locale(locale)?.textInfo?.direction === "rtl" ? "rtl" : undefined;
 
     return (
-      <HeroUIProvider locale={locale} disableAnimation={disableAnimation}>
+      <HeroUIProvider locale={locale} disableAnimation={disableAnimation} labelPlacement={labelPlacement}>
         <div className="bg-dark" lang={locale} dir={direction}>
           <Story />
         </div>
@@ -127,6 +127,18 @@ const globalTypes: Preview["globalTypes"] = {
       ],
     },
   },
+  labelPlacement: {
+    name: "Label Placement",
+    description: "Position of label.",
+    toolbar: {
+      icon: "component",
+      items: [
+        {value: "inside", title: "Inside"},
+        {value: "outside", title: "Outside"},
+        {value: "outside-left", title: "Outside Left"},
+      ],
+    },
+  }
 };
 
 const preview: Preview = {

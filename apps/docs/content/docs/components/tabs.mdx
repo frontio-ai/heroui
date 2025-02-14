@@ -169,10 +169,10 @@ function AppTabs() {
   return (
     <div className="flex flex-col gap-2">
       <Tabs selectedKey={pathname} aria-label="Tabs">
-        <Tab id="/" href="/" title="Home" />
-        <Tab id="/photos" href="/photos" title="Photos" />
-        <Tab id="/music" href="/music" title="Music" />
-        <Tab id="/videos" href="/videos" title="Videos" />
+        <Tab key="/" href="/" title="Home" />
+        <Tab key="/photos" href="/photos" title="Photos" />
+        <Tab key="/music" href="/music" title="Music" />
+        <Tab key="/videos" href="/videos" title="Videos" />
       </Tabs>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -199,6 +199,7 @@ function AppTabs() {
 - **tabContent**: The tab content slot, it wraps the tab content.
 - **cursor**: The cursor slot, it wraps the cursor. This is only visible when `disableAnimation=false`
 - **panel**: The panel slot, it wraps the tab panel (content).
+- **tabWrapper**: The tab wrapper slot, it wraps the tab and the tab content.
 
 ### Custom Styles
 
@@ -343,7 +344,7 @@ You can customize the `Tabs` component by passing custom Tailwind CSS classes to
     },
     {
       attribute: "classNames",
-      type: "Partial<Record<\"base\"｜ \"tabList\"｜ \"tab\"｜ \"tabContent\"｜ \"cursor\" ｜ \"panel\", string>>",
+      type: "Partial<Record<\"base\"｜ \"tabList\"｜ \"tab\"｜ \"tabContent\"｜ \"cursor\" ｜ \"panel\" ｜ \"tabWrapper\", string>>",
       description: "Allows to set custom class names for the card slots.",
       default: "-"
     },
@@ -355,7 +356,7 @@ You can customize the `Tabs` component by passing custom Tailwind CSS classes to
     },
     {
       attribute: "isVertical",
-      type: "boolean", 
+      type: "boolean",
       description: "Whether the tabs are vertical.",
       default: "false"
     },

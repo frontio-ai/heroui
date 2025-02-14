@@ -317,6 +317,36 @@ import { useAsyncList } from "@react-stately/data";
   iframeSrc="/examples/table/infinite-pagination"
 />
 
+
+### Virtualization
+
+Table supports virtualization, which allows efficient rendering of large lists by only rendering items that are visible in the viewport. You can enable virtualization by setting the `isVirtualized` prop to `true`.
+
+<CodeDemo
+  title="Virtualization"
+  files={tableContent.virtualization}
+/>
+
+> **Note**: The virtualization strategy is based on the [@tanstack/react-virtual](https://tanstack.com/virtual/latest) package, which provides efficient rendering of large lists by only rendering items that are visible in the viewport.
+
+#### Ten Thousand Items
+
+Here's an example of using virtualization with 10,000 items.
+
+<CodeDemo title="Ten Thousand Items" files={tableContent.virtualizationTenThousand} />
+
+#### Max Table Height
+
+The `maxTableHeight` prop is used to set the maximum height of the table. This is required when using virtualization. By default, it's set to `600`.
+
+<CodeDemo title="Max Table Height" files={tableContent.virtualizationCustomMaxTableHeight} />
+
+#### Custom Row Height
+
+The `rowHeight` prop is used to set the height of each row in the table. This is required when using virtualization. By default, it's set to `40`.
+
+<CodeDemo title="Custom Row Height" files={tableContent.virtualizationCustomItemHeight} />
+
 ### Use Case Example
 
 When creating a table, you usually need core functionalities like sorting, pagination, and filtering. In the
@@ -456,6 +486,24 @@ You can customize the `Table` component by passing custom Tailwind CSS classes t
       type: "none | sm | md | lg",
       description: "The shadow size of the table.",
       default: "sm"
+    },
+        {
+      attribute: "maxTableHeight",
+      type: "number",
+      description: "The maximum height of the table in pixels. Required when using virtualization.",
+      default: 600
+    },
+    {
+      attribute: "rowHeight",
+      type: "number", 
+      description: "The fixed height of each row item in pixels. Required when using virtualization.",
+      default: 40
+    },
+    {
+      attribute: "isVirtualized",
+      type: "boolean",
+      description: "Whether to enable virtualization. By default, it's enabled when the number of items exceeds 50.",
+      default: "undefined"
     },
     {
       attribute: "hideHeader",

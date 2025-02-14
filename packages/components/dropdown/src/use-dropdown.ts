@@ -124,7 +124,7 @@ export function useDropdown(props: UseDropdownProps): UseDropdownReturn {
     menuTriggerRef,
   );
 
-  const classNames = useMemo(
+  const styles = useMemo(
     () =>
       dropdown({
         className,
@@ -156,7 +156,7 @@ export function useDropdown(props: UseDropdownProps): UseDropdownReturn {
       classNames: {
         ...classNamesProp,
         ...props.classNames,
-        content: clsx(classNames, classNamesProp?.content, props.className),
+        content: clsx(styles, classNamesProp?.content, props.className),
       },
       shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
         ? popoverProps.shouldCloseOnInteractOutside
@@ -195,7 +195,6 @@ export function useDropdown(props: UseDropdownProps): UseDropdownReturn {
     Component,
     menuRef,
     menuProps,
-    classNames,
     closeOnSelect,
     onClose: state.close,
     autoFocus: state.focusStrategy || true,
@@ -206,13 +205,10 @@ export function useDropdown(props: UseDropdownProps): UseDropdownReturn {
   };
 }
 
-// export type UseDropdownReturn = ReturnType<typeof useDropdown>;
-
 export type UseDropdownReturn = {
   Component: string | React.ElementType;
   menuRef: React.RefObject<HTMLUListElement>;
   menuProps: any;
-  classNames: string;
   closeOnSelect: boolean;
   onClose: () => void;
   autoFocus: any;

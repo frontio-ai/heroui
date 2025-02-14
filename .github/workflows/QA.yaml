@@ -70,3 +70,20 @@ jobs:
 
       - name: Run prettier
         run: pnpm format:check
+
+  continuous-release:
+    name: Continuous Release
+    if: github.repository == 'heroui-inc/heroui'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Install
+        uses: ./.github/common-actions/install
+
+      - name: Build packages
+        run: pnpm build
+
+      - name: Release
+        run: pnpx pkg-pr-new publish --compact --pnpm './packages/components/*' './packages/core/*' './packages/hooks/*' './packages/utilities/*'

@@ -298,6 +298,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     }
     activePageRef.current = activePage;
   }, [
+    page,
     activePage,
     disableAnimation,
     disableCursorAnimation,

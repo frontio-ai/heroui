@@ -69,9 +69,17 @@ interface Props extends HTMLHeroUIProps<"section"> {
    * ```
    */
   classNames?: SlotsToClasses<ModalSlots>;
+  /**
+   * Whether to close the overlay when the user interacts outside it.
+   * @default true
+   */
+  isDismissable?: boolean;
 }
 
-export type UseModalProps = Props & OverlayTriggerProps & AriaModalOverlayProps & ModalVariantProps;
+export type UseModalProps = Props &
+  OverlayTriggerProps &
+  Omit<AriaModalOverlayProps, "isDismissable"> &
+  ModalVariantProps;
 
 export function useModal(originalProps: UseModalProps) {
   const globalContext = useProviderContext();

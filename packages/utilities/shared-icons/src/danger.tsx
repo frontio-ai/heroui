@@ -7,6 +7,7 @@ export const DangerIcon = (
 ) => {
   return (
     <svg
+      className="fill-current"
       fill="none"
       height="20"
       viewBox="0 0 20 20"

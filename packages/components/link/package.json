@@ -5,7 +5,7 @@
   "keywords": [
     "link"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -36,25 +36,25 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@heroui/theme": ">=2.4.0",
-    "@heroui/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.6",
+    "@heroui/system": ">=2.4.7"
   },
   "dependencies": {
     "@heroui/shared-utils": "workspace:*",
     "@heroui/shared-icons": "workspace:*",
     "@heroui/react-utils": "workspace:*",
     "@heroui/use-aria-link": "workspace:*",
-    "@react-aria/link": "3.7.7",
-    "@react-aria/utils": "3.26.0",
-    "@react-aria/focus": "3.19.0",
-    "@react-types/link": "3.5.9"
+    "@react-aria/link": "3.7.8",
+    "@react-aria/utils": "3.27.0",
+    "@react-aria/focus": "3.19.1",
+    "@react-types/link": "3.5.10"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",
     "@heroui/system": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

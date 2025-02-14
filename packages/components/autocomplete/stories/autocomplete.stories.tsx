@@ -89,9 +89,7 @@ const defaultProps = {
 };
 
 const items = animalsData.map((item) => (
-  <AutocompleteItem key={item.value} value={item.value}>
-    {item.label}
-  </AutocompleteItem>
+  <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>
 ));
 
 interface LargeDatasetSchema {
@@ -138,9 +136,7 @@ const LargeDatasetTemplate = (args: AutocompleteProps & {numItems: number}) => {
   return (
     <Autocomplete label={`Search from ${args.numItems} items`} {...args}>
       {largeDataset.map((item, index) => (
-        <AutocompleteItem key={index} value={item.value}>
-          {item.label}
-        </AutocompleteItem>
+        <AutocompleteItem key={index}>{item.label}</AutocompleteItem>
       ))}
     </Autocomplete>
   );

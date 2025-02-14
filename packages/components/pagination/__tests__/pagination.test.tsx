@@ -1,5 +1,6 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
+import {spy, shouldIgnoreReactWarning} from "@heroui/test-utils";
 
 import {Pagination} from "../src";
 
@@ -8,6 +9,12 @@ describe("Pagination", () => {
     const wrapper = render(<Pagination total={10} />);
 
     expect(() => wrapper.unmount()).not.toThrow();
+
+    if (shouldIgnoreReactWarning(spy)) {
+      return;
+    }
+
+    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it("ref should be forwarded", () => {

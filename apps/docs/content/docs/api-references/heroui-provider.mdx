@@ -67,11 +67,11 @@ Here's the supported locales. By default, It is `en-US`.
 ```tsx
 const localeValues = [
   'fr-FR', 'fr-CA', 'de-DE', 'en-US', 'en-GB', 'ja-JP',
-  'da-DK', 'nl-NL', 'fi-FI', 'it-IT', 'nb-NO', 'es-ES', 
-  'sv-SE', 'pt-BR', 'zh-CN', 'zh-TW', 'ko-KR', 'bg-BG', 
-  'hr-HR', 'cs-CZ', 'et-EE', 'hu-HU', 'lv-LV', 'lt-LT', 
-  'pl-PL', 'ro-RO', 'ru-RU', 'sr-SP', 'sk-SK', 'sl-SI', 
-  'tr-TR', 'uk-UA', 'ar-AE', 'ar-DZ', 'AR-EG', 'ar-SA', 
+  'da-DK', 'nl-NL', 'fi-FI', 'it-IT', 'nb-NO', 'es-ES',
+  'sv-SE', 'pt-BR', 'zh-CN', 'zh-TW', 'ko-KR', 'bg-BG',
+  'hr-HR', 'cs-CZ', 'et-EE', 'hu-HU', 'lv-LV', 'lt-LT',
+  'pl-PL', 'ro-RO', 'ru-RU', 'sr-SP', 'sk-SK', 'sl-SI',
+  'tr-TR', 'uk-UA', 'ar-AE', 'ar-DZ', 'AR-EG', 'ar-SA',
   'el-GR', 'he-IL', 'fa-AF', 'am-ET', 'hi-IN', 'th-TH'
 ];
 ```
@@ -112,7 +112,7 @@ interface AppProviderProps {
 
 `createCalendar`
 
-- **Description**: 
+- **Description**:
     This function helps to reduce the bundle size by providing a custom calendar system.
 
     By default, this includes all calendar systems supported by `@internationalized/date`. However,
@@ -139,6 +139,15 @@ interface AppProviderProps {
     This way, only GregorianCalendar is imported, and the other calendar implementations can be tree-shaken.
 
 - **Type**: `((calendar: SupportedCalendars) => Calendar | null) | undefined`
+
+<Spacer y={2}/>
+
+`labelPlacement`
+
+- **Description**: Determines the position where label should appear, such as inside, outside or outside-left of the component.
+- **Type**: `string` | `undefined`
+- **Possible Values**: `inside` | `outside` | `outside-left` | `undefined`
+- **Default**: `undefined`
 
 <Spacer y={2}/>
 
@@ -173,20 +182,29 @@ interface AppProviderProps {
 
 `validationBehavior`
 
-- **Description**: Whether to use native HTML form validation to prevent form submission when the value is missing or invalid, 
+- **Description**: Whether to use native HTML form validation to prevent form submission when the value is missing or invalid,
 or mark the field as required or invalid via ARIA.
 - **Type**: `native | aria`
-- **Default**: `aria`
+- **Default**: `native`
 
 `reducedMotion`
 
-- **Description**: Controls the motion preferences for the entire application, allowing developers to respect user settings for reduced motion. 
+- **Description**: Controls the motion preferences for the entire application, allowing developers to respect user settings for reduced motion.
 The available options are:
   - `"user"`: Adapts to the user's device settings for reduced motion.
   - `"always"`: Disables all animations.
   - `"never"`: Keeps all animations active.
 - **Type**: `"user" | "always" | "never"`
 - **Default**: `"never"`
+
+`spinnerVariant`
+
+- **Description**: The default variant of the spinner.
+- **Type**: `string` | `undefined`
+- **Possible Values**: `default` | `gradient` | `wave` | `dots` | `spinner`
+- **Default**: `default`
+
+<Spacer y={2}/>
 
 ---
 

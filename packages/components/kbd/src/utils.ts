@@ -17,7 +17,10 @@ export type KbdKey =
   | "home"
   | "end"
   | "help"
-  | "space";
+  | "space"
+  | "fn"
+  | "win"
+  | "alt";
 
 export const kbdKeysMap: Record<KbdKey, string> = {
   command: "⌘",
@@ -39,6 +42,9 @@ export const kbdKeysMap: Record<KbdKey, string> = {
   end: "↘",
   help: "?",
   space: "␣",
+  fn: "Fn",
+  win: "⌘",
+  alt: "⌥",
 };
 
 export const kbdKeysLabelMap: Record<KbdKey, string> = {
@@ -61,6 +67,9 @@ export const kbdKeysLabelMap: Record<KbdKey, string> = {
   end: "End",
   help: "Help",
   space: "Space",
+  fn: "Fn",
+  win: "Win",
+  alt: "Alt",
 };
 
 export type KbdKeysLabelType = typeof kbdKeysLabelMap;

@@ -16,12 +16,7 @@ export default function App() {
   };
 
   return (
-    <Form
-      className="w-full max-w-xs"
-      validationBehavior="native"
-      validationErrors={errors}
-      onSubmit={onSubmit}
-    >
+    <Form className="w-full max-w-xs" validationErrors={errors} onSubmit={onSubmit}>
       <Input
         isRequired
         isDisabled={isLoading}

@@ -241,8 +241,9 @@ The `maxListboxHeight` prop is used to set the maximum height of the listbox. Th
 
 The `itemHeight` prop is used to set the height of each item in the listbox. This is required when using virtualization. By default, it's set to `32`.
 
-<CodeDemo title="Custom Item Height" files={selectContent.virtualizationCustomItemHeight} />
+> **Note**: If the height of the list items differs from the default due to `startContent` or other custom content, be sure to pass the correct value to `itemHeight` to prevent layout issues.
 
+<CodeDemo title="Custom Item Height" files={selectContent.virtualizationCustomItemHeight} />
 
 ### With Sections
 
@@ -293,6 +294,13 @@ component also provides the [popoverProps](/docs/components/popover#api) and [li
 the popover and listbox components.
 
 <CodeDemo title="Custom Styles" files={selectContent.customStyles} />
+
+
+### Using `value` attribute in option
+
+The [`value`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option#value) attribute is not directly supported in `SelectItem`. Instead, the `key` property should be used to set the `value` to be submitted in forms.
+
+If you need to submit a specific `value` instead of the `key` during form submission, consider implementing a lookup map in your application.
 
 ## Slots
 

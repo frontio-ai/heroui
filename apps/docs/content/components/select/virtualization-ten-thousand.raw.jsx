@@ -44,9 +44,7 @@ export default function App() {
         placeholder="Select..."
       >
         {items.map((item, index) => (
-          <SelectItem key={index} value={item.value}>
-            {item.label}
-          </SelectItem>
+          <SelectItem key={index}>{item.label}</SelectItem>
         ))}
       </Select>
     </div>

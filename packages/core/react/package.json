@@ -2,12 +2,13 @@
   "name": "@heroui/react",
   "version": "2.6.14",
   "description": "🚀 Beautiful and modern React UI library.",
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "keywords": [
     "next",
     "next ui",
+    "hero ui",
     "components",
     "modern components",
     "react components",
@@ -88,7 +89,9 @@
     "@heroui/drawer": "workspace:*",
     "@heroui/form": "workspace:*",
     "@heroui/alert": "workspace:*",
-    "@react-aria/visually-hidden": "3.8.18"
+    "@heroui/number-input": "workspace:*",
+    "@heroui/toast": "workspace:*",
+    "@react-aria/visually-hidden": "3.8.19"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
@@ -96,8 +99,8 @@
     "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1"
   },
   "devDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "18.3.0",
+    "react-dom": "18.3.0",
     "clean-package": "2.2.0"
   },
   "clean-package": "../../../clean-package.config.json"

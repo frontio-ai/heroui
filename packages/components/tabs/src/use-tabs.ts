@@ -119,11 +119,10 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     () =>
       tabs({
         ...variantProps,
-        className,
         disableAnimation,
         ...(isVertical ? {placement: "start"} : {}),
       }),
-    [objectToDeps(variantProps), className, disableAnimation, isVertical],
+    [objectToDeps(variantProps), disableAnimation, isVertical],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -171,7 +170,7 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
   const getWrapperProps: PropGetter = useCallback(
     (props) => ({
       "data-slot": "tabWrapper",
-      className: slots.wrapper({class: clsx(classNames?.wrapper, props?.className)}),
+      className: slots.tabWrapper({class: clsx(classNames?.tabWrapper, props?.className)}),
       "data-placement": placement,
       "data-vertical":
         isVertical || placement === "start" || placement === "end" ? "vertical" : "horizontal",

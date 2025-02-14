@@ -72,11 +72,12 @@ See the [Forms](/docs/guide/forms) guide to learn more about form validation, in
 
 ### Validation Behavior
 
-`Form` validation uses ARIA attributes by default, but can be switched to native HTML validation by setting `validationBehavior="native"`. ARIA validation shows realtime errors without blocking submission. This can be set at the form or field level.
+`Form` validation uses native validation behavior by default, but can be switched to ARIA validation by setting `validationBehavior="aria"`. ARIA validation shows realtime errors without blocking submission. This can be set at the form or field level.
+To set the default behavior at the app level, you can change the form defaults for your entire app using [HeroUI Provider](/docs/api-references/heroui-provider).
 
 
 ```tsx
-<Form validationBehavior="native">
+<Form validationBehavior="aria">
   <Input
     isRequired
     name="username"
@@ -95,7 +96,7 @@ See the [Forms](/docs/guide/forms) guide to learn more about form validation, in
 </Form>
 ```
 
-<CodeDemo title="Validation Behavior" files={formContent.customValidation} />
+<CodeDemo title="Validation Behavior" files={formContent.customValidationAria} />
 
 ## Accessibility
 
@@ -123,7 +124,7 @@ See the [Forms](/docs/guide/forms) guide to learn more about form validation, in
       type: "'native' | 'aria'",
       description:
         "Whether to use native HTML form validation to prevent form submission when a field value is missing or invalid, or mark fields as required or invalid via ARIA.",
-      default: "aria",
+      default: "native",
     },
     {
       attribute: "validationErrors",

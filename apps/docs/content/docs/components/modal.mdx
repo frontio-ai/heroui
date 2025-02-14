@@ -1,13 +1,13 @@
 ---
 title: "Modal"
-description: "Display a dialog with a custom content that requires attention or provides additional information."
+description: "Display a dialog with custom content that requires attention or provides additional information."
 ---
 
 import {modalContent} from "@/content/components/modal";
 
 # Modal
 
-Displays a dialog with a custom content that requires attention or provides additional information.
+Displays a dialog with custom content that requires attention or provides additional information.
 
 <ComponentLinks component="modal" reactAriaHook="useModal" />
 
@@ -64,7 +64,7 @@ HeroUI exports 5 modal-related components:
 When the modal opens:
 
 - Focus is bounded within the modal and set to the first tabbable element.
-- Content behind a modal dialog is inert, meaning that users cannot interact with it.
+- Content behind the modal dialog is inert, meaning that users cannot interact with it.
 
 <CodeDemo title="Usage" files={modalContent.usage} />
 
@@ -78,13 +78,13 @@ By default, the modal can be closed by clicking on the overlay or pressing the <
 You can disable this behavior by setting the following properties:
 
 - Set the `isDismissable` property to `false` to prevent the modal from closing when clicking on the overlay.
-- Set the `isKeyboardDismissDisabled` property to `true` to prevent the modal from closing when pressing the Esc key.
+- Set the `isKeyboardDismissDisabled` property to `true` to prevent the modal from closing when pressing the <Kbd>Esc</Kbd> key.
 
 <CodeDemo title="Non-dissmissible" files={modalContent.nonDismissable} />
 
 ### Modal placement
 
-By default the modal is centered on screens higher than `sm` and is at the `bottom` of the screen on mobile. This placement is called `auto`, but
+By default the modal is centered on screens larger than `sm` and is at the `bottom` of the screen on mobile. This placement is called `auto`, but
 you can change it by using the `placement` prop.
 
 <CodeDemo
@@ -97,7 +97,7 @@ you can change it by using the `placement` prop.
 />
 
 > **Note**: The `top-center` and `bottom-center` positions mean that the modal is positioned at the top / bottom of the screen
-> on mobile and at the center of the screen on desktop.
+> on mobile, and at the center of the screen on desktop.
 
 ### Overflow scroll
 
@@ -111,7 +111,7 @@ You can use the `scrollBehavior` prop to set the scroll behavior of the modal.
 ### With Form
 
 The `Modal` handles the focus within the modal content. It means that you can use the modal with
-form elements without any problem. the focus returns to the trigger when the modal closes.
+form elements without any problem. The focus returns to the trigger when the modal closes.
 
 <CodeDemo title="With Form" files={modalContent.form} />
 
@@ -140,13 +140,13 @@ Modal offers a `motionProps` property to customize the `enter` / `exit` animatio
 
 ### Draggable
 
-Try to drag the header part.
+Try to drag the modal by clicking on the modal header and dragging.
 
 <CodeDemo title="Draggable" files={modalContent.draggable} />
 
 ### Draggable Overflow
 
-Set overflow to true can drag overflow the viewport.
+Setting overflow to `true` allows users to drag the modal to a position where it overflows the viewport.
 
 <CodeDemo title="Draggable Overflow" files={modalContent.draggableOverflow} />
 

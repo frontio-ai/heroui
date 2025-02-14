@@ -1,0 +1,473 @@
+---
+title: "Number Input"
+description: "The numeric input component is designed for users to enter a number, and increase or decrease the value using stepper buttons"
+---
+
+import {numberInputContent} from "@/content/components/number-input";
+
+# Number Input
+
+The numeric input component is designed for users to enter a number, and increase or decrease the value using stepper buttons
+
+<ComponentLinks component="number-input" reactAriaHook="useNumberField" />
+
+---
+
+<CarbonAd/>
+
+## Installation
+
+<PackageManagers
+  showGlobalInstallWarning
+  commands={{
+    cli: "npx heroui-cli@latest add number-input",
+    npm: "npm install @heroui/number-input",
+    yarn: "yarn add @heroui/number-input",
+    pnpm: "pnpm add @heroui/number-input",
+    bun: "bun add @heroui/number-input"
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={numberInputContent.usage} />
+
+### Disabled
+
+<CodeDemo title="Disabled" files={numberInputContent.disabled} />
+
+### Read Only
+
+<CodeDemo title="Read Only" files={numberInputContent.readOnly} />
+
+### Required
+
+If you pass the `isRequired` property to the input, it will have a `danger` asterisk at
+the end of the label and the input will be required.
+
+<CodeDemo title="Required" files={numberInputContent.required} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={numberInputContent.sizes} />
+
+### Colors
+
+<CodeDemo title="Colors" files={numberInputContent.colors} />
+
+### Variants
+
+<CodeDemo title="Variants" files={numberInputContent.variants} />
+
+### Radius
+
+<CodeDemo title="Radius" files={numberInputContent.radius} />
+
+### Label Placements
+
+You can change the position of the label by setting the `labelPlacement` property to `inside`, `outside` or `outside-left`.
+
+<CodeDemo title="Label Placements" files={numberInputContent.labelPlacements} />
+
+> **Note**: If the `label` is not passed, the `labelPlacement` property will be `outside` by default.
+
+### Clear Button
+
+If you pass the `isClearable` property to the input, it will have a clear button at the
+end of input, it will be visible when input has a value.
+
+<CodeDemo title="Clear Button" files={numberInputContent.clearButton} />
+
+### Hide Stepper
+
+You can hide the stepper buttons by passing the `hideStepper` property.
+
+<CodeDemo title="Hide Stepper" files={numberInputContent.hideStepper} />
+
+### Start & End Content
+
+You can use the `startContent` and `endContent` properties to add content to the start and end of NumberInput.
+
+<CodeDemo title="Start and End Content" files={numberInputContent.startEndContent} />
+
+### With Label
+
+You can add a label to the input by passing the `label` property.
+
+<CodeDemo title="With Label" files={numberInputContent.label} />
+
+### With Description
+
+You can add a description to the input by passing the `description` property.
+
+<CodeDemo title="With Description" files={numberInputContent.description} />
+
+### With Min Value
+
+You can set the minimum value of the input by passing the `minValue` property.
+
+<CodeDemo title="With Min Value" files={numberInputContent.minValue} />
+
+### With Max Value
+
+You can set the maximum value of the input by passing the `maxValue` property.
+
+<CodeDemo title="With Max Value" files={numberInputContent.maxValue} />
+
+### With Wheel Disabled
+
+By default, you can increase or decrease the value with scroll wheel. You can disable changing the vaule with scroll in NumberInput by passing the `isWheelDisabled` property.
+
+<CodeDemo title="With Wheel Disabled" files={numberInputContent.isWheelDisabled} />
+
+### With Format Options
+
+You can format the value of the input by passing the `formatOptions` property.
+
+<CodeDemo title="With Format Options" files={numberInputContent.formatOptions} />
+
+### With Error Message
+
+You can combine the `isInvalid` and `errorMessage` properties to show an invalid input. `errorMessage` is only shown when `isInvalid` is set to `true`.
+
+<CodeDemo title="With Error Message" files={numberInputContent.errorMessage} />
+
+### Controlled
+
+You can use the `value` and `onValueChange` properties to control the input value.
+
+<CodeDemo title="Controlled" files={numberInputContent.controlled} />
+
+> **Note**: HeroUI `NumberInput` also supports native events like `onChange`, useful for form libraries
+> such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
+
+### With Form
+
+`NumberInput` can be used with a `Form` component to leverage form state management. For more on form and validation behaviors, see the [Forms](/docs/guide/forms) guide.
+
+#### Custom Validation
+
+In addition to built-in constraints, you can provide a function to the `validate` property for custom validation.
+
+<CodeDemo title="Custom Validation" files={numberInputContent.customValidation} />
+
+#### Realtime Validation
+
+If you want to display validation errors while the user is typing, you can control the field value and use the `isInvalid` prop along with the `errorMessage` prop.
+
+<CodeDemo title="Realtime Validation" files={numberInputContent.realTimeValidation} />
+
+#### Server Validation
+
+Client-side validation provides immediate feedback, but you should also validate data on the server to ensure accuracy and security.
+HeroUI allows you to display server-side validation errors by using the `validationErrors` prop in the `Form` component.
+This prop should be an object where each key is the field `name` and the value is the error message.
+
+<CodeDemo title="Server Validation" files={numberInputContent.serverValidation} />
+
+## Slots
+
+- **base**: Input wrapper, it handles alignment, placement, and general appearance.
+- **label**: Label of the input, it is the one that is displayed above, inside or left of the input.
+- **mainWrapper**: Wraps the `inputWrapper`
+- **inputWrapper**: Wraps the `label` (when it is inside) and the `innerWrapper`.
+- **innerWrapper**: Wraps the `input`, the `startContent` and the `endContent`.
+- **input**: The input element.
+- **clearButton**: The clear button, it is at the end of the input.
+- **stepperButton**: The stepper button to increase or decrease the value.
+- **stepperWrapper**: The wrapper for the stepper.
+- **description**: The description of NumberInput.
+- **errorMessage**: The error message of NumberInput.
+
+### Custom Styles
+
+You can customize the `NumberInput` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo title="Custom Styles" files={numberInputContent.customStyles} />
+
+<Spacer y={4} />
+
+## Data Attributes
+
+`NumberInput` has the following attributes on the `base` element:
+
+- **data-invalid**:
+  When the input is invalid. Based on `isInvalid` prop.
+- **data-required**:
+  When the input is required. Based on `isRequired` prop.
+- **data-readonly**:
+  When the input is readonly. Based on `isReadOnly` prop.
+- **data-hover**:
+  When the input is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
+- **data-focus**:
+  When the input is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-focus-within**:
+  When the input is being focused or any of its children. Based on [useFocusWithin](https://react-spectrum.adobe.com/react-aria/useFocusWithin.html).
+- **data-focus-visible**:
+  When the input is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
+- **data-disabled**:
+  When the input is disabled. Based on `isDisabled` prop.
+- **data-filled**:
+  When the input has content, placeholder, start content or the placeholder is shown.
+- **data-has-elements**:
+  When the input has any element (label, helper text, description, error message).
+- **data-has-helper**:
+  When the input has helper text.
+- **data-has-description**: 
+  When the input has a description.
+- **data-has-label**:
+  When the input has a label.
+- **data-has-value**:
+  When the input has a value (placeholder is not shown).
+
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Built with a native `<input>` element with `type="number"`.
+- Visual and ARIA labeling support.
+- Change, clipboard, composition, selection, and input event support.
+- Required and invalid states exposed to assistive technology via ARIA.
+- Support for description, helper text, and error message linked to the input via ARIA.
+
+<Spacer y={4} />
+
+## API
+
+### NumberInput Props
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "The content of the input.",
+      default: "-"
+    },
+    {
+      attribute: "variant",
+      type: "flat | bordered | faded | underlined",
+      description: "The variant of the input.",
+      default: "flat"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The color of the input.",
+      default: "default"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The size of the input.",
+      default: "md"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The radius of the input.",
+      default: "-"
+    },
+    {
+      attribute: "name",
+      type: "string",
+      description: "The name of the input element, used when submitting an HTML form.",
+      default: "-"
+    },
+    {
+      attribute: "label",
+      type: "ReactNode",
+      description: "The content to display as the label.",
+      default: "-"
+    },
+    {
+      attribute: "description",
+      type: "ReactNode",
+      description: "A description for the input. Provides a description for the input.",
+      default: "-"
+    },
+    {
+      attribute: "value",
+      type: "string",
+      description: "The current value of the input (controlled).",
+      default: "-"
+    },
+    {
+      attribute: "defaultValue",
+      type: "string",
+      description: "The default value of the input (uncontrolled).",
+      default: "-"
+    },
+    {
+      attribute: "placeholder",
+      type: "string",
+      description: "The placeholder of the input.",
+      default: "-"
+    },
+    {
+      attribute: "errorMessage",
+      type: "ReactNode | ((v: ValidationResult) => ReactNode)",
+      description: "An error message for the input. It is only shown when isInvalid is set to true",
+      default: "-"
+    },
+    {
+      attribute: "validate",
+      type: "(value: string) => ValidationError | true | null | undefined",
+      description: "Validate input values when committing (e.g. on blur), returning error messages for invalid values.",
+      default: "-"
+    },
+    {
+      attribute: "validationBehavior",
+      type: "native | aria",
+      description: "Whether to use native HTML form validation or ARIA validation. When wrapped in a Form component, the default is `aria`. Otherwise, the default is `native`.",
+      default: "native"
+    },
+    {
+      attribute: "minValue",
+      type: "number",
+      description: "The minimum value of the input.",
+      default: "-"
+    },
+    {
+      attribute: "maxValue",
+      type: "number",
+      description: "The maximum value of the input.",
+      default: "-"
+    },
+    {
+      attribute: "formatOptions",
+      type: "Intl.NumberFormatOptions",
+      description: "The format options for the input.",
+      default: "-"
+    },
+    {
+      attribute: "step",
+      type: "number",
+      description: "The amount that the input value changes with each increment or decrement tick.",
+      default: "1"
+    },
+    {
+      attribute: "hideStepper",
+      type: "boolean",
+      description: "Whether the stepper buttons should be hidden.",
+      default: "-"
+    },
+    {
+      attribute: "isWheelDisabled",
+      type: "boolean",
+      description: "Whether the wheel should be disabled.",
+      default: "-"
+    },
+    {
+      attribute: "startContent",
+      type: "ReactNode",
+      description: "Element to be rendered in the left side of the input.",
+      default: "-"
+    },
+    {
+      attribute: "endContent",
+      type: "ReactNode",
+      description: "Element to be rendered in the right side of the input.",
+      default: "-"
+    },
+    {
+      attribute: "labelPlacement",
+      type: "inside | outside | outside-left",
+      description: "The position of the label.",
+      default: "inside"
+    },
+    {
+      attribute: "fullWidth",
+      type: "boolean",
+      description: "Whether the input should take up the width of its parent.",
+      default: "true"
+    },
+    {
+      attribute: "isClearable",
+      type: "boolean",
+      description: "Whether the input should have a clear button.",
+      default: "false"
+    },
+    {
+      attribute: "isRequired",
+      type: "boolean",
+      description: "Whether user input is required on the input before form submission.",
+      default: "false"
+    },
+    {
+      attribute: "isReadOnly",
+      type: "boolean",
+      description: "Whether the input can be selected but not changed by the user.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the input is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "isInvalid",
+      type: "boolean",
+      description: "Whether the input is invalid.",
+      default: "false"
+    },
+    {
+      attribute: "incrementAriaLabel",
+      type: "string",
+      description: "A custom aria-label for the increment button. If not provided, the localized string `Increment` is used.",
+      default: "-"
+    },
+    {
+      attribute: "decrementAriaLabel",
+      type: "string",
+      description: "A custom aria-label for the decrement button. If not provided, the localized string `Decrement` is used.",
+      default: "-"
+    },
+    {
+      attribute: "baseRef",
+      type: "RefObject<HTMLDivElement>",
+      description: "The ref to the base element.",
+      default: "-"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the input should be animated.",
+      default: "false"
+    },
+    {
+      attribute: "classNames",
+      type: "Partial<Record<'base' | 'label' | 'inputWrapper' | 'innerWrapper' | 'mainWrapper' | 'input' | 'clearButton' | 'stepperButton' | 'helperWrapper' | 'stepperWrapper' | 'description' | 'errorMessage', string>>",
+      description: "Allows to set custom class names for the Input slots.",
+      default: "-"
+    }
+  ]}
+/>
+
+### NumberInput Events
+
+<APITable
+  data={[
+    {
+      attribute: "onChange",
+      type: "React.ChangeEvent<HTMLInputElement>",
+      description: "Handler that is called when the element's value changes. You can pull out the new value by accessing event.target.value (string).",
+      default: "-"
+    },
+    {
+      attribute: "onValueChange",
+      type: "(value: number) => void",
+      description: "Handler that is called when the element's value changes.",
+      default: "-"
+    },
+    {
+      attribute: "onClear",
+      type: "() => void",
+      description: "Handler that is called when the clear button is clicked.",
+      default: "-"
+    }
+  ]}
+/>
+

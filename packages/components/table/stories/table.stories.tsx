@@ -120,6 +120,14 @@ type SWCharacter = {
   birth_year: string;
 };
 
+const generateRows = (rowCount: number) => {
+  return Array.from({length: rowCount}, (_, index) => ({
+    key: index.toString(),
+    name: `Item ${index + 1}`,
+    value: `Value ${index + 1}`,
+  }));
+};
+
 const StaticTemplate = (args: TableProps) => (
   <Table aria-label="Example static collection table" {...args}>
     <TableHeader>
@@ -912,6 +920,38 @@ const InfinitePaginationTemplate = (args: TableProps) => {
   );
 };
 
+const VirtualizedTemplate = (args: TableProps & {rowCount: number}) => {
+  const {rowCount, ...rest} = args;
+  const rows = generateRows(rowCount);
+  const columns = [
+    {key: "name", label: "Name"},
+    {key: "value", label: "Value"},
+  ];
+
+  return (
+    <div>
+      <Table
+        aria-label="Example of virtualized table with a large dataset"
+        {...rest}
+        isVirtualized
+        maxTableHeight={300}
+        rowHeight={40}
+      >
+        <TableHeader columns={columns}>
+          {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+        </TableHeader>
+        <TableBody items={rows}>
+          {(item) => (
+            <TableRow key={item.key}>
+              {(columnKey) => <TableCell>{item[columnKey]}</TableCell>}
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+    </div>
+  );
+};
+
 export const Default = {
   render: StaticTemplate,
 
@@ -1108,5 +1148,23 @@ export const TableWithSwitch = {
   args: {
     ...defaultProps,
     selectionMode: "multiple",
+  },
+};
+
+export const Virtualized = {
+  render: VirtualizedTemplate,
+  args: {
+    ...defaultProps,
+    className: "max-w-3xl",
+    rowCount: 500,
+  },
+};
+
+export const TenThousandRows = {
+  render: VirtualizedTemplate,
+  args: {
+    ...defaultProps,
+    className: "max-w-3xl",
+    rowCount: 10000,
   },
 };

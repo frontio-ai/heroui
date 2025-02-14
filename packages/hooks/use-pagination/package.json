@@ -5,7 +5,7 @@
   "keywords": [
     "use-pagination"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -35,14 +35,14 @@
   },
   "dependencies": {
     "@heroui/shared-utils": "workspace:*",
-    "@react-aria/i18n": "3.12.4"
+    "@react-aria/i18n": "3.12.5"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.3.0"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {

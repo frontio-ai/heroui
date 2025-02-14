@@ -7,7 +7,7 @@
     "spinner",
     "progress"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -38,18 +38,19 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@heroui/theme": ">=2.4.0"
+    "@heroui/theme": ">=2.4.6"
   },
   "dependencies": {
     "@heroui/system-rsc": "workspace:*",
     "@heroui/shared-utils": "workspace:*",
-    "@heroui/react-utils": "workspace:*"
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/system": "workspace:*"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

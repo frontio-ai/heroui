@@ -5,7 +5,7 @@
   "keywords": [
     "use-aria-multiselect"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -34,20 +34,20 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/i18n": "3.12.4",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/label": "3.7.13",
-    "@react-aria/listbox": "3.13.6",
-    "@react-aria/menu": "3.16.0",
-    "@react-aria/selection": "3.21.0",
-    "@react-aria/utils": "3.26.0",
-    "@react-stately/form": "3.1.0",
-    "@react-stately/list": "3.11.1",
-    "@react-stately/menu": "3.9.0",
-    "@react-types/button": "3.10.1",
-    "@react-types/overlays": "3.8.11",
-    "@react-types/select": "3.9.8",
-    "@react-types/shared": "3.26.0"
+    "@react-aria/i18n": "3.12.5",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/label": "3.7.14",
+    "@react-aria/listbox": "3.14.0",
+    "@react-aria/menu": "3.17.0",
+    "@react-aria/selection": "3.22.0",
+    "@react-aria/utils": "3.27.0",
+    "@react-stately/form": "3.1.1",
+    "@react-stately/list": "3.11.2",
+    "@react-stately/menu": "3.9.1",
+    "@react-types/button": "3.10.2",
+    "@react-types/overlays": "3.8.12",
+    "@react-types/select": "3.9.9",
+    "@react-types/shared": "3.27.0"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
@@ -55,8 +55,8 @@
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {

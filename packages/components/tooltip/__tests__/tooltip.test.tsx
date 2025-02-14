@@ -1,12 +1,9 @@
 import * as React from "react";
 import {render, fireEvent, act} from "@testing-library/react";
 import {Button} from "@heroui/button";
+import {spy, shouldIgnoreReactWarning} from "@heroui/test-utils";
 
 import {Tooltip} from "../src";
-
-// e.g. console.error Warning: Function components cannot be given refs.
-// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
-const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
 describe("Tooltip", () => {
   afterEach(() => {
@@ -30,7 +27,9 @@ describe("Tooltip", () => {
 
     expect(() => wrapper.unmount()).not.toThrow();
 
-    expect(spy).toHaveBeenCalledTimes(0);
+    if (!shouldIgnoreReactWarning(spy)) {
+      expect(spy).toHaveBeenCalledTimes(0);
+    }
   });
 
   it("ref should be forwarded", () => {

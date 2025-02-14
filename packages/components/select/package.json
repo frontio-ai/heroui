@@ -5,7 +5,7 @@
   "keywords": [
     "select"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -34,8 +34,8 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@heroui/system": ">=2.4.0",
-    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.8",
+    "@heroui/theme": ">=2.4.6",
     "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0"
@@ -53,13 +53,13 @@
     "@heroui/use-aria-multiselect": "workspace:*",
     "@heroui/use-safe-layout-effect": "workspace:*",
     "@heroui/form": "workspace:*",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/form": "3.0.11",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/utils": "3.26.0",
-    "@react-aria/visually-hidden": "3.8.18",
-    "@react-types/shared": "3.26.0",
-    "@tanstack/react-virtual": "3.11.2"
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/form": "3.0.12",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/utils": "3.27.0",
+    "@react-aria/visually-hidden": "3.8.19",
+    "@react-types/shared": "3.27.0",
+    "@tanstack/react-virtual": "3.11.3"
   },
   "devDependencies": {
     "@heroui/avatar": "workspace:*",
@@ -67,15 +67,16 @@
     "@heroui/chip": "workspace:*",
     "@heroui/input": "workspace:*",
     "@heroui/stories-utils": "workspace:*",
+    "@heroui/test-utils": "workspace:*",
     "@heroui/system": "workspace:*",
     "@heroui/theme": "workspace:*",
     "@heroui/use-infinite-scroll": "workspace:*",
-    "@react-aria/i18n": "3.12.4",
-    "@react-stately/data": "3.12.0",
+    "@react-aria/i18n": "3.12.5",
+    "@react-stately/data": "3.12.1",
     "clean-package": "2.2.0",
     "framer-motion": "11.9.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "18.3.0",
+    "react-dom": "18.3.0",
     "react-hook-form": "^7.51.3"
   },
   "clean-package": "../../../clean-package.config.json"

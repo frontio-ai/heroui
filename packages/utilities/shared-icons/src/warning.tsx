@@ -7,6 +7,7 @@ export const WarningIcon = (
 ) => {
   return (
     <svg
+      className="fill-current"
       fill="none"
       height="24"
       viewBox="0 0 24 24"

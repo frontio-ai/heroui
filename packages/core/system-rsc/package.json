@@ -5,7 +5,7 @@
   "keywords": [
     "system-rsc"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -35,18 +35,18 @@
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
-    "@heroui/theme": ">=2.4.0"
+    "@heroui/theme": ">=2.4.6"
   },
   "devDependencies": {
-    "react": "^18.0.0",
-    "tailwind-variants": "^0.1.20",
     "@heroui/theme": "workspace:*",
     "@heroui/react-utils": "workspace:*",
     "@heroui/shared-utils": "workspace:*",
+    "react": "18.3.0",
+    "tailwind-variants": "^0.3.0",
     "clean-package": "2.2.0"
   },
   "dependencies": {
-    "@react-types/shared": "3.26.0",
+    "@react-types/shared": "3.27.0",
     "clsx": "^1.2.1"
   },
   "clean-package": "../../../clean-package.config.json",

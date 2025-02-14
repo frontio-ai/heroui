@@ -19,6 +19,10 @@ import asyncPagination from "./async-pagination";
 import infinitePagination from "./infinite-pagination";
 import useCase from "./use-case";
 import customStyles from "./custom-styles";
+import virtualization from "./virtualization";
+import virtualizationCustomItemHeight from "./virtualization-custom-row-height";
+import virtualizationCustomMaxTableHeight from "./virtualization-custom-max-table-height";
+import virtualizationTenThousand from "./virtualization-ten-thousand";
 
 export const tableContent = {
   usage,
@@ -42,4 +46,8 @@ export const tableContent = {
   infinitePagination,
   useCase,
   customStyles,
+  virtualization,
+  virtualizationCustomItemHeight,
+  virtualizationCustomMaxTableHeight,
+  virtualizationTenThousand,
 };

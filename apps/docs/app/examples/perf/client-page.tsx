@@ -430,7 +430,7 @@ export default function HeroUIPerf() {
         autoCorrect="off"
         className="z-10 sticky top-1"
         placeholder="Search..."
-        spellCheck={false}
+        spellCheck="false"
         startContent={<SearchLinearIcon className="text-default-400" size={18} strokeWidth="2" />}
         type="text"
         onValueChange={setInputValue}

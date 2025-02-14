@@ -11,7 +11,7 @@ export default function App() {
   };
 
   return (
-    <Form className="w-full max-w-xs" validationBehavior="native" onSubmit={onSubmit}>
+    <Form className="w-full max-w-xs" onSubmit={onSubmit}>
       <Input
         isRequired
         label="Username"

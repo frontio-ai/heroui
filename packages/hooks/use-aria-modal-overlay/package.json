@@ -5,7 +5,7 @@
   "keywords": [
     "use-aria-modal-overlay"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -34,10 +34,10 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/overlays": "3.24.0",
-    "@react-aria/utils": "3.26.0",
-    "@react-stately/overlays": "3.6.12",
-    "@react-types/shared": "3.26.0"
+    "@react-aria/overlays": "3.25.0",
+    "@react-aria/utils": "3.27.0",
+    "@react-stately/overlays": "3.6.13",
+    "@react-types/shared": "3.27.0"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
@@ -45,8 +45,8 @@
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {

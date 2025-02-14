@@ -47,6 +47,8 @@ export * from "@heroui/form";
 export * from "@heroui/alert";
 export * from "@heroui/drawer";
 export * from "@heroui/input-otp";
+export * from "@heroui/number-input";
+export * from "@heroui/toast";
 
 /**
  * React Aria - Exports

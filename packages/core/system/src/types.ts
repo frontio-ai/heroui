@@ -15,3 +15,8 @@ export type SupportedCalendars =
   | "persian"
   | "roc"
   | "gregory";
+
+/**
+ * Spinner Variants
+ */
+export type SpinnerVariants = "default" | "gradient" | "wave" | "dots" | "spinner";

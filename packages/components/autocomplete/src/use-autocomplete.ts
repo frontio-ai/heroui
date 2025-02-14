@@ -385,9 +385,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         ...variantProps,
         isClearable,
         disableAnimation,
-        className,
       }),
-    [objectToDeps(variantProps), isClearable, disableAnimation, className],
+    [objectToDeps(variantProps), isClearable, disableAnimation],
   );
 
   const getBaseProps: PropGetter = () => ({

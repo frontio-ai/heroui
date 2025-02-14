@@ -5,7 +5,7 @@
   "keywords": [
     "input-otp"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -36,28 +36,28 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "@heroui/theme": ">=2.4.0",
-    "@heroui/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.6",
+    "@heroui/system": ">=2.4.7"
   },
   "dependencies": {
     "@heroui/form": "workspace:*",
     "@heroui/shared-utils": "workspace:*",
     "@heroui/react-utils": "workspace:*",
-    "@react-aria/utils": "3.26.0",
-    "@react-aria/form": "3.0.11",
+    "@react-aria/utils": "3.27.0",
+    "@react-aria/form": "3.0.12",
     "@react-stately/utils": "3.10.5",
-    "@react-stately/form": "3.1.0",
-    "@react-types/textfield": "3.10.0",
+    "@react-stately/form": "3.1.1",
+    "@react-types/textfield": "3.11.0",
     "input-otp": "1.4.1",
-    "@react-aria/focus": "3.19.0"
+    "@react-aria/focus": "3.19.1"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",
     "@heroui/system": "workspace:*",
     "@heroui/button": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "18.3.0",
+    "react-dom": "18.3.0",
     "react-hook-form": "^7.51.3"
   },
   "clean-package": "../../../clean-package.config.json"

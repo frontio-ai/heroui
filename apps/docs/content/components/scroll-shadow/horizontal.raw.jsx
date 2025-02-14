@@ -68,7 +68,9 @@ export const Content = () => (
 export default function App() {
   return (
     <ScrollShadow className="max-w-[400px] max-h-[300px]" orientation="horizontal">
-      <Content className="w-[800px]" />
+      <div className="w-[800px]">
+        <Content />
+      </div>
     </ScrollShadow>
   );
 }

@@ -41,6 +41,10 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     classNames,
     autoFocus,
     onPress,
+    onPressUp,
+    onPressStart,
+    onPressEnd,
+    onPressChange,
     onClick: deprecatedOnClick,
     shouldHighlightOnFocus,
     hideSelectedIcon = false,
@@ -74,6 +78,10 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     ref: domRef,
     isDisabled: isDisabled,
     onPress,
+    onPressUp,
+    onPressStart,
+    onPressEnd,
+    onPressChange,
   });
 
   const {isHovered, hoverProps} = useHover({

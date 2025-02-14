@@ -105,7 +105,10 @@ const VirtualizedListbox = (props: Props) => {
 
   const virtualItems = rowVirtualizer.getVirtualItems();
 
-  /* Here we need the base props for scroll shadow, contains the className (scrollbar-hide and scrollshadow config based on the user inputs on select props) */
+  const virtualScrollHeight = rowVirtualizer.getTotalSize();
+
+  // Here we need the base props for scroll shadow,
+  // contains the className (scrollbar-hide and scrollshadow config based on the user inputs on select props)
   const {getBaseProps: getBasePropsScrollShadow} = useScrollShadow({...scrollShadowProps});
 
   const renderRow = (virtualItem: VirtualItem) => {
@@ -162,6 +165,7 @@ const VirtualizedListbox = (props: Props) => {
     return listboxItem;
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [scrollState, setScrollState] = useState({
     isTop: false,
     isBottom: true,
@@ -169,7 +173,11 @@ const VirtualizedListbox = (props: Props) => {
   });
 
   const content = (
-    <Component {...getListProps()}>
+    <Component
+      {...getListProps()}
+      data-virtual-scroll-height={virtualScrollHeight}
+      data-virtual-scroll-top={parentRef?.current?.scrollTop}
+    >
       {!state.collection.size && !hideEmptyContent && (
         <li>
           <div {...getEmptyContentProps()} />
@@ -178,9 +186,6 @@ const VirtualizedListbox = (props: Props) => {
       <div
         {...filterDOMProps(getBasePropsScrollShadow())}
         ref={parentRef}
-        data-bottom-scroll={scrollState.isTop}
-        data-top-bottom-scroll={scrollState.isMiddle}
-        data-top-scroll={scrollState.isBottom}
         style={{
           height: maxListboxHeight,
           overflow: "auto",
@@ -192,7 +197,7 @@ const VirtualizedListbox = (props: Props) => {
         {listHeight > 0 && itemHeight > 0 && (
           <div
             style={{
-              height: `${rowVirtualizer.getTotalSize()}px`,
+              height: `${virtualScrollHeight}px`,
               width: "100%",
               position: "relative",
             }}

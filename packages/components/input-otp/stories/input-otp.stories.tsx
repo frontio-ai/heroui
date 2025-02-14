@@ -129,7 +129,6 @@ const RequiredTemplate = (args) => {
         length={4}
         name="otp"
         placeholder="Enter code"
-        validationBehavior="native"
         {...args}
       />
       <Button size="sm" type="submit" variant="bordered">

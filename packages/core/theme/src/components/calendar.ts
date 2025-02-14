@@ -88,12 +88,12 @@ const calendar = tv({
           // "data-[selected=true]:data-[range-selection=true]:bg-transparent",
 
           // start (pseudo)
-          "data-[range-start=true]:before:rounded-l-full",
-          "data-[selection-start=true]:before:rounded-l-full",
+          "data-[range-start=true]:before:rounded-s-full",
+          "data-[selection-start=true]:before:rounded-s-full",
 
           // end (pseudo)
-          "data-[range-end=true]:before:rounded-r-full",
-          "data-[selection-end=true]:before:rounded-r-full",
+          "data-[range-end=true]:before:rounded-e-full",
+          "data-[selection-end=true]:before:rounded-e-full",
 
           // start (selected)
           "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:rounded-full",
@@ -148,12 +148,20 @@ const calendar = tv({
         pickerItem: "transition-opacity",
       },
     },
+    isRTL: {
+      true: {
+        nextButton: "order-1",
+        prevButton: "order-3",
+      },
+      false: {},
+    },
   },
   defaultVariants: {
     color: "primary",
     showShadow: false,
     hideDisabledDates: false,
     showMonthAndYearPickers: false,
+    isRTL: false,
   },
   compoundVariants: [
     // !isRange & colors --> Calendar

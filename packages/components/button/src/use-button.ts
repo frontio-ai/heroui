@@ -176,6 +176,7 @@ export function useButton(props: UseButtonProps) {
         }),
         filterDOMProps(props),
       ),
+      className: styles,
     }),
     [
       isLoading,
@@ -189,6 +190,7 @@ export function useButton(props: UseButtonProps) {
       focusProps,
       hoverProps,
       otherProps,
+      styles,
     ],
   );
 

@@ -5,7 +5,7 @@
   "keywords": [
     "slider"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -36,20 +36,20 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@heroui/theme": ">=2.4.0",
-    "@heroui/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.6",
+    "@heroui/system": ">=2.4.7"
   },
   "dependencies": {
     "@heroui/shared-utils": "workspace:*",
     "@heroui/react-utils": "workspace:*",
     "@heroui/tooltip": "workspace:*",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/i18n": "3.12.4",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/slider": "3.7.14",
-    "@react-aria/utils": "3.26.0",
-    "@react-aria/visually-hidden": "3.8.18",
-    "@react-stately/slider": "3.6.0"
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/i18n": "3.12.5",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/slider": "3.7.15",
+    "@react-aria/utils": "3.27.0",
+    "@react-aria/visually-hidden": "3.8.19",
+    "@react-stately/slider": "3.6.1"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",
@@ -57,8 +57,8 @@
     "@heroui/shared-icons": "workspace:*",
     "@heroui/test-utils": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

@@ -42,9 +42,16 @@ export interface Props {
    * @default true
    */
   shouldCloseOnScroll?: boolean;
+  /**
+   * Whether to close the overlay when the user interacts outside it.
+   * @default true
+   */
+  isDismissable?: boolean;
 }
 
-export type ReactAriaPopoverProps = Props & Omit<AriaPopoverProps, "placement"> & AriaOverlayProps;
+export type ReactAriaPopoverProps = Props &
+  Omit<AriaPopoverProps, "placement"> &
+  Omit<AriaOverlayProps, "isDismissable">;
 
 /**
  * Provides the behavior and accessibility implementation for a popover component.

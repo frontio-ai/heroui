@@ -5,7 +5,7 @@
   "keywords": [
     "popover"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -34,8 +34,8 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@heroui/system": ">=2.4.0",
-    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.7",
+    "@heroui/theme": ">=2.4.6",
     "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0"
@@ -49,24 +49,25 @@
     "@heroui/use-aria-button": "workspace:*",
     "@heroui/use-safe-layout-effect": "workspace:*",
     "@heroui/dom-animation": "workspace:*",
-    "@react-aria/dialog": "3.5.20",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/overlays": "3.24.0",
-    "@react-aria/utils": "3.26.0",
-    "@react-stately/overlays": "3.6.12",
-    "@react-types/button": "3.10.1",
-    "@react-types/overlays": "3.8.11"
+    "@react-aria/dialog": "3.5.21",
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/overlays": "3.25.0",
+    "@react-aria/utils": "3.27.0",
+    "@react-stately/overlays": "3.6.13",
+    "@react-types/button": "3.10.2",
+    "@react-types/overlays": "3.8.12"
   },
   "devDependencies": {
     "@heroui/card": "workspace:*",
     "@heroui/input": "workspace:*",
     "@heroui/system": "workspace:*",
     "@heroui/theme": "workspace:*",
+    "@heroui/test-utils": "workspace:*",
     "clean-package": "2.2.0",
     "framer-motion": "11.9.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

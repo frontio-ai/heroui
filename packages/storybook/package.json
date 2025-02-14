@@ -6,7 +6,7 @@
     "storybook"
   ],
   "type": "module",
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -34,8 +34,8 @@
     "@heroui/react": "workspace:*",
     "@heroui/system": "workspace:*",
     "@heroui/theme": "workspace:*",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^8.5.0",

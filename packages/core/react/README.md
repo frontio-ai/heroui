@@ -1,19 +1,19 @@
 <p align="center">
   <a href="https://heroui.com">
-      <img width="20%" src="https://raw.githubusercontent.com/frontio-ai/heroui/main/apps/docs/public/isotipo.png" alt="heorui" />
+      <img width="20%" src="https://raw.githubusercontent.com/heroui-inc/heroui/main/apps/docs/public/isotipo.png" alt="heorui" />
       <h1 align="center">HeroUI</h1>
   </a>
 </p>
 </br>
 <p align="center">
-  <a href="https://github.com/frontio-ai/heroui/blob/main/LICENSE">
-    <img src="https://img.shields.io/npm/l/@nextui-org/react?style=flat" alt="License">
+  <a href="https://github.com/heroui-inc/heroui/blob/main/LICENSE">
+    <img src="https://img.shields.io/npm/l/@heroui/react?style=flat" alt="License">
   </a>
   <a href="https://codecov.io/gh/jrgarciadev/nextui">
     <img src="https://codecov.io/gh/jrgarciadev/nextui/branch/main/graph/badge.svg?token=QJF2QKR5N4" alt="codecov badge">
   </a>
-  <!-- <a href="https://github.com/frontio-ai/heroui/actions/workflows/main.yaml">
-    <img src="https://github.com/frontio-ai/heroui/actions/workflows/main.yaml/badge.svg" alt="CI/CD nextui">
+  <!-- <a href="https://github.com/heroui-inc/heroui/actions/workflows/main.yaml">
+    <img src="https://github.com/heroui-inc/heroui/actions/workflows/main.yaml/badge.svg" alt="CI/CD heroui">
   </a> -->
   <a href="https://www.npmjs.com/package/@heroui/react">
     <img src="https://img.shields.io/npm/dm/@heroui/react.svg?style=flat-round" alt="npm downloads">
@@ -46,15 +46,15 @@ Whether it's a feature request, bug report, or a project to showcase, please get
 
 - [Discord](https://discord.gg/9b6yyZKmH4)
 - [X](https://x.com/hero_ui)
-- [GitHub Discussions](https://github.com/frontio-ai/heroui/discussions)
+- [GitHub Discussions](https://github.com/heroui-inc/heroui/discussions)
 
 ## Contributing
 
 Contributions are always welcome!
 
-See [CONTRIBUTING.md](https://github.com/frontio-ai/heroui/blob/main/CONTRIBUTING.md) for ways to get started.
+See [CONTRIBUTING.md](https://github.com/heroui-inc/heroui/blob/main/CONTRIBUTING.md) for ways to get started.
 
-Please adhere to this project's [CODE_OF_CONDUCT](https://github.com/frontio-ai/heroui/blob/main/CODE_OF_CONDUCT.md).
+Please adhere to this project's [CODE_OF_CONDUCT](https://github.com/heroui-inc/heroui/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 

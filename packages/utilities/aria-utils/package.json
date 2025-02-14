@@ -5,7 +5,7 @@
   "keywords": [
     "aria-utils"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -41,16 +41,16 @@
     "@heroui/system": "workspace:*",
     "@heroui/shared-utils": "workspace:*",
     "@heroui/react-rsc-utils": "workspace:*",
-    "@react-aria/utils": "3.26.0",
-    "@react-stately/collections": "3.12.0",
-    "@react-stately/overlays": "3.6.12",
-    "@react-types/overlays": "3.8.11",
-    "@react-types/shared": "3.26.0"
+    "@react-aria/utils": "3.27.0",
+    "@react-stately/collections": "3.12.1",
+    "@react-stately/overlays": "3.6.13",
+    "@react-types/overlays": "3.8.12",
+    "@react-types/shared": "3.27.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

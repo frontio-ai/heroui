@@ -2,7 +2,7 @@
 
 Hello!, I am very excited that you are interested in contributing with HeroUI. However, before submitting your contribution, be sure to take a moment and read the following guidelines.
 
-- [Code of Conduct](https://github.com/frontio-ai/heroui/blob/canary/CODE_OF_CONDUCT.md)
+- [Code of Conduct](https://github.com/heroui-inc/heroui/blob/canary/CODE_OF_CONDUCT.md)
 - [Extraction request guidelines](#pull-request-guidelines)
 - [Development Setup](#development-setup)
 - [Tests](#tests)
@@ -79,7 +79,7 @@ https://www.conventionalcommits.org/ or check out the
    commit type. `scope` is just a short id that describes the scope of work.
 
 3. Make and commit your changes following the
-   [commit convention](https://github.com/frontio-ai/heroui/blob/main/CONTRIBUTING.md#commit-convention).
+   [commit convention](https://github.com/heroui-inc/heroui/blob/main/CONTRIBUTING.md#commit-convention).
    As you canary, you can run `pnpm build --filter=<module>` and
    `pnpm test packages/<module>/<pkg>` e.g. `pnpm build --filter=avatar & pnpm test packages/components/avatar` to make sure everything works as expected.
 
@@ -235,7 +235,7 @@ best to be proactive in reaching out to those that are already helping out.
 GitHub by default does not publicly state that you are a member of the
 organization. Please feel free to change that setting for yourself so others
 will know who's helping out. That can be configured on the [organization
-list](https://github.com/orgs/frontio-ai/people) page.
+list](https://github.com/orgs/heroui-inc/people) page.
 
 Being a maintainer is not an obligation. You can help when you have time and be
 less active when you don't. If you get a new job and get busy, that's alright.

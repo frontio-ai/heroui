@@ -3,6 +3,9 @@ export const animations = {
     "drip-expand": "drip-expand 420ms linear",
     "spinner-ease-spin": "spinner-spin 0.8s ease infinite",
     "spinner-linear-spin": "spinner-spin 0.8s linear infinite",
+    sway: "sway 750ms ease infinite",
+    blink: "blink 1.4s infinite both",
+    "fade-out": "fade-out 1.2s linear 0s infinite normal none running",
     "appearance-in": "appearance-in 250ms ease-out normal both",
     "appearance-out": "appearance-out 60ms ease-in normal both",
     "indeterminate-bar":
@@ -65,6 +68,36 @@ export const animations = {
       },
       "100%": {
         transform: "translateX(100%) scaleX(1)",
+      },
+    },
+    sway: {
+      "0%": {
+        transform: "translate(0px, 0px)",
+      },
+      "50%": {
+        transform: "translate(0px, -150%)",
+      },
+      "100%": {
+        transform: "translate(0px, 0px)",
+      },
+    },
+    blink: {
+      "0%": {
+        opacity: "0.2",
+      },
+      "20%": {
+        opacity: "1",
+      },
+      "100%": {
+        opacity: "0.2",
+      },
+    },
+    "fade-out": {
+      "0%": {
+        opacity: "1",
+      },
+      "100%": {
+        opacity: "0.15",
       },
     },
   },

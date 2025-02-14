@@ -20,7 +20,6 @@ export default function App() {
         length={4}
         name="otp"
         placeholder="Enter code"
-        validationBehavior="native"
       />
       <Button size="sm" type="submit" variant="bordered">
         Submit

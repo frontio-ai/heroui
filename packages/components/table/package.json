@@ -5,7 +5,7 @@
   "keywords": [
     "table"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -36,8 +36,8 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@heroui/theme": ">=2.4.0",
-    "@heroui/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.6",
+    "@heroui/system": ">=2.4.7"
   },
   "dependencies": {
     "@heroui/checkbox": "workspace:*",
@@ -45,15 +45,16 @@
     "@heroui/shared-icons": "workspace:*",
     "@heroui/shared-utils": "workspace:*",
     "@heroui/spacer": "workspace:*",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/table": "3.16.0",
-    "@react-aria/utils": "3.26.0",
-    "@react-aria/visually-hidden": "3.8.18",
-    "@react-stately/table": "3.13.0",
-    "@react-stately/virtualizer": "4.2.0",
-    "@react-types/grid": "3.2.10",
-    "@react-types/table": "3.10.3"
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/table": "3.16.1",
+    "@react-aria/utils": "3.27.0",
+    "@react-aria/visually-hidden": "3.8.19",
+    "@react-stately/table": "3.13.1",
+    "@react-stately/virtualizer": "4.2.1",
+    "@react-types/grid": "3.2.11",
+    "@react-types/table": "3.10.4",
+    "@tanstack/react-virtual": "3.11.3"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",
@@ -65,10 +66,10 @@
     "@heroui/tooltip": "workspace:*",
     "@heroui/use-infinite-scroll": "workspace:*",
     "@heroui/user": "workspace:*",
-    "@react-stately/data": "3.12.0",
+    "@react-stately/data": "3.12.1",
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "18.3.0",
+    "react-dom": "18.3.0",
     "swr": "^2.2.1"
   },
   "clean-package": "../../../clean-package.config.json"

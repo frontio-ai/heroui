@@ -244,9 +244,8 @@ export function useSlider(originalProps: UseSliderProps) {
         disableAnimation,
         hasSingleThumb,
         isVertical,
-        className,
       }),
-    [objectToDeps(variantProps), isVertical, disableAnimation, hasSingleThumb, hasMarks, className],
+    [objectToDeps(variantProps), isVertical, disableAnimation, hasSingleThumb, hasMarks],
   );
 
   const [startOffset, endOffset] = [

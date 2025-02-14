@@ -34,7 +34,7 @@ export const Hero = () => {
         <div className="flex justify-center w-full md:hidden">
           <Chip
             as={NextLink}
-            className="bg-foreground-100/50 border-1 hover:bg-foreground-100/80 border-foreground-200/50 cursor-pointer"
+            className="bg-default-200/50 border-1 hover:bg-default-200/80 border-default-400/50 cursor-pointer"
             classNames={{
               content: "font-semibold text-foreground text-xs ",
             }}

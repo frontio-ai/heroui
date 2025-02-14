@@ -153,12 +153,7 @@ const ServerValidationTemplate = (args: CheckboxGroupProps) => {
       validationErrors={serverErrors}
       onSubmit={onSubmit}
     >
-      <CheckboxGroup
-        {...args}
-        label="Agree to the following"
-        name="terms"
-        validationBehavior="native"
-      >
+      <CheckboxGroup {...args} label="Agree to the following" name="terms">
         <Checkbox value="terms">Terms and conditions</Checkbox>
         <Checkbox value="cookies">Cookies</Checkbox>
         <Checkbox value="privacy">Privacy policy</Checkbox>

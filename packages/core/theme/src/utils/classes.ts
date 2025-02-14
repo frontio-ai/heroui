@@ -69,9 +69,6 @@ export const collapseAdjacentVariantBorders = {
 };
 
 export const hiddenInputClasses = [
-  // Variables
-  "[--cursor-hit-x:8px]",
-
   // Font styles
   "font-inherit",
   "text-[100%]",
@@ -88,8 +85,7 @@ export const hiddenInputClasses = [
   // Positioning & Hit area
   "absolute",
   "top-0",
-  "start-[calc(var(--cursor-hit-x)*-1)]",
-  "w-[calc(100%+var(--cursor-hit-x)*2)]",
+  "w-full",
   "h-full",
 
   // Opacity and z-index

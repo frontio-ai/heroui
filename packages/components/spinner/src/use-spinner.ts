@@ -5,6 +5,7 @@ import {mapPropsVariants} from "@heroui/system-rsc";
 import {spinner} from "@heroui/theme";
 import {clsx, objectToDeps} from "@heroui/shared-utils";
 import {useMemo, useCallback, Ref} from "react";
+import {useProviderContext} from "@heroui/system";
 
 interface Props extends HTMLHeroUIProps<"div"> {
   /**
@@ -38,6 +39,9 @@ export type UseSpinnerProps = Props & SpinnerVariantProps;
 export function useSpinner(originalProps: UseSpinnerProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, spinner.variantKeys);
 
+  const globalContext = useProviderContext();
+  const variant = originalProps?.variant ?? globalContext?.spinnerVariant ?? "default";
+
   const {children, className, classNames, label: labelProp, ...otherProps} = props;
 
   const slots = useMemo(() => spinner({...variantProps}), [objectToDeps(variantProps)]);
@@ -65,7 +69,7 @@ export function useSpinner(originalProps: UseSpinnerProps) {
     [ariaLabel, slots, baseStyles, otherProps],
   );
 
-  return {label, slots, classNames, getSpinnerProps};
+  return {label, slots, classNames, variant, getSpinnerProps};
 }
 
 export type UseSpinnerReturn = ReturnType<typeof useSpinner>;

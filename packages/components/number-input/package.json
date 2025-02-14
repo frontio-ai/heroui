@@ -1,0 +1,71 @@
+{
+  "name": "@heroui/number-input",
+  "version": "2.0.0",
+  "description": "The numeric input component is designed for users to enter a number, and increase or decrease the value using stepper buttons",
+  "keywords": [
+    "input",
+    "number",
+    "numeric input"
+  ],
+  "author": "HeroUI <support@heroui.com>",
+  "homepage": "https://heroui.com",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
+    "directory": "packages/components/number-input"
+  },
+  "bugs": {
+    "url": "https://github.com/heroui-inc/heroui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0",
+    "@heroui/theme": ">=2.4.6",
+    "@heroui/system": ">=2.4.8"
+  },
+  "dependencies": {
+    "@heroui/form": "workspace:*",
+    "@heroui/button": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/use-safe-layout-effect": "workspace:*",
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/i18n": "3.12.5",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/numberfield": "3.11.10",
+    "@react-aria/utils": "3.27.0",
+    "@react-stately/utils": "3.10.5",
+    "@react-stately/numberfield": "3.9.9",
+    "@react-types/shared": "3.27.0",
+    "@react-types/numberfield": "3.8.8",
+    "@react-types/button": "3.10.2"
+  },
+  "devDependencies": {
+    "@heroui/system": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-hook-form": "^7.51.3"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}

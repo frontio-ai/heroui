@@ -5,7 +5,7 @@
   "keywords": [
     "input"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -36,8 +36,8 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@heroui/theme": ">=2.4.0",
-    "@heroui/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.6",
+    "@heroui/system": ">=2.4.8"
   },
   "dependencies": {
     "@heroui/form": "workspace:*",
@@ -45,21 +45,21 @@
     "@heroui/shared-icons": "workspace:*",
     "@heroui/shared-utils": "workspace:*",
     "@heroui/use-safe-layout-effect": "workspace:*",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/textfield": "3.15.0",
-    "@react-aria/utils": "3.26.0",
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/textfield": "3.16.0",
+    "@react-aria/utils": "3.27.0",
     "@react-stately/utils": "3.10.5",
-    "@react-types/shared": "3.26.0",
-    "@react-types/textfield": "3.10.0",
+    "@react-types/shared": "3.27.0",
+    "@react-types/textfield": "3.11.0",
     "react-textarea-autosize": "^8.5.3"
   },
   "devDependencies": {
     "@heroui/system": "workspace:*",
     "@heroui/theme": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "18.3.0",
+    "react-dom": "18.3.0",
     "react-hook-form": "^7.51.3"
   },
   "clean-package": "../../../clean-package.config.json"

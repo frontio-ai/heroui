@@ -5,7 +5,7 @@
   "keywords": [
     "modal"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -37,8 +37,8 @@
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
     "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
-    "@heroui/theme": ">=2.4.0",
-    "@heroui/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.6",
+    "@heroui/system": ">=2.4.7"
   },
   "dependencies": {
     "@heroui/use-disclosure": "workspace:*",
@@ -50,13 +50,13 @@
     "@heroui/shared-icons": "workspace:*",
     "@heroui/use-aria-modal-overlay": "workspace:*",
     "@heroui/dom-animation": "workspace:*",
-    "@react-aria/dialog": "3.5.20",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/overlays": "3.24.0",
-    "@react-aria/utils": "3.26.0",
-    "@react-stately/overlays": "3.6.12",
-    "@react-types/overlays": "3.8.11"
+    "@react-aria/dialog": "3.5.21",
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/overlays": "3.25.0",
+    "@react-aria/utils": "3.27.0",
+    "@react-stately/overlays": "3.6.13",
+    "@react-types/overlays": "3.8.12"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",
@@ -66,11 +66,12 @@
     "@heroui/button": "workspace:*",
     "@heroui/link": "workspace:*",
     "@heroui/switch": "workspace:*",
+    "@heroui/test-utils": "workspace:*",
     "react-lorem-component": "0.13.0",
     "framer-motion": "11.9.0",
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

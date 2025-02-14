@@ -1,6 +1,7 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
+import {spy, shouldIgnoreReactWarning} from "@heroui/test-utils";
 
 import {
   Navbar,
@@ -14,10 +15,6 @@ import {
 
 window.scrollTo = jest.fn();
 
-// e.g. console.error Warning: Function components cannot be given refs.
-// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
-const spy = jest.spyOn(console, "error").mockImplementation(() => {});
-
 describe("Navbar", () => {
   let user: UserEvent;
 
@@ -28,6 +25,7 @@ describe("Navbar", () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
+
   it("should render correctly", () => {
     const wrapper = render(<Navbar />);
 
@@ -93,6 +91,10 @@ describe("Navbar", () => {
     const toggle = wrapper.getByTestId("navbar-toggle-test");
 
     await user.click(toggle);
+
+    if (shouldIgnoreReactWarning(spy)) {
+      return;
+    }
 
     expect(spy).toHaveBeenCalledTimes(0);
   });

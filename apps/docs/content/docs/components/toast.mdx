@@ -1,0 +1,349 @@
+---
+title: "Toast"
+description: "Toast are temporary notifications that provide concise feedback about an action or event."
+---
+
+import {toastContent} from "@/content/components/toast";
+
+# Toast
+
+Toasts are temporary notifications that provide concise feedback about an action or event.
+
+<ComponentLinks component="toast" />
+
+---
+
+<CarbonAd />
+
+## Installation
+
+<PackageManagers
+  showGlobalInstallWarning
+  commands={{
+    cli: "npx heroui-cli@latest add toast",
+    npm: "npm install @heroui/toast",
+    yarn: "yarn add @heroui/toast",
+    pnpm: "pnpm add @heroui/toast",
+    bun: "bun add @heroui/toast",
+  }}
+/>
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {addToast, ToastProvider} from "@heroui/react";',
+    individual: 'import {addToast, ToastProvider} from "@heroui/toast";',
+  }}
+/>
+
+## Requirement
+
+The `ToastProvider` must be added to the application before using the `addToast` function. This is required to initialize the context for managing toasts.
+
+```jsx {4,9}
+// app/providers.tsx
+
+import {HeroUIProvider} from '@heroui/react'
+import {ToastProvider} from "@heroui/toast";
+
+export default function Providers({children}) {
+  return (
+    <HeroUIProvider>
+      <ToastProvider />
+      {children}
+    </HeroUIProvider>
+  )
+}
+```
+
+<Spacer y={4} />
+
+```jsx {3,9,11}
+// app/layout.tsx
+
+import {Providers} from "./providers";
+
+export default function RootLayout({children}) {
+  return (
+    <html lang="en" className='dark'>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  );
+}
+```
+
+
+### Usage
+
+<CodeDemo title="Usage" files={toastContent.usage} />
+
+### Colors
+
+Toast comes with 6 color variants to convey different meanings.
+
+<CodeDemo title="Color" files={toastContent.color} />
+
+### Variants
+
+<CodeDemo
+  title="Variants"
+  files={toastContent.variants}
+/>
+
+### Radius
+
+<CodeDemo
+  title="Radius"
+  files={toastContent.radius}
+/>
+
+### Toast Placement
+
+<CodeDemo
+  title="Placement"
+  files={toastContent.placement}
+/>
+
+### Custom Styles
+
+You can customize the alert by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo
+  title="Custom Style"
+  files={toastContent.customStyles}
+/>
+
+### Custom Close Icon
+
+You can pass a custom close icon to the toast by passing the `closeIcon` prop and a custom class name to the `closeButton` slot.
+
+<CodeDemo
+  title="Custom Close Icon"
+  files={toastContent.customCloseIcon}
+/>
+
+### Global Toast Props
+
+You can pass global toast props to the `ToastProvider` to apply to all toasts.
+
+```jsx
+<ToastProvider 
+  toastProps={{
+    radius: "full",
+    color: "primary",
+    variant: "flat",
+    timeout: 1000,
+    hideIcon: true,
+    classNames: {
+      closeButton: "opacity-100 absolute right-4 top-1/2 -translate-y-1/2",
+    },
+  }} 
+/>
+```
+
+<Spacer y={4} />
+
+## Data Attributes
+
+Toast has the following attributes on the `base` element:
+
+- **data-has-title**: When the toast has a title
+- **data-has-description**: When the toast has a description
+- **data-animation**: Shows the current animation of toast ("entering", "queued", "exiting", "undefined")
+- **data-placement**: Where the toast is placed on the view-port.
+- **data-drag-value**: Value by which the toast is dragged from it's original position. (This remains "0" in case of disabledAnimation)
+
+<Spacer y={4} />
+
+### Slots
+
+Toast has the following slots:
+
+- `base`: The main toast container element
+- `title`: The title element
+- `description`: The description element
+- `icon`: The icon element
+- `loadingIcon`: The icon to be displayed until `promise` is resolved/rejected.
+- `content`: The wrapper for the title, description and icon content.
+- `motionDiv`: The motion.div for the FramerMotion.
+- `progressTrack`: The track of the progressBar.
+- `progressIndicator`: The indicator of the progressBar.
+- `closeButton`: The close button element
+- `closeIcon`: The icon which resides in the close button.
+
+
+## Accessibility
+
+- Toast has role of `alert`
+- All Toasts are present in ToastRegion.
+- Close button has aria-label="Close" by default
+- When no toast are present, ToastRegion is removed from the DOM
+
+<Spacer y={4} />
+
+## API
+
+### Toast Props
+
+<APITable
+  data={[
+    {
+      attribute: "title",
+      type: "ReactNode",
+      description: "The alert title",
+      default: "-"
+    },
+    {
+      attribute: "icon", 
+      type: "ReactNode",
+      description: "The alert icon - overrides the default icon",
+      default: "-"
+    },
+    {
+      attribute: "description",
+      type: "ReactNode", 
+      description: "The alert description",
+      default: "-"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The alert color theme",
+      default: "default"
+    },
+    {
+      attribute: "variant",
+      type: "solid | bordered | flat",
+      description: "The alert variant",
+      default: "flat"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The alert border radius",
+      default: "md"
+    },
+    {
+      attribute: "endContent",
+      type: "ReactNode",
+      description: "The alert end content", 
+      default: "-"
+    },
+    {
+      attribute: "closeIcon",
+      type: "ReactNode",
+      description: "The close icon for the toast - overrides the default close icon",
+      default: "-"
+    },
+    {
+      attribute: "timeout",
+      type: "number",
+      description: "Time in milliseconds after which the toast will be closed", 
+      default: "6000"
+    },
+    {
+      attribute: "promise",
+      type: "Promise | undefined",
+      description: "Promise based on which the notification will be styled",
+      default: "undefined"
+    },
+    {
+      attribute: "loadingIcon", 
+      type: "ReactNode",
+      description: "The loading icon for toasts with promise prop - overrides the default loading icon",
+      default: "-"
+    },
+    {
+      attribute: "priority",
+      type: "number | undefined",
+      description: "Priority at which the toast will be displayed",
+      default: "undefined",
+    },
+    {
+      attribute: "hideIcon",
+      type: "boolean",
+      description: "Hides icon when true",
+      default: "false"
+    },
+    {
+      attribute: "hideCloseButton",
+      type: "boolean",
+      description: "Hides closeButton when true",
+      default: "false"
+    },
+    {
+      attribute: "shouldShowTimeoutProgress",
+      type: "boolean",
+      description: "Whether to indicate the timeout progress or not",
+      default: "false",
+    },
+    {
+      attribute: "classNames",
+      type: "Partial<Record<\"base\" | \"content\" | \"title\" | \"description\" | \"icon\" | \"loadingIcon\" | \"progressTrack\" | \"progressIndicator\ | \"motionDiv\" | \"closeButton\" | \"closeIcon\", string>>",
+      description: "Allows to set custom class names for the toast slots.",
+      default: "-"
+    }
+  ]}
+/>
+
+### ToastProvider Props
+
+<APITable
+  data={[
+    {
+      attribute: "maxVisibleToasts",
+      type: "number",
+      description: "Maximum toasts which will be visible",
+      default: "5"
+    },
+    {
+      attribute: "placement", 
+      type: "bottom-right" | "bottom-left" | "bottom-center" | "top-right" | "top-left" | "top-center",
+      description: "The placement of the toast.",
+      default: "bottom-right"
+    },
+    {
+      attribute: "severity", 
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The severity of the toast. This changes the icon of the toast without having to change the color.",
+      default: "default"
+    },
+    {
+      attribute: "disableAnimation", 
+      type: "boolean",
+      description: "Disables the animation.",
+      default: "false"
+    },
+    {
+      attribute: "toastOffset",
+      type: "number",
+      description: "offset distance from the top or bottom",
+      default: "0"
+    },
+    {
+      attribute: "toastProps",
+      type: "ToastProps",
+      description: "Props to be passed to all toasts",
+      default: "-"
+    },
+  ]}
+/>
+
+
+### Toast Events
+
+<APITable
+  data={[
+    {
+      attribute: "onClose",
+      type: "() => void",
+      description: "Handler called when the close button is clicked",
+      default: "-"
+    }
+  ]}
+/>

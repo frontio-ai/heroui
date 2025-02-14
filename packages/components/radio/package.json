@@ -5,7 +5,7 @@
   "keywords": [
     "radio"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -37,28 +37,29 @@
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
     "@heroui/theme": ">=2.4.3",
-    "@heroui/system": ">=2.4.0"
+    "@heroui/system": ">=2.4.7"
   },
   "dependencies": {
     "@heroui/form": "workspace:*",
     "@heroui/shared-utils": "workspace:*",
     "@heroui/react-utils": "workspace:*",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/radio": "3.10.10",
-    "@react-aria/utils": "3.26.0",
-    "@react-aria/visually-hidden": "3.8.18",
-    "@react-stately/radio": "3.10.9",
-    "@react-types/radio": "3.8.5",
-    "@react-types/shared": "3.26.0"
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/radio": "3.10.11",
+    "@react-aria/utils": "3.27.0",
+    "@react-aria/visually-hidden": "3.8.19",
+    "@react-stately/radio": "3.10.10",
+    "@react-types/radio": "3.8.6",
+    "@react-types/shared": "3.27.0"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",
     "@heroui/system": "workspace:*",
     "@heroui/button": "workspace:*",
+    "@heroui/test-utils": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

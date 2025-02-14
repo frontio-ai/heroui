@@ -40,21 +40,20 @@
           "key": "forms",
           "title": "Forms",
           "keywords": "forms, form validation, heroui",
-          "path": "/docs/guide/forms.mdx"
+          "path": "/docs/guide/forms.mdx",
+          "updated": true
         },
         {
           "key": "nextui-to-heroui",
           "title": "NextUI to HeroUI",
           "keywords": "migrate, nextui, hero, heroui",
-          "path": "/docs/guide/nextui-to-heroui.mdx",
-          "newPost": true
+          "path": "/docs/guide/nextui-to-heroui.mdx"
         },
          {
           "key": "figma",
           "title": "Figma",
           "keywords": "figma, design, ui kit",
-          "path": "/docs/guide/figma.mdx",
-          "newPost": true
+          "path": "/docs/guide/figma.mdx"
         }
       ]
     },
@@ -92,8 +91,7 @@
           "key": "laravel",
           "title": "Laravel",
           "keywords": "laravel, nextui",
-          "path": "/docs/frameworks/laravel.mdx",
-          "newPost": true
+          "path": "/docs/frameworks/laravel.mdx"
         }
       ]
     },
@@ -111,8 +109,7 @@
         {
           "key": "layout",
           "title": "Layout",
-          "path": "/docs/customization/layout.mdx",
-          "updated": true
+          "path": "/docs/customization/layout.mdx"
         },
         {
           "key": "colors",
@@ -132,8 +129,7 @@
         {
           "key": "dark-mode",
           "title": "Dark mode",
-          "path": "/docs/customization/dark-mode.mdx",
-          "updated": true
+          "path": "/docs/customization/dark-mode.mdx"
         },
         {
           "key": "override-styles",
@@ -163,15 +159,13 @@
           "key": "autocomplete",
           "title": "Autocomplete",
           "keywords": "autocomplete, auto suggest, search, typeahead",
-          "path": "/docs/components/autocomplete.mdx",
-          "updated": true
+          "path": "/docs/components/autocomplete.mdx"
         },
         {
           "key": "alert",
           "title": "Alert",
           "keywords": "alert, notification, message",
-          "path": "/docs/components/alert.mdx",
-          "newPost": true
+          "path": "/docs/components/alert.mdx"
         },
         {
           "key": "avatar",
@@ -195,8 +189,7 @@
           "key": "button",
           "title": "Button",
           "keywords": "button, interactive, action trigger, click events",
-          "path": "/docs/components/button.mdx",
-          "updated": true
+          "path": "/docs/components/button.mdx"
         },
         {
           "key": "calendar",
@@ -221,8 +214,7 @@
           "key": "checkbox-group",
           "title": "Checkbox Group",
           "keywords": "checkbox group, binary choice, selection control, toggle",
-          "path": "/docs/components/checkbox-group.mdx",
-          "updated": true
+          "path": "/docs/components/checkbox-group.mdx"
         },
         {
           "key": "chip",
@@ -276,15 +268,13 @@
           "key": "drawer",
           "title": "Drawer",
           "keywords": "drawer, panel, slide, overlay",
-          "path": "/docs/components/drawer.mdx",
-          "newPost": true
+          "path": "/docs/components/drawer.mdx"
         },
         {
           "key": "form",
           "title": "Form",
           "keywords": "forms, form validation, heroui",
-          "path": "/docs/components/form.mdx",
-          "newPost": true
+          "path": "/docs/components/form.mdx"
         },
         {
           "key": "image",
@@ -304,13 +294,14 @@
           "title": "Input OTP",
           "keywords": "input, otp, auth, verification code",
           "path": "/docs/components/input-otp.mdx",
-          "newPost": true
+          "updated": true
         },
         {
           "key": "kbd",
           "title": "Kbd",
           "keywords": "keyboard input, shortcut, keys, user input display",
-          "path": "/docs/components/kbd.mdx"
+          "path": "/docs/components/kbd.mdx",
+          "updated": true
         },
         {
           "key": "link",
@@ -322,21 +313,26 @@
           "key": "listbox",
           "title": "Listbox",
           "keywords": "listbox, selection, option list, multiple choice",
-          "path": "/docs/components/listbox.mdx",
-          "updated": true
+          "path": "/docs/components/listbox.mdx"
         },
         {
           "key": "modal",
           "title": "Modal",
           "keywords": "modal, dialog box, popup, overlay, content focus",
-          "path": "/docs/components/modal.mdx",
-          "updated": true
+          "path": "/docs/components/modal.mdx"
         },
         {
           "key": "navbar",
           "title": "Navbar",
           "keywords": "navbar, navigation, top menu, website header",
           "path": "/docs/components/navbar.mdx"
+        },
+        {
+          "key": "number-input",
+          "title": "Number Input",
+          "keywords": "input, numeric input, number input",
+          "path": "/docs/components/number-input.mdx",
+          "newPost": true
         },
         {
           "key": "pagination",
@@ -379,8 +375,7 @@
           "key": "select",
           "title": "Select",
           "keywords": "select, selection, option list, multiple choice",
-          "path": "/docs/components/select.mdx",
-          "updated": true
+          "path": "/docs/components/select.mdx"
         },
         {
           "key": "skeleton",
@@ -410,40 +405,41 @@
           "key": "spinner",
           "title": "Spinner",
           "keywords": "spinner, loading, activity indicator, processing signal",
-          "path": "/docs/components/spinner.mdx"
+          "path": "/docs/components/spinner.mdx",
+          "updated": true
         },
         {
           "key": "switch",
           "title": "Switch",
           "keywords": "switch, toggle, binary input, on/off control",
-          "path": "/docs/components/switch.mdx",
-          "updated": true
+          "path": "/docs/components/switch.mdx"
         },
         {
           "key": "table",
           "title": "Table",
           "keywords": "table, data display, grid, spreadsheet",
-          "path": "/docs/components/table.mdx"
+          "path": "/docs/components/table.mdx",
+          "updated": true
         },
         {
           "key": "tabs",
           "title": "Tabs",
           "keywords": "tabs, section navigation, categorized content, tabbed interface",
-          "path": "/docs/components/tabs.mdx"
+          "path": "/docs/components/tabs.mdx",
+          "updated": true
         },
         {
           "key": "toast",
           "title": "Toast",
           "keywords": "toast, notification, message",
           "path": "/docs/components/toast.mdx",
-          "comingSoon": true
+          "newPost": true
         },
         {
           "key": "textarea",
           "title": "Textarea",
           "keywords": "textarea, multi-line text input, large text field, form control",
-          "path": "/docs/components/textarea.mdx",
-          "updated": true
+          "path": "/docs/components/textarea.mdx"
         },
         {
           "key": "time-input",
@@ -475,8 +471,7 @@
           "key": "cli-api",
           "title": "HeroUI CLI",
           "keywords": "api references, heroui, api, cli",
-          "path": "/docs/api-references/cli-api.mdx",
-          "updated": true
+          "path": "/docs/api-references/cli-api.mdx"
         },
         {
           "key": "heroui-provider",
@@ -517,8 +512,7 @@
           "key": "figma",
           "title": "Figma",
           "keywords": "figma, heroui, design, ui kit",
-          "path": "/docs/guide/figma.mdx",
-          "newPost": true
+          "path": "/docs/guide/figma.mdx"
         },
         {
           "key": "roadmap",

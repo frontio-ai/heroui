@@ -11,7 +11,6 @@ const Button = forwardRef<"button", ButtonProps>((props, ref) => {
     Component,
     domRef,
     children,
-    styles,
     spinnerSize,
     spinner = <Spinner color="current" size={spinnerSize} />,
     spinnerPlacement,
@@ -25,7 +24,7 @@ const Button = forwardRef<"button", ButtonProps>((props, ref) => {
   } = useButton({...props, ref});
 
   return (
-    <Component ref={domRef} className={styles} {...getButtonProps()}>
+    <Component ref={domRef} {...getButtonProps()}>
       {startContent}
       {isLoading && spinnerPlacement === "start" && spinner}
       {isLoading && isIconOnly ? null : children}

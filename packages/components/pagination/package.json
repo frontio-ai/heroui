@@ -5,7 +5,7 @@
   "keywords": [
     "pagination"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "HeroUI <support@heroui.com>",
   "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
@@ -36,8 +36,8 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@heroui/theme": ">=2.4.0",
-    "@heroui/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.6",
+    "@heroui/system": ">=2.4.7"
   },
   "dependencies": {
     "@heroui/shared-utils": "workspace:*",
@@ -45,18 +45,19 @@
     "@heroui/shared-icons": "workspace:*",
     "@heroui/use-intersection-observer": "workspace:*",
     "@heroui/use-pagination": "workspace:*",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/i18n": "3.12.4",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/utils": "3.26.0",
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/i18n": "3.12.5",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/utils": "3.27.0",
     "scroll-into-view-if-needed": "3.0.10"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",
     "@heroui/system": "workspace:*",
+    "@heroui/test-utils": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }

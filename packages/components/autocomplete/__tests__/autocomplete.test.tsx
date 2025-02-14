@@ -2,6 +2,7 @@ import "@testing-library/jest-dom";
 import * as React from "react";
 import {within, render, renderHook, act} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
+import {spy, shouldIgnoreReactWarning} from "@heroui/test-utils";
 import {useForm} from "react-hook-form";
 import {Form} from "@heroui/form";
 
@@ -66,15 +67,9 @@ const ControlledAutocomplete = <T extends object>(props: AutocompleteProps<T>) =
 
 const AutocompleteExample = (props: Partial<AutocompleteProps> = {}) => (
   <Autocomplete label="Favorite Animal" {...props}>
-    <AutocompleteItem key="penguin" value="penguin">
-      Penguin
-    </AutocompleteItem>
-    <AutocompleteItem key="zebra" value="zebra">
-      Zebra
-    </AutocompleteItem>
-    <AutocompleteItem key="shark" value="shark">
-      Shark
-    </AutocompleteItem>
+    <AutocompleteItem key="penguin">Penguin</AutocompleteItem>
+    <AutocompleteItem key="zebra">Zebra</AutocompleteItem>
+    <AutocompleteItem key="shark">Shark</AutocompleteItem>
   </Autocomplete>
 );
 
@@ -88,6 +83,11 @@ describe("Autocomplete", () => {
   it("should render correctly", () => {
     const wrapper = render(<AutocompleteExample />);
 
+    if (shouldIgnoreReactWarning(spy)) {
+      return;
+    }
+
+    expect(spy).toHaveBeenCalledTimes(0);
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
@@ -96,15 +96,9 @@ describe("Autocomplete", () => {
 
     render(
       <Autocomplete ref={ref} aria-label="Favorite Animal" label="Favorite Animal">
-        <AutocompleteItem key="penguin" value="penguin">
-          Penguin
-        </AutocompleteItem>
-        <AutocompleteItem key="zebra" value="zebra">
-          Zebra
-        </AutocompleteItem>
-        <AutocompleteItem key="shark" value="shark">
-          Shark
-        </AutocompleteItem>
+        <AutocompleteItem key="penguin">Penguin</AutocompleteItem>
+        <AutocompleteItem key="zebra">Zebra</AutocompleteItem>
+        <AutocompleteItem key="shark">Shark</AutocompleteItem>
       </Autocomplete>,
     );
 
@@ -125,17 +119,11 @@ describe("Autocomplete", () => {
     const wrapper = render(
       <Autocomplete aria-label="Favorite Animal" label="Favorite Animal">
         <AutocompleteSection title="Birds">
-          <AutocompleteItem key="penguin" value="penguin">
-            Penguin
-          </AutocompleteItem>
+          <AutocompleteItem key="penguin">Penguin</AutocompleteItem>
         </AutocompleteSection>
         <AutocompleteSection title="Mammals">
-          <AutocompleteItem key="zebra" value="zebra">
-            Zebra
-          </AutocompleteItem>
-          <AutocompleteItem key="shark" value="shark">
-            Shark
-          </AutocompleteItem>
+          <AutocompleteItem key="zebra">Zebra</AutocompleteItem>
+          <AutocompleteItem key="shark">Shark</AutocompleteItem>
         </AutocompleteSection>
       </Autocomplete>,
     );
@@ -165,15 +153,9 @@ describe("Autocomplete", () => {
   it("should focus when clicking autocomplete", async () => {
     const wrapper = render(
       <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
-        <AutocompleteItem key="penguin" value="penguin">
-          Penguin
-        </AutocompleteItem>
-        <AutocompleteItem key="zebra" value="zebra">
-          Zebra
-        </AutocompleteItem>
-        <AutocompleteItem key="shark" value="shark">
-          Shark
-        </AutocompleteItem>
+        <AutocompleteItem key="penguin">Penguin</AutocompleteItem>
+        <AutocompleteItem key="zebra">Zebra</AutocompleteItem>
+        <AutocompleteItem key="shark">Shark</AutocompleteItem>
       </Autocomplete>,
     );
 
@@ -192,15 +174,9 @@ describe("Autocomplete", () => {
   it("should clear value after clicking clear button", async () => {
     const wrapper = render(
       <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
-        <AutocompleteItem key="penguin" value="penguin">
-          Penguin
-        </AutocompleteItem>
-        <AutocompleteItem key="zebra" value="zebra">
-          Zebra
-        </AutocompleteItem>
-        <AutocompleteItem key="shark" value="shark">
-          Shark
-        </AutocompleteItem>
+        <AutocompleteItem key="penguin">Penguin</AutocompleteItem>
+        <AutocompleteItem key="zebra">Zebra</AutocompleteItem>
+        <AutocompleteItem key="shark">Shark</AutocompleteItem>
       </Autocomplete>,
     );
 
@@ -238,15 +214,9 @@ describe("Autocomplete", () => {
   it("should clear arbitrary value after clicking clear button", async () => {
     const wrapper = render(
       <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
-        <AutocompleteItem key="penguin" value="penguin">
-          Penguin
-        </AutocompleteItem>
-        <AutocompleteItem key="zebra" value="zebra">
-          Zebra
-        </AutocompleteItem>
-        <AutocompleteItem key="shark" value="shark">
-          Shark
-        </AutocompleteItem>
+        <AutocompleteItem key="penguin">Penguin</AutocompleteItem>
+        <AutocompleteItem key="zebra">Zebra</AutocompleteItem>
+        <AutocompleteItem key="shark">Shark</AutocompleteItem>
       </Autocomplete>,
     );
 
@@ -281,15 +251,9 @@ describe("Autocomplete", () => {
   it("should keep the ListBox open after clicking clear button", async () => {
     const wrapper = render(
       <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
-        <AutocompleteItem key="penguin" value="penguin">
-          Penguin
-        </AutocompleteItem>
-        <AutocompleteItem key="zebra" value="zebra">
-          Zebra
-        </AutocompleteItem>
-        <AutocompleteItem key="shark" value="shark">
-          Shark
-        </AutocompleteItem>
+        <AutocompleteItem key="penguin">Penguin</AutocompleteItem>
+        <AutocompleteItem key="zebra">Zebra</AutocompleteItem>
+        <AutocompleteItem key="shark">Shark</AutocompleteItem>
       </Autocomplete>,
     );
 
@@ -397,15 +361,9 @@ describe("Autocomplete", () => {
   it("should open and close listbox by clicking selector button", async () => {
     const wrapper = render(
       <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
-        <AutocompleteItem key="penguin" value="penguin">
-          Penguin
-        </AutocompleteItem>
-        <AutocompleteItem key="zebra" value="zebra">
-          Zebra
-        </AutocompleteItem>
-        <AutocompleteItem key="shark" value="shark">
-          Shark
-        </AutocompleteItem>
+        <AutocompleteItem key="penguin">Penguin</AutocompleteItem>
+        <AutocompleteItem key="zebra">Zebra</AutocompleteItem>
+        <AutocompleteItem key="shark">Shark</AutocompleteItem>
       </Autocomplete>,
     );
 
@@ -445,15 +403,9 @@ describe("Autocomplete", () => {
         data-testid="close-when-clicking-outside-test"
         label="Favorite Animal"
       >
-        <AutocompleteItem key="penguin" value="penguin">
-          Penguin
-        </AutocompleteItem>
-        <AutocompleteItem key="zebra" value="zebra">
-          Zebra
-        </AutocompleteItem>
-        <AutocompleteItem key="shark" value="shark">
-          Shark
-        </AutocompleteItem>
+        <AutocompleteItem key="penguin">Penguin</AutocompleteItem>
+        <AutocompleteItem key="zebra">Zebra</AutocompleteItem>
+        <AutocompleteItem key="shark">Shark</AutocompleteItem>
       </Autocomplete>,
     );
 
@@ -486,15 +438,9 @@ describe("Autocomplete", () => {
               data-testid="close-when-clicking-outside-test"
               label="Favorite Animal"
             >
-              <AutocompleteItem key="penguin" value="penguin">
-                Penguin
-              </AutocompleteItem>
-              <AutocompleteItem key="zebra" value="zebra">
-                Zebra
-              </AutocompleteItem>
-              <AutocompleteItem key="shark" value="shark">
-                Shark
-              </AutocompleteItem>
+              <AutocompleteItem key="penguin">Penguin</AutocompleteItem>
+              <AutocompleteItem key="zebra">Zebra</AutocompleteItem>
+              <AutocompleteItem key="shark">Shark</AutocompleteItem>
             </Autocomplete>
           </ModalBody>
           <ModalFooter>Modal footer</ModalFooter>
@@ -521,15 +467,9 @@ describe("Autocomplete", () => {
   it("should set the input after selection", async () => {
     const wrapper = render(
       <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
-        <AutocompleteItem key="penguin" value="penguin">
-          Penguin
-        </AutocompleteItem>
-        <AutocompleteItem key="zebra" value="zebra">
-          Zebra
-        </AutocompleteItem>
-        <AutocompleteItem key="shark" value="shark">
-          Shark
-        </AutocompleteItem>
+        <AutocompleteItem key="penguin">Penguin</AutocompleteItem>
+        <AutocompleteItem key="zebra">Zebra</AutocompleteItem>
+        <AutocompleteItem key="shark">Shark</AutocompleteItem>
       </Autocomplete>,
     );
 
@@ -563,30 +503,18 @@ describe("Autocomplete", () => {
           data-testid="autocomplete"
           label="Favorite Animal"
         >
-          <AutocompleteItem key="penguin" value="penguin">
-            Penguin
-          </AutocompleteItem>
-          <AutocompleteItem key="zebra" value="zebra">
-            Zebra
-          </AutocompleteItem>
-          <AutocompleteItem key="shark" value="shark">
-            Shark
-          </AutocompleteItem>
+          <AutocompleteItem key="penguin">Penguin</AutocompleteItem>
+          <AutocompleteItem key="zebra">Zebra</AutocompleteItem>
+          <AutocompleteItem key="shark">Shark</AutocompleteItem>
         </Autocomplete>
         <Autocomplete
           aria-label="Favorite Animal"
           data-testid="autocomplete2"
           label="Favorite Animal"
         >
-          <AutocompleteItem key="penguin" value="penguin">
-            Penguin
-          </AutocompleteItem>
-          <AutocompleteItem key="zebra" value="zebra">
-            Zebra
-          </AutocompleteItem>
-          <AutocompleteItem key="shark" value="shark">
-            Shark
-          </AutocompleteItem>
+          <AutocompleteItem key="penguin">Penguin</AutocompleteItem>
+          <AutocompleteItem key="zebra">Zebra</AutocompleteItem>
+          <AutocompleteItem key="shark">Shark</AutocompleteItem>
         </Autocomplete>
       </>,
     );
@@ -696,8 +624,8 @@ describe("Autocomplete", () => {
     describe("validationBehavior=native", () => {
       it("supports isRequired", async () => {
         const {getByTestId, getByRole, findByRole} = render(
-          <Form data-testid="form">
-            <AutocompleteExample isRequired validationBehavior="native" />
+          <Form data-testid="form" validationBehavior="native">
+            <AutocompleteExample isRequired />
           </Form>,
         );
 
@@ -738,8 +666,8 @@ describe("Autocomplete", () => {
           };
 
           return (
-            <Form validationErrors={serverErrors} onSubmit={onSubmit}>
-              <AutocompleteExample data-testid="input" name="value" validationBehavior="native" />
+            <Form validationBehavior="native" validationErrors={serverErrors} onSubmit={onSubmit}>
+              <AutocompleteExample data-testid="input" name="value" />
               <button data-testid="submit" type="submit">
                 Submit
               </button>
@@ -875,7 +803,7 @@ describe("Autocomplete", () => {
 
       it("supports server validation", async () => {
         const {getByTestId, getByRole} = render(
-          <Form validationErrors={{value: "Invalid value"}}>
+          <Form validationBehavior="aria" validationErrors={{value: "Invalid value"}}>
             <AutocompleteExample data-testid="input" name="value" />
           </Form>,
         );

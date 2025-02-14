@@ -58,10 +58,12 @@ export const HeroUIProvider: React.FC<HeroUIProviderProps> = ({
   reducedMotion = "never",
   validationBehavior,
   locale = "en-US",
+  labelPlacement,
   // if minDate / maxDate are not specified in `defaultDates`
   // then they will be set in `use-date-input.ts` or `use-calendar-base.ts`
   defaultDates,
   createCalendar,
+  spinnerVariant,
   ...otherProps
 }) => {
   let contents = children;
@@ -85,6 +87,8 @@ export const HeroUIProvider: React.FC<HeroUIProviderProps> = ({
       disableAnimation,
       disableRipple,
       validationBehavior,
+      labelPlacement,
+      spinnerVariant,
     };
   }, [
     createCalendar,
@@ -93,6 +97,8 @@ export const HeroUIProvider: React.FC<HeroUIProviderProps> = ({
     disableAnimation,
     disableRipple,
     validationBehavior,
+    labelPlacement,
+    spinnerVariant,
   ]);
 
   return (

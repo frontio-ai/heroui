@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
+  - name: 💡 Feature Request
+    url: https://github.com/heroui-inc/heroui/discussions/categories/feature-requests
+    about: 💡 Suggest a new component, improve an existing component and etc
   - name: 🤔 Long question or ideas?
     url: https://github.com/heroui-inc/heroui/discussions
     about: Ask long-form questions and discuss ideas.

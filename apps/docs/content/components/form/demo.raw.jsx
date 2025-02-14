@@ -59,7 +59,6 @@ export default function App() {
   return (
     <Form
       className="w-full justify-center items-center space-y-4"
-      validationBehavior="native"
       validationErrors={errors}
       onReset={() => setSubmitted(null)}
       onSubmit={onSubmit}
@@ -117,21 +116,11 @@ export default function App() {
           name="country"
           placeholder="Select country"
         >
-          <SelectItem key="ar" value="ar">
-            Argentina
-          </SelectItem>
-          <SelectItem key="us" value="us">
-            United States
-          </SelectItem>
-          <SelectItem key="ca" value="ca">
-            Canada
-          </SelectItem>
-          <SelectItem key="uk" value="uk">
-            United Kingdom
-          </SelectItem>
-          <SelectItem key="au" value="au">
-            Australia
-          </SelectItem>
+          <SelectItem key="ar">Argentina</SelectItem>
+          <SelectItem key="us">United States</SelectItem>
+          <SelectItem key="ca">Canada</SelectItem>
+          <SelectItem key="uk">United Kingdom</SelectItem>
+          <SelectItem key="au">Australia</SelectItem>
         </Select>
 
         <Checkbox

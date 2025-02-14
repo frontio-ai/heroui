@@ -69,6 +69,9 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      spacing: {
+        'toast-gap': 'var(--toast-gap)',
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
@@ -345,7 +348,15 @@ module.exports = {
       maxWidth: {
         "8xl": "90rem", // 1440px
       },
-    },
+      utilities: {
+        '.scrollbar-hide': {
+          'scrollbar-width': 'none',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        }
+      },
+    }
   },
   plugins: [
     heroui({

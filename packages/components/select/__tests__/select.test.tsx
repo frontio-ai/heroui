@@ -1,8 +1,10 @@
 import type {SelectProps} from "../src";
 
+import "@testing-library/jest-dom";
 import * as React from "react";
-import {act, render, renderHook, waitFor} from "@testing-library/react";
+import {render, renderHook, waitFor, act} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
+import {spy, shouldIgnoreReactWarning} from "@heroui/test-utils";
 import {useForm} from "react-hook-form";
 import {Form} from "@heroui/form";
 
@@ -58,15 +60,24 @@ describe("Select", () => {
     user = userEvent.setup();
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
-      <Select aria-label="Favorite Animal" label="Favorite Animal">
+      <Select disableAnimation aria-label="Favorite Animal" label="Favorite Animal">
         <SelectItem key="penguin">Penguin</SelectItem>
         <SelectItem key="zebra">Zebra</SelectItem>
         <SelectItem key="shark">Shark</SelectItem>
       </Select>,
     );
 
+    if (shouldIgnoreReactWarning(spy)) {
+      return;
+    }
+
+    expect(spy).toHaveBeenCalledTimes(0);
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
@@ -74,7 +85,7 @@ describe("Select", () => {
     const ref = React.createRef<HTMLSelectElement>();
 
     render(
-      <Select ref={ref} aria-label="Favorite Animal" label="Favorite Animal">
+      <Select ref={ref} disableAnimation aria-label="Favorite Animal" label="Favorite Animal">
         <SelectItem key="penguin">Penguin</SelectItem>
         <SelectItem key="zebra">Zebra</SelectItem>
         <SelectItem key="shark">Shark</SelectItem>
@@ -85,7 +96,12 @@ describe("Select", () => {
 
   it("should render correctly (dynamic)", () => {
     const wrapper = render(
-      <Select aria-label="Favorite Animal" items={itemsData} label="Favorite Animal">
+      <Select
+        disableAnimation
+        aria-label="Favorite Animal"
+        items={itemsData}
+        label="Favorite Animal"
+      >
         {(item) => <SelectItem key={item.id}>{item.label}</SelectItem>}
       </Select>,
     );
@@ -95,7 +111,7 @@ describe("Select", () => {
 
   it("should render correctly with section (static)", () => {
     const wrapper = render(
-      <Select aria-label="Favorite Animal" label="Favorite Animal">
+      <Select disableAnimation aria-label="Favorite Animal" label="Favorite Animal">
         <SelectSection title="Birds">
           <SelectItem key="penguin">Penguin</SelectItem>
         </SelectSection>
@@ -111,7 +127,12 @@ describe("Select", () => {
 
   it("should render correctly with section (dynamic)", () => {
     const wrapper = render(
-      <Select aria-label="Favorite Animal" items={itemsSectionData} label="Favorite Animal">
+      <Select
+        disableAnimation
+        aria-label="Favorite Animal"
+        items={itemsSectionData}
+        label="Favorite Animal"
+      >
         {(section) => (
           <SelectSection<(typeof itemsSectionData)[0]["children"][0]>
             aria-label={section.title}
@@ -133,6 +154,7 @@ describe("Select", () => {
 
     const wrapper = render(
       <Select
+        disableAnimation
         disallowEmptySelection
         isOpen
         aria-label="Favorite Animal"
@@ -155,6 +177,7 @@ describe("Select", () => {
     expect(listboxItems.length).toBe(3);
 
     await user.click(listboxItems[1]);
+
     expect(onSelectionChange).toHaveBeenCalledTimes(1);
   });
 
@@ -163,6 +186,7 @@ describe("Select", () => {
 
     const wrapper = render(
       <Select
+        disableAnimation
         disallowEmptySelection
         isOpen
         aria-label="Favorite Animal"
@@ -184,8 +208,10 @@ describe("Select", () => {
 
     expect(listboxItems.length).toBe(3);
 
-    await user.click(listboxItems[1]);
-    await user.click(listboxItems[2]);
+    await act(async () => {
+      await user.click(listboxItems[1]);
+      await user.click(listboxItems[2]);
+    });
 
     expect(onSelectionChange).toHaveBeenCalledTimes(2);
   });
@@ -199,6 +225,7 @@ describe("Select", () => {
 
       return (
         <Select
+          disableAnimation
           aria-label="Favorite Animal"
           data-testid="render-selected-item-test"
           label="Favorite Animal"
@@ -222,11 +249,15 @@ describe("Select", () => {
 
     const select = wrapper.getByTestId("render-selected-item-test");
 
-    await user.click(select);
+    await act(async () => {
+      await user.click(select);
+    });
 
     const listboxItems = wrapper.getAllByRole("option");
 
-    await user.click(listboxItems[0]);
+    await act(async () => {
+      await user.click(listboxItems[0]);
+    });
 
     expect(select).toHaveTextContent("Penguin");
     expect(wrapper.queryByText("Select an favorite animal")).toBe(null);
@@ -245,6 +276,7 @@ describe("Select", () => {
   it("should close dropdown when clicking outside select", async () => {
     const wrapper = render(
       <Select
+        disableAnimation
         aria-label="Favorite Animal"
         data-testid="close-when-clicking-outside-test"
         label="Favorite Animal"
@@ -277,6 +309,7 @@ describe("Select", () => {
           <ModalHeader>Modal header</ModalHeader>
           <ModalBody>
             <Select
+              disableAnimation
               aria-label="Favorite Animal"
               data-testid="close-when-clicking-outside-test"
               label="Favorite Animal"
@@ -311,6 +344,7 @@ describe("Select", () => {
 
     const wrapper = render(
       <Select
+        disableAnimation
         isDisabled
         aria-label="Favorite Animal"
         data-testid="test-select"
@@ -341,6 +375,7 @@ describe("Select", () => {
 
     const wrapper = render(
       <Select
+        disableAnimation
         isOpen
         defaultSelectedKeys={[1, 2]} // Numeric keys for selection
         items={items}
@@ -366,6 +401,7 @@ describe("Select", () => {
 
     const wrapper = render(
       <Select
+        disableAnimation
         isOpen
         defaultSelectedKeys={[1, 2]} // Numeric ids for selection
         items={items}
@@ -392,6 +428,7 @@ describe("Select", () => {
     const onSelectionChangeId = jest.fn();
     const wrapperWithId = render(
       <Select
+        disableAnimation
         isOpen
         items={itemsWithId}
         label="Test with ID"
@@ -430,6 +467,7 @@ describe("Select", () => {
     const onSelectionChangeKey = jest.fn();
     const wrapperWithKey = render(
       <Select
+        disableAnimation
         isOpen
         items={itemsWithKey}
         label="Test with Key"
@@ -461,6 +499,7 @@ describe("Select", () => {
   it("should display selected items as comma-separated string inside the select", async () => {
     const wrapper = render(
       <Select
+        disableAnimation
         isDisabled
         aria-label="Favorite Animal"
         data-testid="test-select"
@@ -481,27 +520,25 @@ describe("Select", () => {
   it("should close listbox by clicking another select", async () => {
     const wrapper = render(
       <>
-        <Select aria-label="Favorite Animal" data-testid="select" label="Favorite Animal">
-          <SelectItem key="penguin" value="penguin">
-            Penguin
-          </SelectItem>
-          <SelectItem key="zebra" value="zebra">
-            Zebra
-          </SelectItem>
-          <SelectItem key="shark" value="shark">
-            Shark
-          </SelectItem>
+        <Select
+          disableAnimation
+          aria-label="Favorite Animal"
+          data-testid="select"
+          label="Favorite Animal"
+        >
+          <SelectItem key="penguin">Penguin</SelectItem>
+          <SelectItem key="zebra">Zebra</SelectItem>
+          <SelectItem key="shark">Shark</SelectItem>
         </Select>
-        <Select aria-label="Favorite Animal" data-testid="select2" label="Favorite Animal">
-          <SelectItem key="penguin" value="penguin">
-            Penguin
-          </SelectItem>
-          <SelectItem key="zebra" value="zebra">
-            Zebra
-          </SelectItem>
-          <SelectItem key="shark" value="shark">
-            Shark
-          </SelectItem>
+        <Select
+          disableAnimation
+          aria-label="Favorite Animal"
+          data-testid="select2"
+          label="Favorite Animal"
+        >
+          <SelectItem key="penguin">Penguin</SelectItem>
+          <SelectItem key="zebra">Zebra</SelectItem>
+          <SelectItem key="shark">Shark</SelectItem>
         </Select>
       </>,
     );
@@ -536,6 +573,7 @@ describe("Select", () => {
   it("should display placeholder text when unselected", async () => {
     const wrapper = render(
       <Select
+        disableAnimation
         aria-label="Favorite Animal"
         data-testid="test-select"
         label="Favorite Animal"
@@ -556,6 +594,7 @@ describe("Select", () => {
     const onSelectionChange = jest.fn();
     const wrapper = render(
       <Select
+        disableAnimation
         isOpen
         aria-label="Favorite Animal"
         data-testid="test-select"
@@ -590,6 +629,7 @@ describe("Select", () => {
         }}
       >
         <Select
+          disableAnimation
           data-testid="select"
           defaultSelectedKeys={["foo"]}
           label="test select"
@@ -630,16 +670,15 @@ describe("Select", () => {
 
   it("should close listbox by clicking selector button again", async () => {
     const wrapper = render(
-      <Select aria-label="Favorite Animal" data-testid="select" label="Favorite Animal">
-        <SelectItem key="penguin" value="penguin">
-          Penguin
-        </SelectItem>
-        <SelectItem key="zebra" value="zebra">
-          Zebra
-        </SelectItem>
-        <SelectItem key="shark" value="shark">
-          Shark
-        </SelectItem>
+      <Select
+        disableAnimation
+        aria-label="Favorite Animal"
+        data-testid="select"
+        label="Favorite Animal"
+      >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
       </Select>,
     );
 
@@ -671,6 +710,7 @@ describe("Select", () => {
 
     const wrapper = render(
       <Select
+        disableAnimation
         isOpen
         aria-label="Favorite Animal"
         isVirtualized={false}
@@ -678,9 +718,7 @@ describe("Select", () => {
         onChange={onChange}
       >
         {options.map((o) => (
-          <SelectItem key={o} value={o}>
-            {o}
-          </SelectItem>
+          <SelectItem key={o}>{o}</SelectItem>
         ))}
       </Select>,
     );
@@ -709,6 +747,7 @@ describe("Select", () => {
 
     const wrapper = render(
       <Select
+        disableAnimation
         isOpen
         aria-label="Favorite Animal"
         isVirtualized={false}
@@ -716,9 +755,7 @@ describe("Select", () => {
         onChange={onChange}
       >
         {options.map((o) => (
-          <SelectItem key={o} value={o}>
-            {o}
-          </SelectItem>
+          <SelectItem key={o}>{o}</SelectItem>
         ))}
       </Select>,
     );
@@ -741,6 +778,7 @@ describe("Select", () => {
 
     render(
       <Select
+        disableAnimation
         isMultiline
         aria-label="Favorite Animal"
         data-testid="select"
@@ -748,15 +786,9 @@ describe("Select", () => {
         labelPlacement="outside"
         placeholder="placeholder"
       >
-        <SelectItem key="penguin" value="penguin">
-          Penguin
-        </SelectItem>
-        <SelectItem key="zebra" value="zebra">
-          Zebra
-        </SelectItem>
-        <SelectItem key="shark" value="shark">
-          Shark
-        </SelectItem>
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
       </Select>,
     );
 
@@ -772,20 +804,15 @@ describe("Select", () => {
 
     render(
       <Select
+        disableAnimation
         aria-label="Favorite Animal"
         data-testid="select"
         label={labelContent}
         placeholder="placeholder"
       >
-        <SelectItem key="penguin" value="penguin">
-          Penguin
-        </SelectItem>
-        <SelectItem key="zebra" value="zebra">
-          Zebra
-        </SelectItem>
-        <SelectItem key="shark" value="shark">
-          Shark
-        </SelectItem>
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
       </Select>,
     );
 
@@ -801,6 +828,7 @@ describe("Select", () => {
       return (
         <>
           <Select
+            disableAnimation
             data-testid="select"
             errorMessage="Invalid value"
             isInvalid={isInvalid}
@@ -824,6 +852,7 @@ describe("Select", () => {
     expect(select).not.toHaveAttribute("aria-describedby");
 
     await user.click(getByTestId("button"));
+
     expect(select).toHaveAttribute("aria-describedby");
     expect(document.getElementById(select.getAttribute("aria-describedby")!)).toHaveTextContent(
       "Invalid value",
@@ -833,6 +862,7 @@ describe("Select", () => {
   it("should not open dropdown when hideEmptyContent is true", async () => {
     const wrapper = render(
       <Select
+        disableAnimation
         hideEmptyContent
         aria-label="Favorite Animal"
         data-testid="hide-empty-content-true-test"
@@ -856,6 +886,7 @@ describe("Select", () => {
   it("should open dropdown when hideEmptyContent is false", async () => {
     const wrapper = render(
       <Select
+        disableAnimation
         aria-label="Favorite Animal"
         data-testid="hide-empty-content-false-test"
         hideEmptyContent={false}
@@ -899,11 +930,15 @@ describe("Select virtualization tests", () => {
 
     const wrapper = render(
       <div style={{height: "200px", overflow: "auto"}}>
-        <Select isOpen aria-label="Favorite Animal" label="Favorite Animal" onChange={onChange}>
+        <Select
+          disableAnimation
+          isOpen
+          aria-label="Favorite Animal"
+          label="Favorite Animal"
+          onChange={onChange}
+        >
           {options.map((o) => (
-            <SelectItem key={o} value={o}>
-              {o}
-            </SelectItem>
+            <SelectItem key={o}>{o}</SelectItem>
           ))}
         </Select>
       </div>,
@@ -928,11 +963,15 @@ describe("Select virtualization tests", () => {
 
     const wrapper = render(
       <div style={{height: "200px", overflow: "auto"}}>
-        <Select isOpen aria-label="Favorite Animal" label="Favorite Animal" onChange={onChange}>
+        <Select
+          disableAnimation
+          isOpen
+          aria-label="Favorite Animal"
+          label="Favorite Animal"
+          onChange={onChange}
+        >
           {options.map((o) => (
-            <SelectItem key={o} value={o}>
-              {o}
-            </SelectItem>
+            <SelectItem key={o}>{o}</SelectItem>
           ))}
         </Select>
       </div>,
@@ -973,6 +1012,7 @@ describe("Select virtualization tests", () => {
     const wrapper = render(
       <div style={{height: "200px", overflow: "auto"}}>
         <Select
+          disableAnimation
           isOpen
           isVirtualized
           aria-label="Favorite Animal"
@@ -982,9 +1022,7 @@ describe("Select virtualization tests", () => {
           onChange={onChange}
         >
           {options.map((o) => (
-            <SelectItem key={o} value={o}>
-              {o}
-            </SelectItem>
+            <SelectItem key={o}>{o}</SelectItem>
           ))}
         </Select>
       </div>,
@@ -1027,6 +1065,7 @@ describe("Select virtualization tests", () => {
     const wrapper = render(
       <div style={{height: "200px", overflow: "auto"}}>
         <Select
+          disableAnimation
           isOpen
           isVirtualized
           aria-label="Favorite Animal"
@@ -1036,9 +1075,7 @@ describe("Select virtualization tests", () => {
           onChange={onChange}
         >
           {options.map((o) => (
-            <SelectItem key={o} value={o}>
-              {o}
-            </SelectItem>
+            <SelectItem key={o}>{o}</SelectItem>
           ))}
         </Select>
       </div>,
@@ -1100,6 +1137,7 @@ describe("Select with React Hook Form", () => {
     wrapper = render(
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
         <Select
+          disableAnimation
           data-testid="select-1"
           items={itemsData}
           {...register("withDefaultValue")}
@@ -1109,6 +1147,7 @@ describe("Select with React Hook Form", () => {
         </Select>
 
         <Select
+          disableAnimation
           data-testid="select-2"
           items={itemsData}
           {...register("withoutDefaultValue")}
@@ -1118,6 +1157,7 @@ describe("Select with React Hook Form", () => {
         </Select>
 
         <Select
+          disableAnimation
           data-testid="select-3"
           items={itemsData}
           {...register("requiredField", {required: true})}
@@ -1307,6 +1347,7 @@ describe("validation", () => {
         return (
           <Form data-testid="form" validationBehavior="native" onSubmit={onSubmit}>
             <Select
+              disableAnimation
               isRequired
               aria-label="Favorite Animal"
               data-testid="trigger"
@@ -1362,6 +1403,7 @@ describe("validation", () => {
       const {getByTestId} = render(
         <Form data-testid="form" validationBehavior="native" onSubmit={onSubmit}>
           <Select
+            disableAnimation
             aria-label="Favorite Animal"
             data-testid="trigger"
             defaultSelectedKeys={["penguin"]}

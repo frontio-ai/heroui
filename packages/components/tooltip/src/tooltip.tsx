@@ -48,7 +48,11 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
         ref?: React.Ref<any>;
       };
 
-      trigger = cloneElement(child, getTriggerProps(child.props, child.ref));
+      // Accessing the ref from props, else fallback to element.ref
+      // https://github.com/facebook/react/pull/28348
+      const childRef = child.props.ref ?? (child as any).ref;
+
+      trigger = cloneElement(child, getTriggerProps(child.props, childRef));
     }
   } catch (error) {
     trigger = <span />;

@@ -1,13 +1,10 @@
 import "@testing-library/jest-dom";
 import * as React from "react";
 import {render, fireEvent} from "@testing-library/react";
+import {shouldIgnoreReactWarning, spy} from "@heroui/test-utils";
 import userEvent from "@testing-library/user-event";
 
 import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter, useDraggable} from "../src";
-
-// e.g. console.error Warning: Function components cannot be given refs.
-// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
-const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
 const ModalDraggable = ({canOverflow = false, isDisabled = false}) => {
   const targetRef = React.useRef(null);
@@ -43,6 +40,9 @@ describe("Modal", () => {
 
     expect(() => wrapper.unmount()).not.toThrow();
 
+    if (shouldIgnoreReactWarning(spy)) {
+      return;
+    }
     expect(spy).toHaveBeenCalledTimes(0);
   });
 

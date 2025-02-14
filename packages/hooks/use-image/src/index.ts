@@ -4,7 +4,7 @@
 
 import type {ImgHTMLAttributes, SyntheticEvent} from "react";
 
-import {useRef, useState, useEffect, MutableRefObject} from "react";
+import {useRef, useState, useEffect, useCallback} from "react";
 import {useIsHydrated} from "@heroui/react-utils";
 import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 
@@ -66,7 +66,7 @@ type ImageEvent = SyntheticEvent<HTMLImageElement, Event>;
  */
 
 export function useImage(props: UseImageProps = {}) {
-  const {onLoad, onError, ignoreFallback} = props;
+  const {onLoad, onError, ignoreFallback, src, crossOrigin, srcSet, sizes, loading} = props;
 
   const isHydrated = useIsHydrated();
 
@@ -96,42 +96,37 @@ export function useImage(props: UseImageProps = {}) {
     }
   };
 
+  const load = useCallback((): Status => {
+    if (!src) return "pending";
+    if (ignoreFallback) return "loaded";
+
+    const img = new Image();
+
+    img.src = src;
+    if (crossOrigin) img.crossOrigin = crossOrigin;
+    if (srcSet) img.srcset = srcSet;
+    if (sizes) img.sizes = sizes;
+    if (loading) img.loading = loading;
+
+    imageRef.current = img;
+    if (img.complete && img.naturalWidth) {
+      return "loaded";
+    }
+
+    return "loading";
+  }, [src, crossOrigin, srcSet, sizes, onLoad, onError, loading]);
+
   useSafeLayoutEffect(() => {
     if (isHydrated) {
-      setStatus(setImageAndGetInitialStatus(props, imageRef));
+      setStatus(load());
     }
-  }, [isHydrated]);
+  }, [isHydrated, load]);
 
   /**
    * If user opts out of the fallback/placeholder
    * logic, let's just return 'loaded'
    */
   return ignoreFallback ? "loaded" : status;
-}
-
-function setImageAndGetInitialStatus(
-  props: UseImageProps,
-  imageRef: MutableRefObject<HTMLImageElement | null | undefined>,
-): Status {
-  const {loading, src, srcSet, crossOrigin, sizes, ignoreFallback} = props;
-
-  if (!src) return "pending";
-  if (ignoreFallback) return "loaded";
-
-  const img = new Image();
-
-  img.src = src;
-  if (crossOrigin) img.crossOrigin = crossOrigin;
-  if (srcSet) img.srcset = srcSet;
-  if (sizes) img.sizes = sizes;
-  if (loading) img.loading = loading;
-
-  imageRef.current = img;
-  if (img.complete && img.naturalWidth) {
-    return "loaded";
-  }
-
-  return "loading";
 }
 
 export const shouldShowFallbackImage = (status: Status, fallbackStrategy: FallbackStrategy) =>
