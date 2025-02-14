@@ -1,6 +1,6 @@
 {
   "name": "@heroui/card",
-  "version": "2.2.10",
+  "version": "2.2.11",
   "description": "Card is a container for text, photos, and actions in the context of a single subject.",
   "keywords": [
     "card"

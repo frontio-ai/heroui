@@ -1,6 +1,6 @@
 {
   "name": "@heroui/use-is-mounted",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "This hook can be used to render client-based components or run client logic",
   "keywords": [
     "use-is-mounted"

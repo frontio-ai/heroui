@@ -1,6 +1,6 @@
 {
   "name": "@heroui/link",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "Links allow users to click their way from page to page. This component is styled to resemble a hyperlink and semantically renders an &lt;a&gt;",
   "keywords": [
     "link"

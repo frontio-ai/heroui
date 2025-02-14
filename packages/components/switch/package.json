@@ -1,6 +1,6 @@
 {
   "name": "@heroui/switch",
-  "version": "2.2.9",
+  "version": "2.2.10",
   "description": "A switch is similar to a checkbox, but represents on/off values as opposed to selection.",
   "keywords": [
     "switch"

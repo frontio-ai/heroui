@@ -1,6 +1,6 @@
 {
   "name": "@heroui/use-is-mobile",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "A hook that returns whether the device is mobile or not",
   "keywords": [
     "use-is-mobile"

@@ -1,6 +1,6 @@
 {
   "name": "@heroui/calendar",
-  "version": "2.2.10",
+  "version": "2.2.11",
   "description": "A calendar displays one or more date grids and allows users to select a single date.",
   "keywords": [
     "calendar"

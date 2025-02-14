@@ -1,6 +1,6 @@
 {
   "name": "@heroui/date-picker",
-  "version": "2.3.10",
+  "version": "2.3.11",
   "description": "A date picker combines a DateInput and a Calendar popover to allow users to enter or select a date and time value.",
   "keywords": [
     "date-picker"

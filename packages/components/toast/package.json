@@ -1,6 +1,6 @@
 {
   "name": "@heroui/toast",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Toast are temporary notifications that provide concise feedback about an action or event",
   "keywords": [
     "toast"

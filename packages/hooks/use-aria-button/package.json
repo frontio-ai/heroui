@@ -1,6 +1,6 @@
 {
   "name": "@heroui/use-aria-button",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Internal hook to handle button a11y and events, this is based on react-aria button hook but without the onClick warning",
   "keywords": [
     "use-aria-button"

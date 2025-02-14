@@ -1,6 +1,6 @@
 {
   "name": "@heroui/scroll-shadow",
-  "version": "2.3.6",
+  "version": "2.3.7",
   "description": "A component that applies top and bottom shadows when content overflows on scroll.",
   "keywords": [
     "scroll-shadow"
