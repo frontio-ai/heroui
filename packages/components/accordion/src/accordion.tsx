@@ -36,6 +36,7 @@ const AccordionGroup = forwardRef<"div", AccordionProps>((props, ref) => {
       return (
         <Fragment key={item.key}>
           <AccordionItem
+            ref={(props.children[index] || props.children).ref}
             item={item}
             variant={props.variant}
             onFocusChange={handleFocusChanged}

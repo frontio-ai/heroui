@@ -3,7 +3,7 @@ import type {AccordionItemVariantProps, AccordionItemSlots, SlotsToClasses} from
 import {As} from "@heroui/system";
 import {ItemProps, BaseItem} from "@heroui/aria-utils";
 import {FocusableProps, PressEvents} from "@react-types/shared";
-import {ReactNode, MouseEventHandler} from "react";
+import {ReactNode, MouseEventHandler, Ref} from "react";
 import {HTMLMotionProps} from "framer-motion";
 
 export type AccordionItemIndicatorProps = {
@@ -90,7 +90,8 @@ export interface Props<T extends object = {}>
   HeadingComponent?: As;
 }
 
-export type AccordionItemBaseProps<T extends object = {}> = Props<T> & AccordionItemVariantProps;
+export type AccordionItemBaseProps<T extends object = {}> = Props<T> &
+  AccordionItemVariantProps & {ref?: Ref<HTMLButtonElement>};
 
 const AccordionItemBase = BaseItem as (props: AccordionItemBaseProps) => JSX.Element;
 

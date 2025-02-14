@@ -346,4 +346,15 @@ describe("Accordion", () => {
 
     expect(getByRole("separator")).toHaveClass("bg-rose-500");
   });
+
+  it("AccordionItem ref should be forwarded", () => {
+    const ref = React.createRef<HTMLButtonElement>();
+
+    render(
+      <Accordion>
+        <AccordionItem ref={ref}>Accordion Item</AccordionItem>
+      </Accordion>,
+    );
+    expect(ref.current).not.toBeNull();
+  });
 });
