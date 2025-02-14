@@ -1,6 +1,6 @@
 {
   "name": "@heroui/modal",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "Displays a dialog with a custom content that requires attention or provides additional information.",
   "keywords": [
     "modal"

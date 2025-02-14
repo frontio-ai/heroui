@@ -1,6 +1,6 @@
 {
   "name": "@heroui/dropdown",
-  "version": "2.3.10",
+  "version": "2.3.11",
   "description": "A dropdown displays a list of actions or options that a user can choose.",
   "keywords": [
     "dropdown"

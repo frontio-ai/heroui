@@ -1,6 +1,6 @@
 {
   "name": "@heroui/tabs",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "Tabs organize content into multiple sections and allow users to navigate between them.",
   "keywords": [
     "tabs"

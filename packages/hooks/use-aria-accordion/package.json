@@ -1,6 +1,6 @@
 {
   "name": "@heroui/use-aria-accordion",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "React-aria useAccordion hooks with custom implementations",
   "keywords": [
     "use-aria-accordion"

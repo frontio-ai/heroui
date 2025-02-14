@@ -1,6 +1,6 @@
 {
   "name": "@heroui/select",
-  "version": "2.4.10",
+  "version": "2.4.11",
   "description": "A select displays a collapsible list of options and allows a user to select one of them.",
   "keywords": [
     "select"

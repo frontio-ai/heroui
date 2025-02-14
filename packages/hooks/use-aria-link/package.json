@@ -1,6 +1,6 @@
 {
   "name": "@heroui/use-aria-link",
-  "version": "2.2.6",
+  "version": "2.2.7",
   "description": "Internal hook to handle link a11y and events, this is based on react-aria link hook but without the onClick warning",
   "keywords": [
     "use-aria-link"

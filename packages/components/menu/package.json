@@ -1,6 +1,6 @@
 {
   "name": "@heroui/menu",
-  "version": "2.2.10",
+  "version": "2.2.11",
   "description": "A menu displays a list of options and allows a user to select one or more of them.",
   "keywords": [
     "menu"

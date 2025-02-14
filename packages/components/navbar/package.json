@@ -1,6 +1,6 @@
 {
   "name": "@heroui/navbar",
-  "version": "2.2.9",
+  "version": "2.2.10",
   "description": "A responsive navigation header positioned on top side of your page that includes support for branding, links, navigation, collapse and more.",
   "keywords": [
     "navbar"

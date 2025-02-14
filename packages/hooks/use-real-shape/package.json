@@ -1,6 +1,6 @@
 {
   "name": "@heroui/use-real-shape",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "Hook that returns the real dimensions of an element",
   "keywords": [
     "use-real-shape"

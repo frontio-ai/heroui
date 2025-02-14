@@ -1,6 +1,6 @@
 {
   "name": "@heroui/autocomplete",
-  "version": "2.3.11",
+  "version": "2.3.12",
   "description": "An autocomplete combines a text input with a listbox, allowing users to filter a list of options to items matching a query.",
   "keywords": [
     "autocomplete"

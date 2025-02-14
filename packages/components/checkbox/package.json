@@ -1,6 +1,6 @@
 {
   "name": "@heroui/checkbox",
-  "version": "2.3.9",
+  "version": "2.3.10",
   "description": "Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.",
   "keywords": [
     "checkbox"

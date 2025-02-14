@@ -1,6 +1,6 @@
 {
   "name": "@heroui/form",
-  "version": "2.1.9",
+  "version": "2.1.10",
   "description": "A form is a group of inputs that allows users submit data to a server and supports field validation errors.",
   "keywords": [
     "form"

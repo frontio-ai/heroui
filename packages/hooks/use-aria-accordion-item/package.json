@@ -1,6 +1,6 @@
 {
   "name": "@heroui/use-aria-accordion-item",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "Internal impl for react aria accordion item",
   "keywords": [
     "use-aria-accordion-item"

@@ -1,6 +1,6 @@
 {
   "name": "@heroui/popover",
-  "version": "2.3.10",
+  "version": "2.3.11",
   "description": "A popover is an overlay element positioned relative to a trigger.",
   "keywords": [
     "popover"
