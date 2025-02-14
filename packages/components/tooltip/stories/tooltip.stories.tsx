@@ -263,6 +263,35 @@ const ControlledTemplate = (args: TooltipProps) => {
   );
 };
 
+const ManyTemplate = (args: TooltipProps) => (
+  <div className="flex flex-col gap-2">
+    <Tooltip {...args} closeDelay={0} content="Tooltip 1" openDelay={0}>
+      <Button>Hover me</Button>
+    </Tooltip>
+    <Tooltip {...args} closeDelay={0} content="Tooltip 2" openDelay={0}>
+      <Button>Then hover me</Button>
+    </Tooltip>
+    <Tooltip {...args} closeDelay={0} content="Tooltip 3" openDelay={0}>
+      <Button>Then hover me</Button>
+    </Tooltip>
+    <Tooltip {...args} closeDelay={0} content="Tooltip 4" openDelay={0}>
+      <Button>Then hover me</Button>
+    </Tooltip>
+    <Tooltip {...args} closeDelay={0} content="Tooltip 5" openDelay={0}>
+      <Button>Then hover me</Button>
+    </Tooltip>
+    <Tooltip {...args} closeDelay={0} content="Tooltip 6" openDelay={0}>
+      <Button>Then hover me</Button>
+    </Tooltip>
+    <Tooltip {...args} closeDelay={0} content="Tooltip 7" openDelay={0}>
+      <Button>Then hover me</Button>
+    </Tooltip>
+    <Tooltip {...args} closeDelay={0} content="Tooltip 8" openDelay={0}>
+      <Button>Then hover me</Button>
+    </Tooltip>
+  </div>
+);
+
 export const Default = {
   args: {
     ...defaultProps,
@@ -393,5 +422,13 @@ export const Disabled = {
   args: {
     ...defaultProps,
     isDisabled: true,
+  },
+};
+
+export const Many = {
+  render: ManyTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
