@@ -260,7 +260,7 @@ type User = (typeof users)[number];
 
 export default function Page() {
   const [filterValue, setFilterValue] = useState("");
-  const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set([]));
+  const [selectedKeys, setSelectedKeys] = useState<{[key: number]: Selection}>({});
   const [visibleColumns, setVisibleColumns] = useState<Selection>(new Set(INITIAL_VISIBLE_COLUMNS));
   const [statusFilter, setStatusFilter] = useState<Selection>("all");
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -314,6 +314,20 @@ export default function Page() {
       return sortDescriptor.direction === "descending" ? -cmp : cmp;
     });
   }, [sortDescriptor, items]);
+
+  const selectedKeysInCurrentPage = selectedKeys[page]
+    ? selectedKeys[page]
+    : (new Set() as Selection);
+
+  const getCurrentSelectedNumber = useCallback(() => {
+    const selectedKeysNumber = Object.keys(selectedKeys).reduce((acm, currKey) => {
+      const num = selectedKeys[Number(currKey)] ?? 0;
+
+      return acm + (num === "all" ? rowsPerPage : num.size);
+    }, 0);
+
+    return selectedKeysNumber;
+  }, [selectedKeys, rowsPerPage]);
 
   const renderCell = useCallback((user: User, columnKey: React.Key) => {
     const cellValue = user[columnKey as keyof User];
@@ -394,6 +408,48 @@ export default function Page() {
     setFilterValue("");
     setPage(1);
   }, []);
+
+  const bulkUpdateSelectedKeys = useCallback(
+    (
+      updatedSelectedKeys: {
+        [key: number]: Selection;
+      },
+      newSelectedKeys: Selection,
+    ) => {
+      for (let i = 1; i <= pages; i++) {
+        updatedSelectedKeys[i] = newSelectedKeys;
+      }
+    },
+    [pages],
+  );
+
+  const isUnselectAllRows = useCallback(
+    (prevSelectedKeys: Selection, newSelectedKeys: Selection) => {
+      return (
+        newSelectedKeys !== "all" &&
+        newSelectedKeys.size === 0 &&
+        prevSelectedKeys &&
+        (prevSelectedKeys === "all" || prevSelectedKeys.size === rowsPerPage)
+      );
+    },
+    [rowsPerPage],
+  );
+
+  const onSelectionChange = (keys: Selection) => {
+    let updatedSelectedKeys = {...selectedKeys};
+
+    if (keys === "all") {
+      bulkUpdateSelectedKeys(updatedSelectedKeys, "all");
+    } else {
+      if (isUnselectAllRows(updatedSelectedKeys[page], keys)) {
+        bulkUpdateSelectedKeys(updatedSelectedKeys, new Set([]));
+      } else {
+        updatedSelectedKeys[page] = keys;
+      }
+    }
+
+    setSelectedKeys(updatedSelectedKeys);
+  };
 
   const topContent = useMemo(() => {
     return (
@@ -486,9 +542,7 @@ export default function Page() {
     return (
       <div className="py-2 px-2 flex justify-between items-center">
         <span className="w-[30%] text-small text-default-400">
-          {selectedKeys === "all"
-            ? "All items selected"
-            : `${selectedKeys.size} of ${filteredItems.length} selected`}
+          {`${getCurrentSelectedNumber()} of ${filteredItems.length} selected`}
         </span>
         <Pagination
           isCompact
@@ -521,12 +575,12 @@ export default function Page() {
         classNames={{
           wrapper: "max-h-[382px]",
         }}
-        selectedKeys={selectedKeys}
+        selectedKeys={selectedKeysInCurrentPage}
         selectionMode="multiple"
         sortDescriptor={sortDescriptor}
         topContent={topContent}
         topContentPlacement="outside"
-        onSelectionChange={setSelectedKeys}
+        onSelectionChange={onSelectionChange}
         onSortChange={setSortDescriptor}
       >
         <TableHeader columns={headerColumns}>
