@@ -13,6 +13,7 @@ const Image = forwardRef<"img", ImageProps>((props, ref) => {
     classNames,
     isBlurred,
     isZoomed,
+    loadingSrc,
     fallbackSrc,
     removeWrapper,
     disableSkeleton,
@@ -45,8 +46,12 @@ const Image = forwardRef<"img", ImageProps>((props, ref) => {
   }
 
   // when zoomed or showSkeleton, we need to wrap the image
-  if (isZoomed || !disableSkeleton || fallbackSrc) {
-    return <div {...getWrapperProps()}> {isZoomed ? zoomed : img}</div>;
+  if (isZoomed || !disableSkeleton || loadingSrc || fallbackSrc) {
+    return (
+      <div data-testid="heroUI/image_parent" {...getWrapperProps()}>
+        {isZoomed ? zoomed : img}
+      </div>
+    );
   }
 
   return img;

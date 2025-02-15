@@ -21,9 +21,13 @@ interface Props extends HTMLHeroUIProps<"img"> {
    */
   isBlurred?: boolean;
   /**
-   * A fallback image.
+   * A fallback image when error encountered.
    */
   fallbackSrc?: React.ReactNode;
+  /**
+   * A loading image.
+   */
+  loadingSrc?: React.ReactNode;
   /**
    * Whether to disable the loading skeleton.
    * @default false
@@ -82,9 +86,10 @@ export function useImage(originalProps: UseImageProps) {
     classNames,
     loading,
     isBlurred,
+    loadingSrc,
     fallbackSrc,
     isLoading: isLoadingProp,
-    disableSkeleton = !!fallbackSrc,
+    disableSkeleton = !!loadingSrc,
     removeWrapper = false,
     onError,
     onLoad,
@@ -110,6 +115,7 @@ export function useImage(originalProps: UseImageProps) {
 
   const isImgLoaded = imageStatus === "loaded" && !isLoadingProp;
   const isLoading = imageStatus === "loading" || isLoadingProp;
+  const isFailed = imageStatus === "failed";
   const isZoomed = originalProps.isZoomed;
 
   const Component = as || "img";
@@ -131,8 +137,9 @@ export function useImage(originalProps: UseImageProps) {
     };
   }, [props?.width, props?.height]);
 
-  const showFallback = (!src || !isImgLoaded) && !!fallbackSrc;
-  const showSkeleton = isLoading && !disableSkeleton;
+  const showLoading = isLoading && !!loadingSrc;
+  const showFallback = (isFailed || !src || !isImgLoaded) && !!fallbackSrc;
+  const showSkeleton = isLoading && !disableSkeleton && !loadingSrc;
 
   const slots = useMemo(
     () =>
@@ -170,7 +177,11 @@ export function useImage(originalProps: UseImageProps) {
   };
 
   const getWrapperProps = useCallback<PropGetter>(() => {
-    const fallbackStyle = showFallback
+    const wrapperStyle = showLoading
+      ? {
+          backgroundImage: `url(${loadingSrc})`,
+        }
+      : showFallback && !showSkeleton
       ? {
           backgroundImage: `url(${fallbackSrc})`,
         }
@@ -179,11 +190,11 @@ export function useImage(originalProps: UseImageProps) {
     return {
       className: slots.wrapper({class: classNames?.wrapper}),
       style: {
-        ...fallbackStyle,
+        ...wrapperStyle,
         maxWidth: w,
       },
     };
-  }, [slots, showFallback, fallbackSrc, classNames?.wrapper, w]);
+  }, [slots, showLoading, showFallback, showSkeleton, fallbackSrc, classNames?.wrapper, w]);
 
   const getBlurredImgProps = useCallback<PropGetter>(() => {
     return {
@@ -200,6 +211,7 @@ export function useImage(originalProps: UseImageProps) {
     classNames,
     isBlurred,
     disableSkeleton,
+    loadingSrc,
     fallbackSrc,
     removeWrapper,
     isZoomed,

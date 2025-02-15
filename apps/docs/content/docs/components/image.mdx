@@ -54,12 +54,19 @@ You can use the `isZoomed` prop make the image zoomed when hovered.
 
 <CodeDemo title="Zoomed" files={imageContent.zoomed} />
 
-### Animated Loading
+### Animated (Skeleton) Loading
 
-Image component has a built-in `skeleton` animation to indicate the image is loading and an
-`opacity` animation when the image loads.
+Image component has a built-in `skeleton` animation to indicate the image is loading in case the `loadingSrc` is not defined.
 
 <CodeDemo displayMode="visible" title="Animated Loading" files={imageContent.loading} />
+
+> **Note**: The `URL` uses `https://app.requestly.io/delay` to simulate a slow network.
+
+### Custom Loading Image
+
+You can use the `loadingSrc` prop to display a loading image when the image provided in `src` is still loading.
+
+<CodeDemo displayMode="visible" title="Custom Loading" files={imageContent.customLoading} />
 
 > **Note**: The `URL` uses `https://app.requestly.io/delay` to simulate a slow network.
 
@@ -68,11 +75,12 @@ Image component has a built-in `skeleton` animation to indicate the image is loa
 You can use the `fallbackSrc` prop to display a fallback image when:
 
 - The `fallbackSrc` prop is provided.
-- The image provided in `src` is still loading.
 - The image provided in `src` fails to load.
 - The image provided in `src` is not found.
 
 <CodeDemo displayMode="visible" title="Image with fallback" files={imageContent.fallback} />
+
+> **Note**: You can have both `loadingSrc` and `fallbackSrc` props to cover multiple possibilities while loading and handling image errors.
 
 ### With Next.js Image
 
@@ -153,10 +161,16 @@ you can use it with HeroUI `Image` component as well.
       description: "A loading strategy to use for the image.",
       default: "-"
     },
+        {
+      attribute: "loadingSrc",
+      type: "string",
+      description: "The image source to display while the main image is loading. This helps provide visual feedback during the loading process.",
+      default: "-"
+    },
     {
       attribute: "fallbackSrc",
       type: "string",
-      description: "The fallback image source.",
+      description: "The image source to display when the main image fails to load or encounters an error.",
       default: "-"
     },
     {
