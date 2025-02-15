@@ -214,11 +214,17 @@ export const WithoutLabel = {
 };
 
 export const WithDescription = {
-  render: Template,
+  render: (props: DateInputProps) => {
+    return (
+      <div className="w-full max-w-3xl flex justify-center gap-4">
+        <Template {...props} description="Please enter your birth date" />
+        <Template {...props} description=" " />
+      </div>
+    );
+  },
 
   args: {
     ...defaultProps,
-    description: "Please enter your birth date",
   },
 };
 

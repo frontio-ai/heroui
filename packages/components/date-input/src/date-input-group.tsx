@@ -64,7 +64,9 @@ export const DateInputGroup = forwardRef<"div", DateInputGroupProps>((props, ref
         {isInvalid && errorMessage ? (
           <div {...errorMessageProps}>{errorMessage}</div>
         ) : description ? (
-          <div {...descriptionProps}>{description}</div>
+          <div {...descriptionProps}>
+            {description === " " ? <span>&#8203;</span> : description}
+          </div>
         ) : null}
       </div>
     );

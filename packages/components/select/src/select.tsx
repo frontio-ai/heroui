@@ -71,7 +71,9 @@ const Select = forwardRef(function Select<T extends object>(
         {shouldShowError ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
         ) : (
-          <div {...getDescriptionProps()}>{description}</div>
+          <div {...getDescriptionProps()}>
+            {description === " " ? <span>&#8203;</span> : description}
+          </div>
         )}
       </div>
     );

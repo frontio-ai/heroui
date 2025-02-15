@@ -1087,11 +1087,32 @@ export const EmptyContent = {
 };
 
 export const WithDescription = {
-  render: MirrorTemplate,
+  render: (args: SelectProps) => {
+    return (
+      <div className="w-full max-w-3xl flex justify-center gap-4">
+        <Template
+          {...args}
+          description="Select your favorite animal"
+          placeholder="Select an animal"
+        />
+        <Template
+          {...args}
+          description="Select your favorite animal"
+          label="Favorite Animal"
+          placeholder="Select an animal"
+        />
+        <Template
+          {...args}
+          description=" "
+          label="Favorite Animal"
+          placeholder="Select an animal"
+        />
+      </div>
+    );
+  },
 
   args: {
     ...defaultProps,
-    description: "Select your favorite animal",
   },
 };
 

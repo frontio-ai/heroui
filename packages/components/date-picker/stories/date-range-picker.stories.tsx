@@ -570,11 +570,17 @@ export const WithoutLabel = {
 };
 
 export const WithDescription = {
-  render: Template,
+  render: (args: DateRangePickerProps) => {
+    return (
+      <div className="w-full max-w-3xl flex justify-center gap-4">
+        <Template {...args} description="Please enter your stay duration" />
+        <Template {...args} description=" " />
+      </div>
+    );
+  },
 
   args: {
     ...defaultProps,
-    description: "Please enter your stay duration",
   },
 };
 

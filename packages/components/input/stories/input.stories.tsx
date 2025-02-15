@@ -91,6 +91,14 @@ const MirrorTemplate = (args) => (
   </div>
 );
 
+const WithDescriptionTemplate = (args) => (
+  <div className="w-full max-w-4xl flex flex-row items-end gap-4">
+    <Input {...args} />
+    <Input {...args} placeholder="Enter your email" />
+    <Input {...args} description=" " placeholder="Enter your email" />
+  </div>
+);
+
 const FormTemplate = (args) => (
   <form
     className="w-full max-w-xl flex flex-row items-end gap-4"
@@ -590,7 +598,7 @@ export const WithoutLabel = {
 };
 
 export const WithDescription = {
-  render: MirrorTemplate,
+  render: WithDescriptionTemplate,
 
   args: {
     ...defaultProps,

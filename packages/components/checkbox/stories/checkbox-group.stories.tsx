@@ -227,11 +227,17 @@ export const LineThrough = {
 };
 
 export const WithDescription = {
-  render: Template,
+  render: (args: CheckboxGroupProps) => {
+    return (
+      <div className="w-full max-w-3xl flex justify-center gap-4">
+        <Template {...args} description="Select the cities you want to visit" />
+        <Template {...args} description=" " />
+      </div>
+    );
+  },
 
   args: {
     ...defaultProps,
-    description: "Select the cities you want to visit",
   },
 };
 

@@ -214,6 +214,21 @@ export const WithEndContent = {
   },
 };
 
+export const WithDescription = {
+  render: (args: TextAreaProps) => {
+    return (
+      <div className="w-full max-w-3xl flex justify-center gap-4">
+        <Template {...args} description="Please enter your description" />
+        <Template {...args} description=" " />
+      </div>
+    );
+  },
+
+  args: {
+    ...defaultProps,
+  },
+};
+
 const ServerValidationTemplate = (args: TextAreaProps) => {
   const [serverErrors, setServerErrors] = React.useState({});
   const onSubmit = (e) => {

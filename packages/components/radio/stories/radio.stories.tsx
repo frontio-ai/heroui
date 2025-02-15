@@ -271,7 +271,14 @@ export const IsRequired = {
 };
 
 export const WithDescription = {
-  render: Template,
+  render: (args: RadioGroupProps) => {
+    return (
+      <div className="w-full max-w-3xl flex justify-center gap-4">
+        <Template {...args} description="Please select an option" />
+        <Template {...args} description=" " />
+      </div>
+    );
+  },
 
   args: {
     ...defaultProps,

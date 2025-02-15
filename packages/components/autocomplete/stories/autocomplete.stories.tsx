@@ -274,30 +274,6 @@ const FullyControlledTemplate = () => {
   );
 };
 
-const MirrorTemplate = ({color, variant, ...args}: AutocompleteProps) => (
-  <div className="w-full max-w-xl flex flex-row gap-4">
-    <Autocomplete
-      className="max-w-xs"
-      color={color}
-      label="Select an animal"
-      variant={variant}
-      {...args}
-    >
-      {items}
-    </Autocomplete>
-    <Autocomplete
-      className="max-w-xs"
-      color={color}
-      label="Favorite Animal"
-      placeholder="Select an animal"
-      variant={variant}
-      {...args}
-    >
-      {items}
-    </Autocomplete>
-  </div>
-);
-
 const LabelPlacementTemplate = ({color, variant, ...args}: AutocompleteProps) => (
   <div className="w-full flex flex-col items-center gap-12">
     <div className="w-full max-w-2xl flex flex-col gap-3">
@@ -972,11 +948,17 @@ export const IsInvalid = {
 };
 
 export const WithDescription = {
-  render: MirrorTemplate,
+  render: (props: AutocompleteProps) => {
+    return (
+      <div className="w-full max-w-3xl flex justify-center gap-4">
+        <Template {...props} description="Select your favorite animal" />
+        <Template {...props} description=" " />
+      </div>
+    );
+  },
 
   args: {
     ...defaultProps,
-    description: "Select your favorite animal",
   },
 };
 
