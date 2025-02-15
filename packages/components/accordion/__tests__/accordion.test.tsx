@@ -346,4 +346,22 @@ describe("Accordion", () => {
 
     expect(getByRole("separator")).toHaveClass("bg-rose-500");
   });
+
+  it("should focus input inside default expanded accordion item correctly", async () => {
+    const wrapper = render(
+      <Accordion defaultExpandedKeys={["1"]}>
+        <AccordionItem key="1" title="Accordion Item 1">
+          <Input label="name" type="text" />
+        </AccordionItem>
+      </Accordion>,
+    );
+
+    const input = wrapper.container.querySelector("input");
+
+    expect(input).not.toBeNull();
+
+    await user.click(input!);
+
+    expect(input).toHaveFocus();
+  });
 });
