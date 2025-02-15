@@ -11,6 +11,7 @@ reviews:
         - "WIP"
         - "DO NOT MERGE"
         - 'ci(changesets)'
+        - 'chore(deps)'
       drafts: false
       base_branches:
         - "main"

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "dependencyDashboard": false,
+  "extends": ["config:recommended"],
+  "labels": [":sparkles: Type: Enhancement"],
+  "rebaseWhen": "conflicted",
+  "timezone": "UTC",
+  "commitMessagePrefix": "chore(deps): ",
+  "packageRules": [
+    {
+      "excludeDepPatterns": ["@react-stately/", "@react-aria/"]
+    }
+  ]
+}
