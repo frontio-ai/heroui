@@ -152,6 +152,26 @@ If you are using pnpm, you need to add the following line to your `.npmrc` file 
 public-hoist-pattern[]=*@heroui/*
 ```
 
+<Blockquote color="primary">
+**Note**: In version <10 of pnpm the default values of the hoist pattern contains ['*eslint*', '*prettier*'] and by adding the hoist pattern they will get removed and you may experince the tools not working.
+</Blockquote>
+
+##### Additional Steps: #####
+1. **Prettier**: If you are using Prettier < v3, add it back to the hoist pattern.
+
+2. **ESLint**:  
+   - If you use ESLint < v9 without the flat config, add it back.  
+   - Some v9 setups may also require it.
+
+Refer to [this pnpm release note](https://github.com/pnpm/pnpm/releases/tag/v10.0.0-rc.0#:~:text=Packages%20containing%20eslint%20or%20prettier%20in%20their%20name%20are%20no%20longer%20hoisted%20to%20the%20root%20node_modules.%20The%20default%20value%20of%20the%20public%2Dhoist%2Dpattern%20setting%20has%20changed) for more details.
+
+Depending on your needs, your `.npmrc` file might look like this:
+```bash
+public-hoist-pattern[]=*@heroui/*
+public-hoist-pattern[]=*eslint*
+public-hoist-pattern[]=*prettier*
+```
+
 After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
 
 #### Tailwind CSS Setup
@@ -260,6 +280,26 @@ If you are using pnpm, you need to add the following line to your `.npmrc` file 
 
 ```bash
 public-hoist-pattern[]=*@heroui/*
+```
+
+<Blockquote color="primary">
+**Note**: In version <10 of pnpm the default values of the hoist pattern contains ['*eslint*', '*prettier*'] and by adding the hoist pattern they will get removed and you may experince the tools not working.
+</Blockquote>
+
+##### Additional Steps: #####
+1. **Prettier**: If you are using Prettier < v3, add it back to the hoist pattern.
+
+2. **ESLint**:  
+   - If you use ESLint < v9 without the flat config, add it back.  
+   - Some v9 setups may also require it.
+
+Refer to [this pnpm release note](https://github.com/pnpm/pnpm/releases/tag/v10.0.0-rc.0#:~:text=Packages%20containing%20eslint%20or%20prettier%20in%20their%20name%20are%20no%20longer%20hoisted%20to%20the%20root%20node_modules.%20The%20default%20value%20of%20the%20public%2Dhoist%2Dpattern%20setting%20has%20changed) for more details.
+
+Depending on your needs, your `.npmrc` file might look like this:
+```bash
+public-hoist-pattern[]=*@heroui/*
+public-hoist-pattern[]=*eslint*
+public-hoist-pattern[]=*prettier*
 ```
 
 After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
