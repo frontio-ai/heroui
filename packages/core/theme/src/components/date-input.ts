@@ -24,6 +24,7 @@ const dateInput = tv({
     input: "flex h-full gap-x-0.5 w-full font-normal",
     innerWrapper: [
       "flex items-center text-default-400 w-full gap-x-2 h-6",
+      "overflow-x-auto overflow-y-hidden scrollbar-hide",
       // isInValid=true
       "group-data-[invalid=true]:text-danger",
     ], // this wraps the input and the start/end content
